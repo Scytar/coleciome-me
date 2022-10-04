@@ -32,30 +32,13 @@ export default () => {
 
             <div class="conteinerPack">
                 <img src="./module/img/comum.svg" alt="pacote de figurinhas normais">
-                <p class="less">-</p>
-                <input type="text" placeholder="0">
-                <p class="more">+</p>
-                <button class="btnPay">Adicionar</button>
-            </div>
-
-            <div class="conteinerPack">
-                <img src="./module/img/rara.svg" alt="pacote de figurinhas normais">
-                <p class="less">-</p>
-                <input type="text" placeholder="0">
-                <p class="more">+</p>
-                <button class="btnPay">Adicionar</button>
+                <button class="btnPay">Comprar</button>
             </div>
 
             <div class="conteinerPack">
                 <img src="./module/img/gold.svg" alt="pacotes de figurinhas gold">
-                <p class="less">-</p>
-                <input type="text" placeholder="0">
-                <p class="more">+</p>
-                <button class="btnPay">Adicionar</button>
+                <button class="btnPay">Comprar</button>
             </div>
-
-            <button id="cartBtn"></button>
-
             </section>
         </div>
     `;

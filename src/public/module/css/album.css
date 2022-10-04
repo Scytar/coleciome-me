@@ -1,0 +1,28 @@
+#spaceAlbum {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 500px;
+    gap: 10px;
+}
+
+#spaceAlbum h3 {
+    align-self: center;
+    color: #AA26E8;
+    cursor: pointer;
+}
+
+#pagsAlbumLeft, #pagsAlbumRight {
+    width: 600px;
+    height: 500px;
+    margin-top: 200px;
+}
+
+#pagsAlbumLeft, #pagsAlbumRight {
+    background-image: url(../img/album01.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: initial;
+}
