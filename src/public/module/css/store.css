@@ -1,0 +1,124 @@
+section #spacUser {
+    display: flex;
+    flex-direction: column;
+    margin-block: 80px;
+}
+
+section #spacUser h2 {
+    font-size: 1.8rem;
+}
+
+section #spacUser #avatar {
+    width: 80px;
+    height: 110px;
+    background-color: rgba(49, 16, 114, 0.54);
+    border-radius: 40px;
+    margin-block: 20px;
+}
+
+section #spacUser #tempoMemeiro {
+    font-size: 0.8rem;
+}
+
+section #spacUser #bar {
+    width: 250px;
+    height: 1px;
+    background-color: #DE6EFC;
+    margin-block: 20px;
+}
+
+section #spacUser #pocket {
+    font-family: 'Rubik Dirt', cursive;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* ---------- conteiner Store ---------- */
+
+#conteinerStore {
+    display: flex;
+    flex-direction: column;
+}
+
+#conteinerStore #bonus {
+    display: flex;
+    flex-direction: column;
+    width: 670px;
+    height: 140px;
+    background-color: rgba(48, 47, 47, 0.51);
+    border-radius: 20px;
+    margin-block: 20px;
+}
+
+/* #conteinerStore #bonus #loginBonus {
+    
+} */
+
+#conteinerStore h3 {
+    font-size: 1.1rem;
+    flex-basis: 100%;
+    text-align: center;
+    margin-block: 10px;
+}
+
+/* ---------- Conteiner figures/store ---------- */
+
+#conteinerStore #storeFig {
+    display: flex;
+    flex-direction: column;
+}
+
+#conteinerStore #storeFig{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 670px;
+    height: 300px;
+    background-color: rgba(48, 47, 47, 0.51);
+    border-radius: 20px;
+}
+
+#conteinerStore #storeFig .conteinerPack {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+#conteinerStore #storeFig .conteinerPack img {
+    width: 5px;
+    flex-basis: 100%;
+}
+
+#conteinerStore #storeFig .conteinerPack .less {
+    font-size: 1.5rem;
+    color: #FF6666;
+}
+
+#conteinerStore #storeFig .conteinerPack .more {
+    font-size: 1rem;
+    color: #FF6666;
+}
+
+#conteinerStore #storeFig .conteinerPack input {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+#conteinerStore #storeFig .conteinerPack button {
+    width: 60px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: linear-gradient(93deg, rgba(255, 102, 102, 0.27), rgba(159, 157, 255, 0.22));
+}
+
+#cartBtn {
+    background-color: linear-gradient(93deg, rgba(255, 102, 102, 0.27), rgba(159, 157, 255, 0.22));
+}
