@@ -1,0 +1,77 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section #navLogin {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    width: 662px;
+}
+
+section #navLogin a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.3);
+    width: 662px;
+    height: 47px;
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    background-color: rgba(64, 64, 64, 0.45);
+}
+
+section #navLogin .selected {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(64, 64, 64, 0.7);
+}
+
+section #conteinerLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 662px;
+    background-color: rgba(24, 24, 24, 0.45);
+    padding-top: 50px;
+    margin-top: 3px;
+    padding-bottom: 30px;
+}
+
+section #conteinerLogin #userDoll, section #conteinerLogin #userDollRegister {
+    width: 80px;
+    height: 110px;
+    background-color: rgba(49, 16, 114, 0.54);
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+
+section #conteinerLogin #userDollRegister select {
+    cursor: pointer;
+    width: 80px;
+    height: 110px;
+    background-color: transparent;
+    border: none;
+    
+}
+
+section #conteinerLogin input {
+    color: #FFFFFF;
+    width: 300px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #FFFFFF;
+    text-decoration: 1px solid;
+    margin-bottom: 28px;
+}
+
+section #conteinerLogin #btnLogin, section #conteinerLogin #btnRegiter {
+    font-family: 'Roboto';
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    border-radius: 2rem;
+    background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
+}
