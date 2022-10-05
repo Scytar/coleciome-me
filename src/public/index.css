@@ -2,6 +2,7 @@
 @import url('./module/css/login.css');
 @import url('./module/css/store.css');
 @import url('./module/css/album.css');
+@import url('./module/css/colection.css');
 
 *{
     margin: 0;

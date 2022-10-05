@@ -3,6 +3,7 @@ import login from './module/js/login.js';
 import registration from './module/js/registration.js';
 import store from './module/js/store.js';
 import album from './module/js/album.js';
+import colection from './module/js/colection.js';
 
 const main = document.getElementById('root');
 
@@ -77,9 +78,14 @@ function rota() {
             });
             break;
 
-            case '/album':
+        case '/album':
             main.innerHTML = '';
             main.appendChild(album());
+            break;
+
+        case '/colection':
+            main.innerHTML = '';
+            main.appendChild(colection());
             break;
 
         default:
@@ -114,6 +120,11 @@ window.addEventListener('load', () => {
         case '/album':
             main.innerHTML = '';
             main.appendChild(album());
+            break;
+
+        case '/colection':
+            main.innerHTML = '';
+            main.appendChild(colection());
             break;
 
         default:

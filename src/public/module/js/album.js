@@ -2,7 +2,7 @@ export default () => {
     const conteiner = document.createElement('section');
 
     conteiner.style.cssText = `display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 40% 60%;
     justify-content: center;
     align-items: center;
     gap: 20px
