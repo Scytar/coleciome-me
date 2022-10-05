@@ -41,10 +41,15 @@ section #conteinerLogin {
 
 section #conteinerLogin #userDoll, section #conteinerLogin #userDollRegister {
     width: 80px;
-    height: 110px;
-    background-color: rgba(49, 16, 114, 0.54);
-    border-radius: 40px;
-    margin-bottom: 20px;
+    height: 80px;
+    background-color: #CCFF66;
+    border-radius: 20px;
+    margin-bottom: 30px;
+}
+
+#conteinerLogin #userDoll #imgUser {
+    width: 80px;
+
 }
 
 section #conteinerLogin #userDollRegister select {
