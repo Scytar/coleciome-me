@@ -13,7 +13,11 @@ const updateUser = `
     password = $3,
     cpf = $4,
     phone = $5,
-    update_date = now() WHERE id = $6 RETURNING id;  
+    cardname = $6,
+    cardnum = $7,
+    cardcvv = &8,
+    card_expiration = $9
+    update_date = now() WHERE id = $10 RETURNING id;  
 `;
 
 

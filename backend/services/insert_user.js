@@ -5,7 +5,7 @@ class InsertUsers {
   async execute(user_data) {
     try {
       const userData = new this.#userValidator(user_data);
-      console.log(userData);
+      
       if (userData.errors != "") {
         throw new Error(userData.errors);
       }

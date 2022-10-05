@@ -63,7 +63,7 @@ class UserTable extends myDb {
         user.phone,
         id,
       ]);
-      console.log(VERIFIED_INSERT.rows[0])
+      
       if (VERIFIED_INSERT.rows[0]) {
         
         return true;

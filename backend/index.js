@@ -3,14 +3,21 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
 const port = 8000;
-const clientRoute = require("./routes/clients")
+const clientsRoutes = require("./routes/clients")
+const cardsRoutes = require("./routes/carts")
+const collectionsRoutes = require("./routes/collections")
+const ordersRoutes = require("./routes/orders")
+
 
 app.use(bodyParser.json());
 app.use(cors({
   origin : "http://localhost:8080",
   credentials: true,
 }))
-app.use(clientRoute)
+app.use(clientsRoutes)
+app.use(cardsRoutes)
+app.use(collectionsRoutes)
+app.use(ordersRoutes)
 
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`);
