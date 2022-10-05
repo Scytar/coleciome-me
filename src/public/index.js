@@ -2,6 +2,7 @@ import home from './module/js/home.js';
 import login from './module/js/login.js';
 import registration from './module/js/registration.js';
 import store from './module/js/store.js';
+import album from './module/js/album.js';
 
 const main = document.getElementById('root');
 
@@ -76,6 +77,11 @@ function rota() {
             });
             break;
 
+            case '/album':
+            main.innerHTML = '';
+            main.appendChild(album());
+            break;
+
         default:
             `Página não encontrada`;
     }
@@ -98,6 +104,16 @@ window.addEventListener('load', () => {
         case '/cadastro':
             main.innerHTML = '';
             main.appendChild(registration());
+            break;
+
+        case '/store':
+            main.innerHTML = '';
+            main.appendChild(store());
+            break;
+
+        case '/album':
+            main.innerHTML = '';
+            main.appendChild(album());
             break;
 
         default:

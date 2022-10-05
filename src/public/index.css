@@ -1,6 +1,7 @@
 @import url('./module/css/home.css');
 @import url('./module/css/login.css');
 @import url('./module/css/store.css');
+@import url('./module/css/album.css');
 
 *{
     margin: 0;
@@ -73,7 +74,7 @@ header{
 #headerLeft{
     display: flex;
     font-family: 'Rubik Dirt', cursive;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     align-items: center;
 }
 
@@ -86,6 +87,10 @@ header{
     display: flex;
     gap: 1rem;
     align-items: center;
+}
+
+#headerRight a {
+    font-size: 0.9rem;
 }
 
 a, a:visited {
@@ -102,9 +107,9 @@ main{
 
 #loginAnchorButton{
     font-family: 'Roboto';
-    font-size: 1rem;
+    font-size: 0.8rem;
     cursor: pointer;
-    padding: 0.5rem 1.5rem;
+    padding: 0.3rem 1.2rem;
     color: white;
     border-radius: 2rem;
     background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
