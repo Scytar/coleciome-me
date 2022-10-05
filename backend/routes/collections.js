@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const InsertCollection = require('../controllers/new_collection');
-const GetCollections = require('../controllers/get_collections');
+const InsertCollection = require('../controllers/collections/new_collection');
+const GetCollections = require('../controllers/collections/get_collections');
 
 router.post("/collections/insert", new InsertCollection().handler.bind(new InsertCollection));
 

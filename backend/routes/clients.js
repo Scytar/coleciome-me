@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const ShowUsers = require('../controllers/show_users')
-const InsertUsers = require('../controllers/insert_user')
-const DeleteUsers = require('../controllers/delete_user')
-const EditUsers = require('../controllers/edit_user')
+const ShowUsers = require('../controllers/users/show_users')
+const InsertUsers = require('../controllers/users/insert_user')
+const DeleteUsers = require('../controllers/users/delete_user')
+const EditUsers = require('../controllers/users/edit_user')
 
 router.post("/user/insert", new InsertUsers().handler.bind(new InsertUsers));
 

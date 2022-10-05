@@ -7,6 +7,7 @@ const clientsRoutes = require("./routes/clients")
 const cardsRoutes = require("./routes/carts")
 const collectionsRoutes = require("./routes/collections")
 const ordersRoutes = require("./routes/orders")
+const memesRoutes = require("./routes/memes")
 
 
 app.use(bodyParser.json());
@@ -18,6 +19,7 @@ app.use(clientsRoutes)
 app.use(cardsRoutes)
 app.use(collectionsRoutes)
 app.use(ordersRoutes)
+app.use(memesRoutes)
 
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`);
