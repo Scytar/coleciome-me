@@ -11,14 +11,12 @@ const SelectCardLootable = `SELECT id FROM memes WHERE lootable = true AND rare 
 
 const InsertCardUser = `INSERT INTO total_items (ownerid,itemid) VALUES($1, $2) RETURNING itemid;`
 
-// const dailyCollect = `
-//     SELECT now()::timestamp - (
-//         SELECT daily_collect::timestamp FROM users WHERE id = ${userid}
-//     )
-// `
+const DailyCheck = `
+    SELECT daily_collect FROM users WHERE id = $1;
+`
 
-// const dailyStreak = `SELECT daily_streak FROM users WHERE id = $1;`
+const DailyStreak = `SELECT daily_streak FROM users WHERE id = $1;`
 
-// const ResetDailyCollect = `UPDATE users SET daily_collect = now() , daily_streak = daily_streak +1 WHERE id = ${userid};`
+const ResetDailyCollect = `UPDATE users SET daily_collect = now() , daily_streak = daily_streak +1 WHERE id = $1;`
 
-module.exports = { NewTrade, verifyTotalItems, shopCardUPDATE, SelectCardLootable, InsertCardUser }
+module.exports = { NewTrade, verifyTotalItems, shopCardUPDATE, SelectCardLootable, InsertCardUser , DailyCheck , DailyStreak , ResetDailyCollect }

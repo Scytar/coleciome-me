@@ -1,10 +1,10 @@
 class NewTrade {
-  #CartTrade = require("../../database/postgres/card");
+  #Cards = require("../../database/postgres/cards");
 
   async execute(data) {
     try {
 
-      const NEWTRADE = await new this.#CartTrade().trade(
+      const NEWTRADE = await new this.#Cards().trade(
         data.author,
         data.offer,
         data.offer_value,

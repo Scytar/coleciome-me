@@ -1,9 +1,9 @@
 class ShowTotalItems {
-  #CartTrade = require("../../database/postgres/card");
+  #Cards = require("../../database/postgres/cards");
 
   async execute(data) {
     try {
-      const SHOWTOTALITEMS = await new this.#CartTrade().showItems(
+      const SHOWTOTALITEMS = await new this.#Cards().showItems(
         data.ownerid
       );
 
