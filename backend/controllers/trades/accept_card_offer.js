@@ -1,5 +1,5 @@
 class AcceptCardOffer {
-    #accept_card_offer = require("../../services/cards/accept_card_offer");
+    #accept_card_offer = require("../../services/trades/accept_card_offer");
   
     async handler(req, res) {
       try {

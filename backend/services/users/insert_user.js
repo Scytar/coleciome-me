@@ -1,5 +1,5 @@
 class InsertUsers {
-  #userValidator = require("../validator/user_validator");
+  #userValidator = require("../../validator/user_validator");
   #userTable = require("../../database/postgres/user");
 
   async execute(user_data) {
@@ -17,7 +17,7 @@ class InsertUsers {
         return { message: "failed inserting user", data: "" };
       }
     } catch (error) {
-      throw new Error(error);
+      console.error(error);
     }
   }
 }

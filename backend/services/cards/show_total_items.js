@@ -8,9 +8,9 @@ class ShowTotalItems {
       );
 
       if (SHOWTOTALITEMS) {
-        return { message: "Success in creating new trade", data: SHOWTOTALITEMS };
+        return { message: "Success in getting cards", data: SHOWTOTALITEMS };
       } else {
-        return { message: "Failed in creating new trade", data: "" };
+        return { message: "Failed getting cards", data: "" };
       }
     } catch (error) {
       throw new Error(error);

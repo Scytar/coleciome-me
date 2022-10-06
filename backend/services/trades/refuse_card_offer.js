@@ -1,5 +1,5 @@
 class RefuseOffer {
-    #Trades = require("../database/postgres/trades");
+    #Trades = require("../../database/postgres/trades");
   
     async execute(trade_data) {
       try {

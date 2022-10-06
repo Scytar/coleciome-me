@@ -1,5 +1,5 @@
 class AnswerCardOffer {
-    #answer_card_offer = require("../../services/cards/answer_card_offer");
+    #answer_card_offer = require("../../services/trades/answer_card_offer");
   
     async handler(req, res) {
       try {

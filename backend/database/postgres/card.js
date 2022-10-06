@@ -29,11 +29,14 @@ class CartTrade extends myDb {
 
   async showItems(ownerid) {
     try {
-      const { verifildTotalItems } = require("../../queries/cart");
+      const { verifyTotalItems } = require("../../queries/cart");
 
-      const total_items = await this._pool.query(verifildTotalItems, [ownerid]);
+      const total_items = await this._pool.query(verifyTotalItems, [ownerid]);
 
-      return total_items;
+      console.log('ownerid :', ownerid)
+      console.log('total items: ', total_items)
+
+      return total_items.rows;
     } catch (error) {
       console.error(error);
     }
@@ -68,7 +71,7 @@ class CartTrade extends myDb {
       if (update && select && insert) {
         await this._pool.query(`COMMIT;`);
 
-        return insert;
+        return insert.rows[0].itemid;
       }
 
       await this._pool.query(`ROLLBACK;`);
@@ -79,37 +82,37 @@ class CartTrade extends myDb {
     }
   }
 
-  async dailyCollect(data) {
-    try {
-      const {
-        dailyCollect,
-        dailyStreak,
-        SelectCardLootable,
-        InsertCardUser,
-        ResetDailyCollect,
-      } = require("../../queries/cart");
+  // async dailyCollect(data) {
+  //   try {
+  //     const {
+  //       dailyCollect,
+  //       dailyStreak,
+  //       SelectCardLootable,
+  //       InsertCardUser,
+  //       ResetDailyCollect,
+  //     } = require("../../queries/cart");
 
-      const daily_collect = await this._pool.query(dailyCollect, [data.userid]);
+  //     const daily_collect = await this._pool.query(dailyCollect, [data.userid]);
 
-      const daily_streak = await this._pool.query(dailyStreak, [data.userid]);
+  //     const daily_streak = await this._pool.query(dailyStreak, [data.userid]).rows[0].daily_streak;
+ 
+  //     const select_card_lootable = await this._pool.query(
+  //       SelectCardLootable,
+  //       []
+  //     );
 
-      const select_card_lootable = await this._pool.query(
-        SelectCardLootable,
-        []
-      );
+  //     const insert_card_user = await this._pool.query(InsertCardUser, [
+  //       data.userid,
+  //       select_card_lootable.id,
+  //     ]);
 
-      const insert_card_user = await this._pool.query(InsertCardUser, [
-        data.userid,
-        select_card_lootable.id,
-      ]);
-
-      const reset_daily = await this._pool.query(ResetDailyCollect, [
-        data.userid,
-      ]);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  //     const reset_daily = await this._pool.query(ResetDailyCollect, [
+  //       data.userid,
+  //     ]);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
 }
 
 module.exports = CartTrade;

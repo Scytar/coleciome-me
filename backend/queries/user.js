@@ -1,14 +1,14 @@
 const insertUser = `
-    INSERT INTO users (username, email, password, cpf, phone)
+    INSERT INTO users (name, email, password, cpf, phone)
     VALUES ($1, $2, $3, $4, $5) RETURNING id;
 `;
 
 const selectUser = `
-    SELECT id FROM users WHERE username = $1 OR email = $2 OR cpf = $3;
+    SELECT id FROM users WHERE name = $1 OR email = $2 OR cpf = $3;
 `;
 
 const updateUser = `
-    UPDATE users SET username = $1,
+    UPDATE users SET name = $1,
     email = $2,
     password = $3,
     cpf = $4,

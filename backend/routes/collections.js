@@ -5,6 +5,7 @@ const InsertCollection = require('../controllers/collections/new_collection');
 const GetCollections = require('../controllers/collections/get_collections');
 
 router.post("/collections/insert", new InsertCollection().handler.bind(new InsertCollection));
+//name -> varchar
 
 router.get("/collections/get", new GetCollections().handler.bind(new GetCollections));
 

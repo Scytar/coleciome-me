@@ -7,7 +7,7 @@ class BuyCardOffer {
 
             
             if (BUY_CARD_OFFER) {
-            return { message: "Success in buying trade" , data: BUY_CARD_OFFER };
+            return { data: BUY_CARD_OFFER };
             } else {
             return { message: "Failed buying trade" };
             }

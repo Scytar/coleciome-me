@@ -4,7 +4,7 @@ const NewOrder = `
 
 
 const GetOrders = `
-    SELECT * FROM trades WHERE author = $1 AND status = $2;
+    SELECT * FROM wallet_orders WHERE userid = $1 AND status = $2;
 `
 
 const ConfirmOrder = `

@@ -10,7 +10,11 @@ const SelectTrade = `
     SELECT * FROM trades WHERE id = $1;
 `
 
-const CloseTrade = `
+const SelectBuyer = `
+    SELECT * FROM users WHERE id = $1;
+`
+
+const CloseBuy = `
     UPDATE trades SET dealer = $1, answer_date = now(), closing_date = now(), status = 'closed' WHERE id = $2;
 `
 
@@ -37,5 +41,7 @@ const UpdateTradeWithAnswer = `
 const RefuseOffer = `
     UPDATE trades SET status = 'open' WHERE id = $1;
 `
-
-module.exports = { GetUserTrades , GetPublicTrades , SelectTrade , CloseTrade , DebitBuyer , CreditSeller , ChangeCardOwner , ItemToOfferBack , UpdateTradeWithAnswer , RefuseOffer }
+const CloseTrade = `
+    UPDATE trades SET closing_date = now(), status = 'closed' WHERE id = $1 RETURNING *;
+`
+module.exports = { GetUserTrades , GetPublicTrades , SelectTrade , SelectBuyer , CloseBuy , DebitBuyer , CreditSeller , ChangeCardOwner , ItemToOfferBack , UpdateTradeWithAnswer , RefuseOffer, CloseTrade }

@@ -18,7 +18,8 @@ async get(data) {
     try {
         const { GetOrders } = require('../../queries/orders');
 
-        const get_orders = await this._pool.query(GetOrders, [data.userid , data.orderStatus]) //data.orderStatus = ['open','answered','closed']
+        console.log('data ', data)
+        const get_orders = await this._pool.query(GetOrders, [data.userid , data.orderStatus])
         return get_orders.rows
     } catch (error) {
         console.log(error)
