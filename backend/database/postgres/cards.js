@@ -83,7 +83,6 @@ class Cards extends myDb {
 
   async dailyCollect(data) {
     try {
-      console.log('chamou a daily collect!')
       const {
         DailyCheck,
         DailyStreak,
@@ -106,20 +105,19 @@ class Cards extends myDb {
 
       const isRare = ((daily_streak.rows[0]['daily_streak']+1%28) === 0) 
 
-      console.log('antes do begin')
       await this._pool.query('begin;')
       const select_card_lootable = await this._pool.query(SelectCardLootable,[isRare]);
       
-      console.log('depois do select lootable')
-      const insert_card_user = await this._pool.query(InsertCardUser, [data.userid,select_card_lootable.rows[0].id,]);
+      // Pick a random card
+      const positionToPickRandomly = Math.floor(Math.random() * select_card_lootable.rows.length);
 
-      console.log('depois do insert card')
+      const insert_card_user = await this._pool.query(InsertCardUser, [data.userid,select_card_lootable.rows[positionToPickRandomly].id,]);
+
       const reset_daily = await this._pool.query(ResetDailyCollect, [data.userid,]);
 
-      console.log('select card ',select_card_lootable.rows[0].id)
       if (select_card_lootable && insert_card_user && reset_daily) {
         await this._pool.query('commit;')
-        return select_card_lootable.rows[0].id
+        return select_card_lootable.rows[positionToPickRandomly].id
       }
 
       await this._pool.query('roolback;')
