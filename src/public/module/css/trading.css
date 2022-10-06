@@ -1,0 +1,80 @@
+#linha-vertical {
+    height: 200px;
+    border-right: 1px solid #DE6EFC;
+
+}
+
+#linha-horizontal {
+    width: 600px;
+    border-bottom: 1px solid #DE6EFC;
+
+}
+
+.cardsTrading {
+    max-width: 40%;
+}
+
+.cardsGroup {
+    /* border: blue solid 2px; */
+    display: flex;
+    flex-flow: row wrap;
+    gap: 50px;
+    justify-content: center;
+    align-content: center;
+    width: 500px;
+    width: 100%;
+    align-items: center;
+}
+
+.cardsGroup .cardsTrading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex: 50%;
+    /* border: blue solid 2px */
+}
+
+.cardsGroup #containerSolicitar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#solicitar {
+    width: 161px;
+    height: 43px;
+    left: 1000px;
+    top: 590px;
+    color: #fff;
+    border: none;
+
+    background: linear-gradient(93.99deg, rgba(255, 102, 102, 0.27) 11.95%, rgba(159, 157, 255, 0.22) 91.64%);
+    border-radius: 20px;
+}
+
+#solicitar:hover {
+    border: #DE6EFC solid 1px;
+    cursor: pointer;
+}
+
+.cardsGroup #messageOffers {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#messageTrocas {
+    position: fixed;
+    align-items: flex-start;
+    justify-content: start;
+}
+
+.cardsGroup .cardGet {
+    width: 106px;
+    height: 152px;
+    left: 744px;
+    top: 307px;
+
+    background: #F1E888;
+}

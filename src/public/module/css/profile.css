@@ -1,0 +1,46 @@
+/* user data */
+section {
+    display: flex;
+    flex-direction: column;
+}
+
+section #mainMethod {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 10%;
+}
+
+section #mainMethod p {
+    flex: 50%;
+    padding-left: 10%;
+}
+
+section .paymentSubtitle {
+    padding-bottom: 5%;
+}
+
+section #otherMethods {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 20%;
+    justify-content: center;
+    align-content: center;
+}
+
+section #otherMethods span {
+    font-size: 1.2rem;
+}
+
+section #userInformation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 10%;
+}
+
+section #userInformation p {
+    flex: 50%;
+    padding-left: 10%;
+    padding-bottom: 5%;
+}
