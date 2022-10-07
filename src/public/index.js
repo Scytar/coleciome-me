@@ -2,6 +2,10 @@ import home from './module/js/home.js';
 import login from './module/js/login.js';
 import registration from './module/js/registration.js';
 import store from './module/js/store.js';
+import profilePayments from './module/js/profilePayments.js';
+import profileData from './module/js/profileData.js';
+import tradingMyOffers from './module/js/tradingMyOffers.js';
+import tradingMyRequests from './module/js/tradingMyRequests.js';
 import album from './module/js/album.js';
 import colection from './module/js/colection.js';
 import cart from './module/js/cart.js';
@@ -11,6 +15,11 @@ const main = document.getElementById('root');
 /* const btnHome = document.getElementById('inicial');
 const btnAlbum = document.getElementById('album');
 const btnColecao = document.getElementById('colecao');
+const btnLoja = document.getElementById('loja');*/
+const btnOffers = document.getElementById('offers')
+const btnRequests = document.getElementById('requests')
+const btnPerfil = document.getElementById('btnPerfil');
+const btnPagamentos = document.getElementById('btnPagamentos');
 const btnLoja = document.getElementById('loja');
  */
 const btnLogin = document.getElementById('loginAnchorButton');
@@ -79,6 +88,68 @@ function rota() {
             });
             break;
 
+        case '/perfil':
+            main.innerHTML = '';
+            main.appendChild(profileData());
+            navAnchors = document.querySelectorAll('nav a');
+            navAnchors.forEach(a => {
+                a.addEventListener('click', () => {
+                    renderiza.detail.name = a.dataset.pathname;
+                    rota();
+                });
+            });
+            btnPagamentos.addEventListener('click', () => {
+                renderiza.detail.name = '/pagamentos';
+                rota();
+            });
+            break;
+
+        case '/pagamentos':
+            main.innerHTML = '';
+            main.appendChild(profilePayments());
+            navAnchors = document.querySelectorAll('nav a');
+            navAnchors.forEach(a => {
+                a.addEventListener('click', () => {
+                    renderiza.detail.name = a.dataset.pathname;
+                    rota();
+                });
+            });
+            btnPerfil.addEventListener('click', () => {
+                renderiza.detail.name = '/perfil';
+                rota();
+            });
+            break;
+
+        case '/trocas':
+            main.innerHTML = '';
+            main.appendChild(tradingMyOffers());
+            navAnchors = document.querySelectorAll('nav a');
+            navAnchors.forEach(a => {
+                a.addEventListener('click', () => {
+                    renderiza.detail.name = a.dataset.pathname;
+                    rota();
+                });
+            });
+            btnPerfil.addEventListener('click', () => {
+                renderiza.detail.name = '/perfil';
+                rota();
+            });
+            break;
+
+        case '/solicitacoes':
+            main.innerHTML = '';
+            main.appendChild(tradingMyRequests());
+            navAnchors = document.querySelectorAll('nav a');
+            navAnchors.forEach(a => {
+                a.addEventListener('click', () => {
+                    renderiza.detail.name = a.dataset.pathname;
+                    rota();
+                });
+            });
+            btnPerfil.addEventListener('click', () => {
+                renderiza.detail.name = '/perfil';
+                rota();
+            });
         case '/album':
             main.innerHTML = '';
             main.appendChild(album());
@@ -118,6 +189,9 @@ window.addEventListener('load', () => {
             main.appendChild(registration());
             break;
 
+        case '/perfil':
+            main.innerHTML = '';
+            main.appendChild(profilePayments());
         case '/store':
             main.innerHTML = '';
             main.appendChild(store());
@@ -148,6 +222,8 @@ btnLogin.addEventListener('click', () => {
     renderiza.detail.name = '/login';
     rota();
 });
+
+
 
 anchors.forEach(a => {
     a.addEventListener('click', () => {
