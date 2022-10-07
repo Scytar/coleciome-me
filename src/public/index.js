@@ -6,6 +6,8 @@ import profilePayments from './module/js/profilePayments.js';
 import profileData from './module/js/profileData.js';
 import tradingMyOffers from './module/js/tradingMyOffers.js';
 import tradingMyRequests from './module/js/tradingMyRequests.js';
+import album from './module/js/album.js';
+import colection from './module/js/colection.js';
 
 const main = document.getElementById('root');
 
@@ -144,6 +146,14 @@ function rota() {
                 renderiza.detail.name = '/perfil';
                 rota();
             });
+        case '/album':
+            main.innerHTML = '';
+            main.appendChild(album());
+            break;
+
+        case '/colection':
+            main.innerHTML = '';
+            main.appendChild(colection());
             break;
 
         default:
@@ -173,6 +183,19 @@ window.addEventListener('load', () => {
         case '/perfil':
             main.innerHTML = '';
             main.appendChild(profilePayments());
+        case '/store':
+            main.innerHTML = '';
+            main.appendChild(store());
+            break;
+
+        case '/album':
+            main.innerHTML = '';
+            main.appendChild(album());
+            break;
+
+        case '/colection':
+            main.innerHTML = '';
+            main.appendChild(colection());
             break;
 
         default:
