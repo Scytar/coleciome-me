@@ -15,12 +15,12 @@ export default () => {
             <h3>Loja de figurinhas</h3>
 
             <div class="conteinerPack">
-                <img src="./module/img/comum.svg" alt="pacote de figurinhas normais">
+                <img src="./module/img/random-green.svg" alt="pacote de figurinhas normais">
                 <button class="btnPay" id="buyComum">Comprar</button>
             </div>
 
             <div class="conteinerPack">
-                <img src="./module/img/gold.svg" alt="pacotes de figurinhas gold">
+                <img src="./module/img/random-orange.svg" alt="pacotes de figurinhas gold">
                 <button class="btnPay" id="buyGold">Comprar</button>
             </div>
             </section>

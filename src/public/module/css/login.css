@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 40px;
 }
 
 .cadastrogin #navLogin {
@@ -37,7 +38,6 @@
     padding-top: 50px;
     margin-top: 3px;
     padding-bottom: 30px;
-
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
@@ -52,24 +52,25 @@
 
 #conteinerLogin #userDoll #imgUser {
     width: 80px;
-
 }
 
-.cadastrogin #conteinerLogin #userDollRegister select {
+.cadastrogin #conteinerLogin select {
+    color: #F0EFEF;
     cursor: pointer;
     width: 80px;
-    height: 110px;
+    height: 20px;
     background-color: transparent;
     border: none;
+    margin-bottom: 28px;
+}
+
+option {
+    color: #F0EFEF;
+    background-color: #222;
 }
 
 .cadastrogin #conteinerLogin input {
-    color: #FFFFFF;
     width: 300px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #FFFFFF;
-    text-decoration: 1px solid;
     margin-bottom: 28px;
 }
 
@@ -78,7 +79,7 @@
     font-size: 1rem;
     cursor: pointer;
     padding: 0.5rem 1.5rem;
-    color: white;
+    color: #F0EFEF;
     border-radius: 2rem;
     background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
 }

@@ -6,44 +6,33 @@ export default () => {
     <section id="colectionFig">
         <h3>Minha coleção</h3>
         <div id="coletionsFig">
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home4.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home3.png" class="rareFig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
-        <div class="memeContainer"><img src="./module/img/home2.png" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/funny-look.gif" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
     </section>
     `;
 

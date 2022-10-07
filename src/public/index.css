@@ -136,6 +136,7 @@ input {
     border: none;
     border-bottom: 1px solid #AA26E888;
     height: 20px;
+    padding: 0.2rem 0.5rem;
 }
 
 .clickable{

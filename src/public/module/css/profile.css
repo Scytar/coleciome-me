@@ -1,26 +1,26 @@
 /* user data */
-section {
+#profile {
     display: flex;
     flex-wrap: wrap;
 }
 
-section #mainMethod {
+#profile #mainMethod {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 10%;
 }
 
-section #mainMethod p {
+#profile #mainMethod p {
     flex: 50%;
     padding-left: 10%;
 }
 
-section .paymentSubtitle {
+#profile .paymentSubtitle {
     padding-bottom: 5%;
 }
 
-section #otherMethods {
+#profile #otherMethods {
     display: flex;
     flex-flow: row nowrap;
     gap: 20%;
@@ -28,18 +28,18 @@ section #otherMethods {
     align-content: center;
 }
 
-section #otherMethods span {
+#profile #otherMethods span {
     font-size: 1.2rem;
 }
 
-section #userInformation {
+#profile #userInformation {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 10%;
 }
 
-section #userInformation p {
+#profile #userInformation p {
     flex: 50%;
     padding-left: 10%;
     padding-bottom: 5%;

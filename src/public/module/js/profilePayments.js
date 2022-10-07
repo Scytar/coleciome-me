@@ -1,8 +1,8 @@
 export default () => {
-    const exibe = document.createElement('section');
-    conteiner.setAttribute("id", "cadastrogin");
+    const conteiner = document.createElement('section');
+    conteiner.setAttribute("id", "profile");
 
-    exibe.style.cssText = `display: grid;
+    conteiner.style.cssText = `display: grid;
     grid-template-columns: 35% 65%;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@ export default () => {
     
     `
 
-    exibe.innerHTML = conteudo;
+    conteiner.innerHTML = conteudo;
 
-    return exibe;
+    return conteiner;
 }

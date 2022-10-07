@@ -1,5 +1,6 @@
 export default () => {
     const exibe = document.createElement('section');
+    exibe.setAttribute("id", "profile")
 
     exibe.style.cssText = `display: grid;
     grid-template-columns: 35% 65%;
@@ -21,10 +22,9 @@ export default () => {
     <section id="userData">
 
     <nav id="navLogin">
-    <a id="btnPerfil" data-pathname="/perfil"  class="selected" >Dados do usuário</a>
-    <a id="btnPagamentos" data-pathname="/pagamentos" >Pagamentos</a>
+        <a id="btnPerfil" data-pathname="/perfil"  class="selected" >Dados do usuário</a>
+        <a id="btnPagamentos" data-pathname="/pagamentos" >Pagamentos</a>
     </nav>
-</nav>
 
 <div id="conteinerLogin">
 <h3 class="paymentSubtitle">Dados do usuário</h3>
