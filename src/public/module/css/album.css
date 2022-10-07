@@ -1,0 +1,17 @@
+#spaceAlbum {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#spaceAlbum h3 {
+    align-self: center;
+    color: #AA26E8;
+    cursor: pointer;
+}
+
+#spaceAlbum img {
+    width: 350px;
+}
+

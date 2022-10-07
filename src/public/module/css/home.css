@@ -1,0 +1,74 @@
+main #gif-content {
+    text-align: center;
+}
+
+main #gif {
+    height: 490px;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+main #content {
+    display: flex;
+    flex-direction: column;
+}
+
+main #content h1 {
+    font-family: 'Rubik Dirt', cursive;
+    font-weight: 400;
+    font-size: 2.8rem;
+}
+
+main #content h2 {
+    font-family: 'Rubik Dirt', cursive;
+    font-weight: 400;
+    font-size: 2.3rem;
+}
+
+main #content #user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+main #content #user #imgUser {
+    width: 60px;
+    background-color: #CCFF66;
+    border-radius: 50%;
+} 
+
+main #content #user #inf {
+    font-size: 0.8rem;
+}
+
+main #content #user #bar {
+    width: 350px;
+    height: 1px;
+    background-color: #DE6EFC;
+}
+
+main #content #pCol {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+main #content #homeImgs {
+    align-self: center;
+}
+
+main #content #homeImgs1 {
+    width: 100px;
+    height: 100px;
+}
+
+main #content #homeImgs2 {
+    width: 170px;
+    height: 170px;
+}
+
+main #content #homeImgs3 {
+    width: 100px;
+    height: 100px;
+}
