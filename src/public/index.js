@@ -4,6 +4,7 @@ import registration from './module/js/registration.js';
 import store from './module/js/store.js';
 import album from './module/js/album.js';
 import colection from './module/js/colection.js';
+import cart from './module/js/cart.js';
 
 const main = document.getElementById('root');
 
@@ -11,8 +12,7 @@ const main = document.getElementById('root');
 const btnAlbum = document.getElementById('album');
 const btnColecao = document.getElementById('colecao');
 const btnLoja = document.getElementById('loja');
-const btnPerfil = document.getElementById('perfil');
-const btnTrocas = document.getElementById('trocas'); */
+ */
 const btnLogin = document.getElementById('loginAnchorButton');
 const btnRegister = document.getElementById('registerAnchorButton');
 const btn_login = document.getElementById('loginButton'); //aba de login
@@ -65,15 +65,16 @@ function rota() {
         case '/store':
             main.innerHTML = '';
             main.appendChild(store());
-            navAnchors = document.querySelectorAll('#cartBtn');
-            navAnchors.forEach(cartBtn => {
-                cartBtn.addEventListener('click', () => {
-                    renderiza.detail.name = cartBtn.dataset.pathname;
-                    rota();
-                });
+
+            const buyComum = document.getElementById('buyComum');
+            buyComum.addEventListener('click', () => {
+                renderiza.detail.name = '/cart';
+                rota();
             });
-            btn_login.addEventListener('click', () => {
-                renderiza.detail.name = '/login';
+
+            const buyGold = document.getElementById('buyGold');
+            buyGold.addEventListener('click', () => {
+                renderiza.detail.name = '/cart';
                 rota();
             });
             break;
@@ -86,6 +87,11 @@ function rota() {
         case '/colection':
             main.innerHTML = '';
             main.appendChild(colection());
+            break;
+
+        case '/cart':
+            main.innerHTML = '';
+            main.appendChild(cart());
             break;
 
         default:
@@ -125,6 +131,11 @@ window.addEventListener('load', () => {
         case '/colection':
             main.innerHTML = '';
             main.appendChild(colection());
+            break;
+
+        case '/cart':
+            main.innerHTML = '';
+            main.appendChild(cart());
             break;
 
         default:
