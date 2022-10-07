@@ -1,17 +1,17 @@
-section {
+.cadastrogin {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-section #navLogin {
+.cadastrogin #navLogin {
     display: flex;
     align-items: center;
     gap: 2px;
     width: 662px;
 }
 
-section #navLogin a {
+.cadastrogin #navLogin a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,12 +23,12 @@ section #navLogin a {
     background-color: rgba(64, 64, 64, 0.45);
 }
 
-section #navLogin .selected {
+.cadastrogin #navLogin .selected {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(64, 64, 64, 0.7);
 }
 
-section #conteinerLogin {
+.cadastrogin #conteinerLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,9 +37,12 @@ section #conteinerLogin {
     padding-top: 50px;
     margin-top: 3px;
     padding-bottom: 30px;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
-section #conteinerLogin #userDoll, section #conteinerLogin #userDollRegister {
+.cadastrogin #conteinerLogin #userDoll, .cadastrogin #conteinerLogin #userDollRegister {
     width: 80px;
     height: 80px;
     background-color: #CCFF66;
@@ -52,7 +55,7 @@ section #conteinerLogin #userDoll, section #conteinerLogin #userDollRegister {
 
 }
 
-section #conteinerLogin #userDollRegister select {
+.cadastrogin #conteinerLogin #userDollRegister select {
     cursor: pointer;
     width: 80px;
     height: 110px;
@@ -61,7 +64,7 @@ section #conteinerLogin #userDollRegister select {
     
 }
 
-section #conteinerLogin input {
+.cadastrogin #conteinerLogin input {
     color: #FFFFFF;
     width: 300px;
     background-color: transparent;
@@ -71,7 +74,7 @@ section #conteinerLogin input {
     margin-bottom: 28px;
 }
 
-section #conteinerLogin #btnLogin, section #conteinerLogin #btnRegiter {
+.cadastrogin #conteinerLogin #btnLogin, .cadastrogin #conteinerLogin #btnRegiter {
     font-family: 'Roboto';
     font-size: 1rem;
     cursor: pointer;

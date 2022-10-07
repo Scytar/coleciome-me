@@ -1,10 +1,6 @@
 export default () => {
     const conteiner = document.createElement('section');
-
-    conteiner.style.cssText = `display: grid;
-    grid-template-columns: 40% 60%;
-    justify-content: center;
-    align-items: center;`;
+    conteiner.classList.add("pageWithUser")
 
     const conteudo = `
     <section id="spacUser">
@@ -24,35 +20,6 @@ export default () => {
             <img src="./module/img/home2.png" class="fig">
             <img src="./module/img/home4.png" class="fig">
             <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-        </div>
     </section>
     `;
 

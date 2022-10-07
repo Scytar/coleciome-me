@@ -1,51 +1,15 @@
-#spacUser {
-    display: flex;
-    flex-direction: column;
-    margin-block: 20px;
-}
-
-#spacUser h2 {
-    font-size: 1.8rem;
-}
-
-#spacUser #avatar {
-    width: 80px;
-    height: 110px;
-    background-color: rgba(49, 16, 114, 0.54);
-    border-radius: 40px;
-    margin-block: 20px;
-}
-
-#spacUser #tempoMemeiro {
-    font-size: 0.8rem;
-}
-
-#spacUser #bar {
-    width: 250px;
-    height: 1px;
-    background-color: #DE6EFC;
-    margin-block: 20px;
-}
-
-#spacUser #pocket {
-    font-family: 'Rubik Dirt', cursive;
-    font-weight: 400;
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-/* ---------- conteiner Store ---------- */
-
 #conteinerStore {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #conteinerStore #bonus {
     display: flex;
     flex-direction: column;
-    width: 650px;
+    width: 100%;
     height: 140px;
     background-color: rgba(48, 47, 47, 0.51);
     border-radius: 20px;
@@ -70,7 +34,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 650px;
+    width: 100%;
     height: 300px;
     background-color: rgba(48, 47, 47, 0.51);
     border-radius: 20px;

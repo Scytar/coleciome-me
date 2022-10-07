@@ -1,12 +1,6 @@
 export default () => {
     const conteiner = document.createElement('section');
-
-    conteiner.style.cssText = `display: grid;
-    grid-template-columns: 35% 65%;
-    justify-content: center;
-    align-items: center;
-    gap: 20px
-    `;
+    conteiner.classList.add("pageWithUser")
 
     const conteudo = `
 
@@ -32,12 +26,12 @@ export default () => {
 
             <div class="conteinerPack">
                 <img src="./module/img/comum.svg" alt="pacote de figurinhas normais">
-                <button class="btnPay">Comprar</button>
+                <button class="btnPay" id="buyComum">Comprar</button>
             </div>
 
             <div class="conteinerPack">
                 <img src="./module/img/gold.svg" alt="pacotes de figurinhas gold">
-                <button class="btnPay">Comprar</button>
+                <button class="btnPay" id="buyGold">Comprar</button>
             </div>
             </section>
         </div>
