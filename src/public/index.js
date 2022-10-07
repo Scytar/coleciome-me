@@ -21,7 +21,6 @@ const btnRequests = document.getElementById('requests')
 const btnPerfil = document.getElementById('btnPerfil');
 const btnPagamentos = document.getElementById('btnPagamentos');
 const btnLoja = document.getElementById('loja');
- */
 const btnLogin = document.getElementById('loginAnchorButton');
 const btnRegister = document.getElementById('registerAnchorButton');
 const btn_login = document.getElementById('loginButton'); //aba de login
