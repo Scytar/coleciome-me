@@ -2,17 +2,19 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-const port = 8000;
-const clientsRoutes = require("./routes/clients")
-const cardsRoutes = require("./routes/cards")
-const collectionsRoutes = require("./routes/collections")
-const ordersRoutes = require("./routes/orders")
-const memesRoutes = require("./routes/memes")
+const port = 80;
+const publicPath = __dirname+'/src/public/'
 
+const clientsRoutes = require("./src/routes/clients")
+const cardsRoutes = require("./src/routes/cards")
+const collectionsRoutes = require("./src/routes/collections")
+const ordersRoutes = require("./src/routes/orders")
+const memesRoutes = require("./src/routes/memes")
 
+app.use(express.static(publicPath))
 app.use(bodyParser.json());
 app.use(cors({
-  origin : "http://localhost:8080",
+  origin : "http://localhost:80",
   credentials: true,
 }))
 app.use(clientsRoutes)
