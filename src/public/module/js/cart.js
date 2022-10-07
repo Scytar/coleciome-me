@@ -7,7 +7,7 @@ export default () => {
         <h3>Pedidos</h3>
 
         <div id="items">
-            <img src="./module/img/random-green.svg" alt="Pacote de figurinhas comuns">
+            <img src="./module/img/random-card.svg" alt="Pacote de figurinhas comuns">
             <div class="styleBuyFig">
                 <p>Pacote comuns</p>
                 <p>Valor: 🍪2,50</p>
@@ -24,7 +24,7 @@ export default () => {
         <h3>Forma de pagamento</h3>
         <div id="checked">
             
-            <label for="html"><input type="radio" id="creditCard" name="payment" value="creditCard">Cartão de crédito</label>
+            <label for="creditCard"><input type="radio" id="creditCard" name="payment" value="creditCard">Cartão de crédito</label>
 
             <label for="css"><input type="radio" id="debitCard" name="payment" value="debitCard">Cartão débito</label>
         </div>

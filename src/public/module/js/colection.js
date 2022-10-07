@@ -23,7 +23,7 @@ export default () => {
         <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
         <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
         <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
-        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/meme-downloading.gif" class="rareFig"></div>
         <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
         <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
         <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>

@@ -1,22 +1,23 @@
 export default () => {
     const exibe = document.createElement('section');
     exibe.setAttribute("id", "profile")
+    exibe.classList.add("pageWithUser")
 
-    exibe.style.cssText = `display: grid;
+    /* exibe.style.cssText = `display: grid;
     grid-template-columns: 35% 65%;
     justify-content: center;
     align-items: center;
     gap: 20px
-    `;
+    `; */
 
     const conteudo = `
     <section id="spacUser">
-    <h2 id="nameUser">Maggie</h2>
-    <div id="avatar"></div>
-    <p id="tempoMemeiro">Memeiro desde Setembro de 2022</p>
-    <div id="bar"></div>
-    <p>Minha carteira:</p>
-    <div id="pocket">🍪00,00</div>
+        <h2 id="nameUser">Maggie</h2>
+        <div id="avatar"></div>
+        <p id="tempoMemeiro">Memeiro desde Setembro de 2022</p>
+        <div id="bar"></div>
+        <p>Minha carteira:</p>
+        <div id="pocket">🍪00,00</div>
     </section>
 
     <section id="userData">

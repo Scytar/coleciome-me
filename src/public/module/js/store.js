@@ -7,22 +7,30 @@ export default () => {
 
             <section id="bonus">
                 <h3>Bônus diário</h3>
-                <div id="loginBonus"></div>
+                <div class="storeItem greenBorder">
+                    <img id="loginBonus" src="./module/img/random-card.svg" alt="">
+                </div>
             </section>
 
 
             <section id="storeFig">
-            <h3>Loja de figurinhas</h3>
+                <h3>Loja de figurinhas</h3>
 
-            <div class="conteinerPack">
-                <img src="./module/img/random-green.svg" alt="pacote de figurinhas normais">
-                <button class="btnPay" id="buyComum">Comprar</button>
-            </div>
+                <div id="storeItemsContainer">
+                    <div class="conteinerPack">
+                        <div class="storeItem greenBorder">
+                            <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                        </div>
+                        <button class="btnPay" id="buyComum">Comprar</button>
+                    </div>
 
-            <div class="conteinerPack">
-                <img src="./module/img/random-orange.svg" alt="pacotes de figurinhas gold">
-                <button class="btnPay" id="buyGold">Comprar</button>
-            </div>
+                    <div class="conteinerPack">
+                    <div class="storeItem orangeBorder">
+                        <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                    </div>
+                        <button class="btnPay" id="buyGold">Comprar</button>
+                    </div>
+                </div>
             </section>
         </div>
     `;

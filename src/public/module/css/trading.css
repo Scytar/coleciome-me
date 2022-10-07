@@ -35,12 +35,6 @@
     /* border: blue solid 2px */
 }
 
-.cardsGroup #containerSolicitar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #solicitar {
     width: 161px;
     height: 43px;
@@ -48,6 +42,7 @@
     top: 590px;
     color: #fff;
     border: none;
+    margin-top: 10px;
 
     background: linear-gradient(93.99deg, rgba(255, 102, 102, 0.27) 11.95%, rgba(159, 157, 255, 0.22) 91.64%);
     border-radius: 20px;
@@ -56,18 +51,6 @@
 #solicitar:hover {
     border: #DE6EFC solid 1px;
     cursor: pointer;
-}
-
-.cardsGroup #messageOffers {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#messageTrocas {
-    position: fixed;
-    align-items: flex-start;
-    justify-content: start;
 }
 
 .cardsGroup .cardGet {
