@@ -1,31 +1,31 @@
-main section #gif-content {
+main #gif-content {
     text-align: center;
 }
 
-main section #gif {
+main #gif {
     height: 490px;
     max-width: 500px;
     border-radius: 8px;
 }
 
-main section #content {
+main #content {
     display: flex;
     flex-direction: column;
 }
 
-main section #content h1 {
+main #content h1 {
     font-family: 'Rubik Dirt', cursive;
     font-weight: 400;
-    font-size: 3.5rem;
+    font-size: 2.8rem;
 }
 
-main section #content h2 {
+main #content h2 {
     font-family: 'Rubik Dirt', cursive;
     font-weight: 400;
-    font-size: 3rem;
+    font-size: 2.3rem;
 }
 
-main section #content #user {
+main #content #user {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,42 +33,42 @@ main section #content #user {
     margin-block: 1rem;
 }
 
-main section #content #user #imgUser {
+main #content #user #imgUser {
     width: 60px;
     background-color: #CCFF66;
     border-radius: 50%;
 } 
 
-main section #content #user #inf {
-    font-size: 1rem;
+main #content #user #inf {
+    font-size: 0.8rem;
 }
 
-main section #content #user #bar {
+main #content #user #bar {
     width: 350px;
     height: 1px;
     background-color: #DE6EFC;
 }
 
-main section #content #pCol {
+main #content #pCol {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
-main section #content #homeImgs {
+main #content #homeImgs {
     align-self: center;
 }
 
-main section #content #homeImgs1 {
+main #content #homeImgs1 {
     width: 100px;
     height: 100px;
 }
 
-main section #content #homeImgs2 {
+main #content #homeImgs2 {
     width: 170px;
     height: 170px;
 }
 
-main section #content #homeImgs3 {
+main #content #homeImgs3 {
     width: 100px;
     height: 100px;
 }

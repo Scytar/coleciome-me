@@ -1,50 +1,15 @@
-section #spacUser {
-    display: flex;
-    flex-direction: column;
-    margin-block: 80px;
-}
-
-section #spacUser h2 {
-    font-size: 1.8rem;
-}
-
-section #spacUser #avatar {
-    width: 80px;
-    height: 110px;
-    background-color: rgba(49, 16, 114, 0.54);
-    border-radius: 40px;
-    margin-block: 20px;
-}
-
-section #spacUser #tempoMemeiro {
-    font-size: 0.8rem;
-}
-
-section #spacUser #bar {
-    width: 250px;
-    height: 1px;
-    background-color: #DE6EFC;
-    margin-block: 20px;
-}
-
-section #spacUser #pocket {
-    font-family: 'Rubik Dirt', cursive;
-    font-weight: 400;
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-/* ---------- conteiner Store ---------- */
-
 #conteinerStore {
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #conteinerStore #bonus {
     display: flex;
     flex-direction: column;
-    width: 670px;
+    width: 100%;
     height: 140px;
     background-color: rgba(48, 47, 47, 0.51);
     border-radius: 20px;
@@ -64,61 +29,36 @@ section #spacUser #pocket {
 
 /* ---------- Conteiner figures/store ---------- */
 
-#conteinerStore #storeFig {
-    display: flex;
-    flex-direction: column;
-}
-
 #conteinerStore #storeFig{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    width: 670px;
+    width: 100%;
     height: 300px;
     background-color: rgba(48, 47, 47, 0.51);
     border-radius: 20px;
+    padding: 10px;
 }
 
 #conteinerStore #storeFig .conteinerPack {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    gap: 30px;
 }
 
 #conteinerStore #storeFig .conteinerPack img {
-    width: 5px;
-    flex-basis: 100%;
+    width: 150px;
+    height: 200px;
 }
 
-#conteinerStore #storeFig .conteinerPack .less {
-    font-size: 1.5rem;
-    color: #FF6666;
-}
-
-#conteinerStore #storeFig .conteinerPack .more {
-    font-size: 1rem;
-    color: #FF6666;
-}
-
-#conteinerStore #storeFig .conteinerPack input {
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    border: none;
-    border-radius: 10px;
-}
-
-#conteinerStore #storeFig .conteinerPack button {
-    width: 60px;
+#conteinerStore #storeFig .conteinerPack .btnPay {
+    width: 80px;
     height: 20px;
     border-radius: 20px;
-    background-color: linear-gradient(93deg, rgba(255, 102, 102, 0.27), rgba(159, 157, 255, 0.22));
-}
-
-#cartBtn {
-    background-color: linear-gradient(93deg, rgba(255, 102, 102, 0.27), rgba(159, 157, 255, 0.22));
+    background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
+    border: none;
+    margin: 10px;
+    cursor: pointer;
 }

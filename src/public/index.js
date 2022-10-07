@@ -6,6 +6,9 @@ import profilePayments from './module/js/profilePayments.js';
 import profileData from './module/js/profileData.js';
 import tradingMyOffers from './module/js/tradingMyOffers.js';
 import tradingMyRequests from './module/js/tradingMyRequests.js';
+import album from './module/js/album.js';
+import colection from './module/js/colection.js';
+import cart from './module/js/cart.js';
 
 const main = document.getElementById('root');
 
@@ -17,6 +20,8 @@ const btnOffers = document.getElementById('offers')
 const btnRequests = document.getElementById('requests')
 const btnPerfil = document.getElementById('btnPerfil');
 const btnPagamentos = document.getElementById('btnPagamentos');
+const btnLoja = document.getElementById('loja');
+ */
 const btnLogin = document.getElementById('loginAnchorButton');
 const btnRegister = document.getElementById('registerAnchorButton');
 const btn_login = document.getElementById('loginButton'); //aba de login
@@ -69,15 +74,16 @@ function rota() {
         case '/store':
             main.innerHTML = '';
             main.appendChild(store());
-            navAnchors = document.querySelectorAll('#cartBtn');
-            navAnchors.forEach(cartBtn => {
-                cartBtn.addEventListener('click', () => {
-                    renderiza.detail.name = cartBtn.dataset.pathname;
-                    rota();
-                });
+
+            const buyComum = document.getElementById('buyComum');
+            buyComum.addEventListener('click', () => {
+                renderiza.detail.name = '/cart';
+                rota();
             });
-            btn_login.addEventListener('click', () => {
-                renderiza.detail.name = '/login';
+
+            const buyGold = document.getElementById('buyGold');
+            buyGold.addEventListener('click', () => {
+                renderiza.detail.name = '/cart';
                 rota();
             });
             break;
@@ -144,6 +150,19 @@ function rota() {
                 renderiza.detail.name = '/perfil';
                 rota();
             });
+        case '/album':
+            main.innerHTML = '';
+            main.appendChild(album());
+            break;
+
+        case '/colection':
+            main.innerHTML = '';
+            main.appendChild(colection());
+            break;
+
+        case '/cart':
+            main.innerHTML = '';
+            main.appendChild(cart());
             break;
 
         default:
@@ -173,6 +192,24 @@ window.addEventListener('load', () => {
         case '/perfil':
             main.innerHTML = '';
             main.appendChild(profilePayments());
+        case '/store':
+            main.innerHTML = '';
+            main.appendChild(store());
+            break;
+
+        case '/album':
+            main.innerHTML = '';
+            main.appendChild(album());
+            break;
+
+        case '/colection':
+            main.innerHTML = '';
+            main.appendChild(colection());
+            break;
+
+        case '/cart':
+            main.innerHTML = '';
+            main.appendChild(cart());
             break;
 
         default:
