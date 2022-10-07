@@ -1,17 +1,22 @@
+#colectionFig {
+    width: 100%;
+}
+
 #colectionFig h3 {
-    align-self: center;
+    text-align: center;
     color: #F0EFEF;
-    cursor: pointer;
     margin-block: 20px;
 }
 
 #coletionsFig {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
     gap: 8px;
 }
 
-.fig {
+#coletionsFig .fig {
     width: 80px;
     height: 80px;
 }
