@@ -1,5 +1,6 @@
 export default () => {
     const exibe = document.createElement('section');
+    conteiner.setAttribute("id", "cadastrogin");
 
     exibe.style.cssText = `display: grid;
     grid-template-columns: 35% 65%;
@@ -15,7 +16,7 @@ export default () => {
     <p id="tempoMemeiro">Memeiro desde Setembro de 2022</p>
     <div id="bar"></div>
     <p>Minha carteira:</p>
-    <div id="pocket">R$00,00</div>
+    <div id="pocket">🍪00,00</div>
     </section>
 
     <section id="userData">

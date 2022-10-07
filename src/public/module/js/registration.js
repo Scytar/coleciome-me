@@ -5,7 +5,7 @@ export default () => {
     <section class="cadastrogin">
         <nav id="navLogin">
             <a id="registerAnchorButton" data-pathname="/cadastro" " class="selected">Cadastrar</a>
-            <a id="loginButton" data-pathname="/login">Login</a>
+            <a id="loginButton" data-pathname="/login">Entrar</a>
         </nav>
 
         <div id="conteinerLogin">
