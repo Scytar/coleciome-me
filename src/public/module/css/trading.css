@@ -24,6 +24,21 @@
     background-color: rgba(64, 64, 64, 0.45);
 }
 
+#tradingCards #conteinerTrading {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 150px;
+}
+
+#tradingCards #conteinerTrading img {
+    width: 30px;
+}
+
+#tradingCards #conteinerTrading spam {
+    width: 30px;
+}
+
 #tradingCards #navTrading .selected {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(64, 64, 64, 0.7);
@@ -83,6 +98,7 @@
 #solicitar:hover {
     border: #DE6EFC solid 1px;
     cursor: pointer;
+    width: 40px;
 }
 
 .cardsGroup .cardGet {
@@ -97,7 +113,6 @@
 #linha-vertical {
     height: 200px;
     border-right: 1px solid #DE6EFC;
-
 }
 
 #linha-horizontal {

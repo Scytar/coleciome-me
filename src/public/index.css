@@ -217,3 +217,24 @@ input {
     font-weight: 500;
     font-size: 1rem;
 }
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.gap-small{
+    gap: 12px;
+}
+
+.gap-big{
+    gap: 40px;
+}
