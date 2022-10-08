@@ -22,14 +22,36 @@
                 <a data-pathname="/store" id="store">LOJA</a>
                 <a data-pathname="/perfil" id="perfil">PERFIL</a>
                 <a data-pathname="/trocas" id="trocas">TROCAS</a>
-                <button id="loginAnchorButton">🙍 Entrar</button>
+                <button id="loginAnchorButton">🙍 ENTRAR</button>
             </div>
         </header>
         <main id="root">
-            <form action="/upload" method="post" enctype="multipart/form-data">
+            <!-- <form action="/upload" method="post" enctype="multipart/form-data">
                 <input type="file" name="imageUploadInput" id="imageUploadInput">
                 <input type="submit" value="Enviar">
-            </form>   
+            </form> -->
+            <section class="injectedSection">
+                <form id="addMemeForm" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                    <h3>Adicionar novo Meme</h3>
+                    <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                    <div class="flex-row">
+                        <input type="checkbox" name="isRareInput" id="isRareInput">
+                        <label for="isRareInput">Raro(a)</label>
+                    </div>
+                    <select name="" id="selectCollectionInput">
+                        <option value="" hidden>Categoria</option>
+                        <option value="1">Alpha</option>
+                        <option value="2">Sticker Figure</option>
+                    </select>
+                    <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
+                </form>
+                <form id="addCollectionFrom" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                    <h3>Adicionar novo Álbum</h3>
+                    <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                    <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
+                    <input type="submit" class="addButton" value="Adicionar Álbum" id="addCollectionButton">
+                </form>
+            </section>
         </main>
     </div>
 </body>

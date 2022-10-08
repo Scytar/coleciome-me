@@ -109,7 +109,7 @@ a, a:visited {
 main{
     height: 90vh;
     overflow-y: scroll;
-    padding: 0 2rem;
+    padding: 2rem 2rem 0;
 }
 
 .pageWithUser {
@@ -141,4 +141,79 @@ input {
 
 .clickable{
     cursor: pointer;
+}
+
+.injectedSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.uploadDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 32px 20px;
+    background-color: #222;
+    border-radius: 20px;
+    gap: 32px;
+}
+
+#imageUploadInput{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.addButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 12px;
+    background-color: #751a9f;
+    cursor: pointer;
+}
+
+#selectCollectionInput{
+    color: #FFF;
+    background-color: #0008;
+}
+
+.uploadInput::-webkit-file-upload-button{
+    display: none;
+}
+
+.uploadInput{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    content: 'Clique ou Arraste aqui';
+    display: inline-block;
+    border: 1px solid #9f25d8;
+    border-radius: 20px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 2px 2px #000;
+    font-weight: 500;
+    font-size: 1rem;
 }

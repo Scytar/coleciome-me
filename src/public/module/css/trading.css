@@ -1,22 +1,9 @@
-#linha-vertical {
-    height: 200px;
-    border-right: 1px solid #DE6EFC;
-
-}
-
-#linha-horizontal {
-    width: 600px;
-    border-bottom: 1px solid #DE6EFC;
-
-}
-
 #tradingCards{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2px;
-    width: 662px;
 }
 
 #tradingCards #navTrading {
@@ -30,7 +17,7 @@
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.3);
-    width: 331px;
+    width: 440px;
     height: 47px;
     border-start-start-radius: 15px;
     border-start-end-radius: 15px;
@@ -46,7 +33,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 662px;
+    width: 880px;
     background-color: rgba(24, 24, 24, 0.45);
     padding-top: 50px;
     margin-top: 3px;
@@ -105,4 +92,15 @@
     top: 307px;
 
     background: #F1E888;
+}
+
+#linha-vertical {
+    height: 200px;
+    border-right: 1px solid #DE6EFC;
+
+}
+
+#linha-horizontal {
+    width: 600px;
+    border-bottom: 1px solid #DE6EFC;
 }

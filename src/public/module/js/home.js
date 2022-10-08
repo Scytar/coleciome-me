@@ -9,7 +9,7 @@ export default () => {
     const conteudo = `
     <div id="home-parent">
         <div id="gif-content">
-            <img id="gif" src="./module/img/funny-look.gif" alt="gif divertido">
+            <img id="gif" src="./module/img/opai.gif" alt="gif divertido">
         </div>
         <div id="content">
             <section>

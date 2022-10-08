@@ -41,7 +41,7 @@ export default () => {
                 <div id="linha-vertical"></div>
 
                 <div class="cardsTrading">
-                
+
                 </div>
 
             </div>
