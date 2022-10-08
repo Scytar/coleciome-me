@@ -36,7 +36,7 @@ export default () => {
                 </label>
                 
                 <label for="nameCard">
-                    Nome (como no cartão):
+                    Nome (titular):
                     <input type="text" id="nameCard" name="nameCard" required>
                 </label>            
 

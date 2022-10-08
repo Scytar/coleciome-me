@@ -11,6 +11,7 @@ const storage = multer.diskStorage({
         cb(null, `${Date.now()}` + path.extname(file.originalname))
     }
 })
+
 const upload = multer({
     storage: storage,
     fileFilter: (req,file,cb)=>{
@@ -28,6 +29,13 @@ const upload = multer({
 
 
 router.post('/upload',(req,res)=>{
+
+    // Make a post request to the server through memes.js with a json with
+    // name -> varchar
+    // collectionId -> integer
+    // isLootable -> boolean
+    // isMemeRare -> boolean 
+
     upload(req,res,function (err){
         if (err instanceof multer.MulterError) {
             console.log('Multer Error: ', err)

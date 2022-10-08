@@ -1,6 +1,6 @@
 export default () => {
     const exibe = document.createElement('section');
-    exibe.classList.add("pageWithUser")
+    // exibe.classList.add("pageWithUser")
 
     /* exibe.style.cssText = `display: grid;
     grid-template-columns: 35% 65%;
@@ -10,13 +10,13 @@ export default () => {
     `; */
 
     const conteudo = `
-    <section id="userData">
-    <nav id="navLogin">
+    <section id="tradingCards">
+    <nav id="navTrading">
         <a id="offers" data-pathname="/trocas" class="selected" >Ofertas</a>
         <a id="requests" data-pathname="/solicitacoes">Minhas solicitações</a>
     </nav>
 
-    <div id="conteinerLogin">
+    <div id="containerTrading">
         <div class="cardsGroup">
             <div class="cardsTrading">
 
@@ -39,11 +39,12 @@ export default () => {
             <div id="linha-vertical"></div>
 
             <div class="cardsTrading">
+            </div>
 
         </div>
     </div>
 
-    <button id="solicitar">Solicitar</button>
+    <button id="solicitar">Outras ofertas</button>
 </section>
 
     `

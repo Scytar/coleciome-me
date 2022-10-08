@@ -3,13 +3,6 @@ export default () => {
     exibe.setAttribute("id", "profile")
     exibe.classList.add("pageWithUser")
 
-    /* exibe.style.cssText = `display: grid;
-    grid-template-columns: 35% 65%;
-    justify-content: center;
-    align-items: center;
-    gap: 20px
-    `; */
-
     const conteudo = `
     <section id="spacUser">
         <h2 id="nameUser">Maggie</h2>
@@ -30,18 +23,39 @@ export default () => {
 <div id="conteinerLogin">
 <h3 class="paymentSubtitle">Dados do usuário</h3>
 <div id="userInformation">
-    <p>Nome:</p>
-    <p>aaa</p>
-    <p>Endereço:</p>
-    <p>aaa</p>
-    <p>CPF:</p>
-    <p>000 000 000 00</p>
-    <p>Email:</p>
-    <p>aaa@emial.com</p>
-    <p>Senha</p>
-    <p>******</p>
-    <p>Celular:</p>
-    <p>(00) 000000000</p>
+
+    <div id="labelDiv">
+        <label class="profileData" for="nameData">
+        Nome:
+        </label>
+        <label class="profileData" for="enderecoData">
+        Endereço:
+        </label>
+        <label class="profileData" for="cpfData">
+        CPF:
+        </label>
+        <label class="profileData" for="emailData">
+        Email:
+        </label>
+        <label class="profileData" for="senhaData">
+        Senha:
+        </label>
+        <label class="profileData" for="celularData">
+        Celular:
+        </label>
+    </div>
+
+    <div id="inputDiv">
+        <input type="text" id="nameData" name="nameData" required>
+        <input type="text" id="enderecoData" name="enderecoData" required>
+        <input type="text" id="cpfData" name="cpfData" required>
+        <input type="email" id="emailData" name="emailData" required>
+        <input type="password" id="senhaData" name="senhaData" required>
+        <input type="password" id="celularData" name="celularData" required>
+    </div>
+    
+
+    <button id="btnSend">Enviar</button>
 </div>
     </section>
     `

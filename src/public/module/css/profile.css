@@ -2,22 +2,6 @@
 #profile {
     display: flex;
     flex-wrap: wrap;
-}
-
-#profile #userInformation {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 10%;
-}
-
-#profile #userInformation p {
-    flex: 50%;
-    padding-left: 10%;
-    padding-bottom: 5%;
-}
-
-#profile {
     margin-top: 40px;
 }
 
@@ -63,22 +47,23 @@
     padding-bottom: 30px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    gap: 12px;
 }
 
 #CardDataSave h3 {
     margin-bottom: 30px;
 }
 
-#infCardSave {
+#infCardSave, #userInformation {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
     row-gap: 25px;
     column-gap: 10%;
-    width: 300px;
+    width: 350px;
 }
 
-#infCardSave label input {
+#infCardSave label input, #userInformation label input {
     width: 100%;
 }
 
@@ -87,7 +72,23 @@
     width: 45%;
 }
 
-#CardDataSave #btnSend {
+#labelDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: start;
+    gap: 12px;
+}
+
+#inputDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 12px;
+}
+
+#CardDataSave #btnSend, #userInformation #btnSend {
     font-family: 'Roboto';
     font-size: 1rem;
     cursor: pointer;
