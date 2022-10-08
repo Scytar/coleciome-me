@@ -97,6 +97,7 @@ header{
     align-items: center;
     justify-content: end;
     flex-grow: 3;
+    padding: 0 0 12px;
 }
 
 #headerRight a {
