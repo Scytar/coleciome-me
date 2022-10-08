@@ -3,14 +3,12 @@ const router = express.Router();
 const multer = require('multer');
 const path = require("path");
 
-let ID = 0
-
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'src/public/images')
     },
     filename: (req, file, cb)=>{
-        cb(null, `${ID}` + path.extname(file.originalname))
+        cb(null, `${Date.now()}` + path.extname(file.originalname))
         ID++;
     }
 })

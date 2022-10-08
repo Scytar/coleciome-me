@@ -74,8 +74,9 @@ body {
 header{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: space-between;
     padding: 0 0rem;
+    flex-wrap: wrap;
 }
 
 #headerLeft{
@@ -94,6 +95,8 @@ header{
     display: flex;
     gap: 1rem;
     align-items: center;
+    justify-content: end;
+    flex-grow: 3;
 }
 
 #headerRight a {
@@ -145,9 +148,10 @@ input {
 
 .injectedSection{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    padding: 20px;
 }
 
 .uploadDiv{
