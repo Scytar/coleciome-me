@@ -1,7 +1,3 @@
-#colectionFig {
-    width: 100%;
-}
-
 #colectionFig h3 {
     text-align: center;
     color: #F0EFEF;
@@ -13,10 +9,43 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 32px;
 }
 
 #coletionsFig .fig {
-    width: 80px;
-    height: 80px;
+    border-radius: 8%;
+    width: 120px;
+    height: 120px;
+}
+
+.rareFig {
+    width: 140px;
+    height: 140px;
+    border-radius: 8%;
+}
+
+.memeContainer{
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 8%;
+    animation: 500ms ease;
+    cursor: pointer;
+}
+.memeContainer:hover{
+    box-shadow: 0px 0px 8px 5px #FFFFFF80;
+}
+
+.greenBorder{
+    background-image: url('../img/border-green.svg');
+}
+
+.orangeBorder{
+    background-image: url('../img/border-orange.svg');
+    box-shadow: 0px 0px 8px 5px #F8953B88;
 }

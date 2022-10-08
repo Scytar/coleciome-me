@@ -1,46 +1,102 @@
 /* user data */
-section {
+#profile {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+#userData {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    width: 662px;
 }
 
-section #mainMethod {
+#userData #navLogin {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 10%;
 }
 
-section #mainMethod p {
-    flex: 50%;
-    padding-left: 10%;
-}
-
-section .paymentSubtitle {
-    padding-bottom: 5%;
-}
-
-section #otherMethods {
+#userData #navLogin a {
     display: flex;
-    flex-flow: row nowrap;
-    gap: 20%;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
-    align-content: center;
+    color: rgba(255, 255, 255, 0.3);
+    width: 331px;
+    height: 47px;
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    background-color: rgba(64, 64, 64, 0.45);
 }
 
-section #otherMethods span {
-    font-size: 1.2rem;
+#userData #navLogin .selected {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(64, 64, 64, 0.7);
 }
 
-section #userInformation {
+#userData #CardDataSave, #userData #conteinerLogin {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 10%;
+    flex-direction: column;
+    align-items: center;
+    width: 662px;
+    background-color: rgba(24, 24, 24, 0.45);
+    padding-top: 30px;
+    margin-top: 3px;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    gap: 12px;
 }
 
-section #userInformation p {
-    flex: 50%;
-    padding-left: 10%;
-    padding-bottom: 5%;
+#CardDataSave h3 {
+    margin-bottom: 30px;
+}
+
+#infCardSave, #userInformation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    row-gap: 25px;
+    column-gap: 10%;
+    width: 350px;
+}
+
+#infCardSave label input, #userInformation label input {
+    width: 100%;
+}
+
+#infCardSave label:nth-child(3),
+#infCardSave label:nth-child(4) {
+    width: 45%;
+}
+
+#labelDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: start;
+    gap: 12px;
+}
+
+#inputDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 12px;
+}
+
+#CardDataSave #btnSend, #userInformation #btnSend {
+    font-family: 'Roboto';
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem 1.5rem;
+    color: white;
+    border-radius: 2rem;
+    background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
+    width: 150px;
+    height: 40px;
+
 }

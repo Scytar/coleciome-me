@@ -1,13 +1,60 @@
-#linha-vertical {
-    height: 200px;
-    border-right: 1px solid #DE6EFC;
-
+#tradingCards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
 }
 
-#linha-horizontal {
-    width: 600px;
-    border-bottom: 1px solid #DE6EFC;
+#tradingCards #navTrading {
+    display: flex;
+    flex-direction: row;
+}
 
+#tradingCards #navTrading a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.3);
+    width: 440px;
+    height: 47px;
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    background-color: rgba(64, 64, 64, 0.45);
+}
+
+#tradingCards #conteinerTrading {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    height: 150px;
+}
+
+#tradingCards #conteinerTrading img {
+    width: 30px;
+}
+
+#tradingCards #conteinerTrading spam {
+    width: 30px;
+}
+
+#tradingCards #navTrading .selected {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(64, 64, 64, 0.7);
+}
+
+#containerTrading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 880px;
+    background-color: rgba(24, 24, 24, 0.45);
+    padding-top: 50px;
+    margin-top: 3px;
+    padding-bottom: 30px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .cardsTrading {
@@ -35,12 +82,6 @@
     /* border: blue solid 2px */
 }
 
-.cardsGroup #containerSolicitar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #solicitar {
     width: 161px;
     height: 43px;
@@ -48,6 +89,7 @@
     top: 590px;
     color: #fff;
     border: none;
+    margin-top: 10px;
 
     background: linear-gradient(93.99deg, rgba(255, 102, 102, 0.27) 11.95%, rgba(159, 157, 255, 0.22) 91.64%);
     border-radius: 20px;
@@ -56,18 +98,7 @@
 #solicitar:hover {
     border: #DE6EFC solid 1px;
     cursor: pointer;
-}
-
-.cardsGroup #messageOffers {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#messageTrocas {
-    position: fixed;
-    align-items: flex-start;
-    justify-content: start;
+    width: 40px;
 }
 
 .cardsGroup .cardGet {
@@ -77,4 +108,14 @@
     top: 307px;
 
     background: #F1E888;
+}
+
+#linha-vertical {
+    height: 200px;
+    border-right: 1px solid #DE6EFC;
+}
+
+#linha-horizontal {
+    width: 600px;
+    border-bottom: 1px solid #DE6EFC;
 }

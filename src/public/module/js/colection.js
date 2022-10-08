@@ -3,23 +3,36 @@ export default () => {
     conteiner.classList.add("pageWithUser")
 
     const conteudo = `
-    <section id="spacUser">
-        <h2 id="nameUser">Maggie</h2>
-        <div id="avatar"></div>
-        <p id="tempoMemeiro">Memeiro desde Setembro de 2022</p>
-        <div id="bar"></div>
-        <p>Minha carteira:</p>
-        <div id="pocket">R$00,00</div>
-    </section>
-
     <section id="colectionFig">
         <h3>Minha coleção</h3>
         <div id="coletionsFig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
-            <img src="./module/img/home4.png" class="fig">
-            <img src="./module/img/home2.png" class="fig">
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/funny-look.gif" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/opai.gif" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/meme-downloading.gif" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+        <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
     </section>
     `;
 

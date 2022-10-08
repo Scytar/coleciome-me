@@ -25,7 +25,7 @@ const btnLogin = document.getElementById('loginAnchorButton');
 const btnRegister = document.getElementById('registerAnchorButton');
 const btn_login = document.getElementById('loginButton'); //aba de login
 const anchors = document.querySelectorAll('header a');
-var navAnchors;
+let navAnchors;
 
 const renderiza = { detail: { name: location.pathaname } };
 

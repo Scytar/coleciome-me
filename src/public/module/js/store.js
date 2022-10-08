@@ -3,38 +3,46 @@ export default () => {
     conteiner.classList.add("pageWithUser")
 
     const conteudo = `
+        <div id="conteinerStore" class="gap-big">
 
-        <section id="spacUser">
-                <h2 id="nameUser">Maggie</h2>
-                <div id="avatar"></div>
-                <p id="tempoMemeiro">Memeiro desde Setembro de 2022</p>
-                <div id="bar"></div>
-                <p>Minha carteira:</p>
-                <div id="pocket">R$00,00</div>
+        <section id="bonus">
+            <h2>Bônus diário</h2>
+            <div class="storeItem greenBorder">
+                <img id="loginBonus" src="./module/img/random-card.svg" alt="">
+            </div>
         </section>
 
-        <div id="conteinerStore">
 
-            <section id="bonus">
-                <h3>Bônus diário</h3>
-                <div id="loginBonus"></div>
-            </section>
+        <section id="storeFig">
+            <h2>Loja de figurinhas</h2>
 
+            <div id="storeItemsContainer">
+                <div class="conteinerPack">
+                    <div class="storeItem greenBorder">
+                        <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                    </div>
+                    <button class="btnPay" id="buyComum">Comprar</button>
+                </div>
 
-            <section id="storeFig">
-            <h3>Loja de figurinhas</h3>
-
-            <div class="conteinerPack">
-                <img src="./module/img/comum.svg" alt="pacote de figurinhas normais">
-                <button class="btnPay" id="buyComum">Comprar</button>
+                <div class="conteinerPack">
+                <div class="storeItem orangeBorder">
+                    <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                </div>
+                    <button class="btnPay" id="buyGold">Comprar</button>
+                </div>
             </div>
-
-            <div class="conteinerPack">
-                <img src="./module/img/gold.svg" alt="pacotes de figurinhas gold">
-                <button class="btnPay" id="buyGold">Comprar</button>
+        </section>
+        <section id="walletCreditStore" class="flex-column justify-center align-center gap-big border-purple">
+            <h2>Compre Créditos na Carteira</h2>
+            <div class="flex-column justify-center align-center gap-small">
+                <div class="flex-row justify-center align-center">
+                    <p class="creditLabel">🍪</p>
+                    <input id="valueToAddToWalletInput" type="number" placeholder="Quantidade">
+                </div>
+                <button class="btnPay">Comprar</button>
             </div>
-            </section>
-        </div>
+        </section>
+    </div>
     `;
 
     conteiner.innerHTML = conteudo;

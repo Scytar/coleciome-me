@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coleciomeme</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Dirt&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="window">
+        <header>
+            <div id="headerLeft">
+                <h1><a data-pathname="/inicial" id="inicial">COLECIOME-ME</a></h1>
+            </div>
+            <div id="headerRight">
+                <a data-pathname="/colection" id="colecao">COLEÇÃO</a>
+                <a data-pathname="/store" id="store">LOJA</a>
+                <a data-pathname="/perfil" id="perfil">PERFIL</a>
+                <a data-pathname="/trocas" id="trocas">TROCAS</a>
+                <button id="loginAnchorButton">🙍 <span id="userNameDisplay">Administrador</span></button>
+            </div>
+        </header>
+        <main id="root">
+            <!-- <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="imageUploadInput" id="imageUploadInput">
+                <input type="submit" value="Enviar">
+            </form> -->
+            <section class="injectedSection gap-big">
+                <h1>Bem-vindo(a), <span id="welcomeNameDisplay">Nuricel</span>!</h1>
+                <div class="flex-row justify-center align-center gap-big">
+                    <form id="addMemeForm" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                        <h3>Adicionar novo Meme</h3>
+                        <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                        <div class="flex-row">
+                            <input type="checkbox" name="isRareInput" id="isRareInput">
+                            <label for="isRareInput">Raro(a)</label>
+                        </div>
+                        <select name="" id="selectCollectionInput">
+                            <option value="" hidden>Categoria</option>
+                            <option value="1">Alpha</option>
+                            <option value="2">Sticker Figure</option>
+                        </select>
+                        <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
+                    </form>
+                    <form id="addCollectionFrom" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                        <h3>Adicionar novo Álbum</h3>
+                        <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                        <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
+                        <input type="submit" class="addButton" value="Adicionar Álbum" id="addCollectionButton">
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+<script src="" type="module"></script>
+</html>
+
+            

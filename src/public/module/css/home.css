@@ -1,16 +1,36 @@
 main #gif-content {
     text-align: center;
+    background-image: url('../img/border-orange.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    width: 20vw;
+    height: 20vw;
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 400px;
+    max-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8%;
+    box-shadow: 0px 0px 20px 10px #F8953B88;
 }
 
 main #gif {
-    height: 490px;
-    max-width: 500px;
+    width: 100%;
+    min-width: 160px;
     border-radius: 8px;
 }
 
 main #content {
+    margin-top: 40px;
+    width: 40vw;
+    max-width: 400px;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
 main #content h1 {
@@ -44,7 +64,8 @@ main #content #user #inf {
 }
 
 main #content #user #bar {
-    width: 350px;
+    width: 40vw;
+    max-width: 260px;
     height: 1px;
     background-color: #DE6EFC;
 }
@@ -71,4 +92,12 @@ main #content #homeImgs2 {
 main #content #homeImgs3 {
     width: 100px;
     height: 100px;
+}
+
+main #home-parent{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
 }
