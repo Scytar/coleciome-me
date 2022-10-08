@@ -1,11 +1,14 @@
 class ShowUsers {
   #userTable = require("../../database/postgres/user");
+  #jwt = require("../../module/jwt")
 
   async execute(user_data) {
     try {
+      const decodedData = this.#jwt.decode(user_data)
+
       const validateUser = await new this.#userTable().validate(
-        user_data.email,
-        user_data.password
+        decodedData.email,
+        decodedData.password
       );
 
       if (!validateUser.userExists) {

@@ -26,7 +26,7 @@ const validateUser = `
 `;
 
 const deleteUser = `
-    UPDATE users SET active = false, update_date = now() WHERE id= $1;
+    UPDATE users SET active = false, update_date = now() WHERE id= $1 RETURNING id;
 `
 
 module.exports = { insertUser, selectUser, updateUser, validateUser, deleteUser };
