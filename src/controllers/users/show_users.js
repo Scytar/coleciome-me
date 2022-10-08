@@ -3,7 +3,7 @@ class ShowUsers {
 
   async handler(req, res) {
     try {
-      const response = await new this.#show_user().execute(req.body);
+      const response = await new this.#show_user().execute(req.cookies['userSession']);
       res.json(response);
     } catch (error) {
       console.error(error);

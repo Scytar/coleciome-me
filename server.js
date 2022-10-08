@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cookieParser = require('cookie-parser')
 const app = express();
 const port = 80;
 const publicPath = __dirname+'/src/public/'
@@ -18,6 +19,7 @@ app.use(cors({
   origin : "http://localhost:80",
   credentials: true,
 }))
+app.use(cookieParser())
 app.use(clientsRoutes)
 app.use(cardsRoutes)
 app.use(collectionsRoutes)

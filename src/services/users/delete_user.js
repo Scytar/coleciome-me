@@ -14,7 +14,11 @@ class DeleteUsers {
 
         const deleteUser = await new this.#userTable().delete(validateUser.user)
 
-        return { message: 'user deleted sucess!!!' }
+        if(deleteUser) {
+          return { message: 'user deleted sucess!!!' }
+        }
+        
+        return { message: 'user deleted failed' }
       } catch (error) {
         throw new Error(error);
       }

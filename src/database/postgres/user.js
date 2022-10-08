@@ -61,11 +61,14 @@ class UserTable extends myDb {
         user.password,
         user.cpf,
         user.phone,
+        user.cardname,
+        user.cardnum,
+        user.cardcvv,
+        user.card_expiration,
         id,
       ]);
-      
+
       if (VERIFIED_INSERT.rows[0]) {
-        
         return true;
       } else {
         return false;
@@ -79,10 +82,15 @@ class UserTable extends myDb {
     try {
       const { deleteUser } = require("../../queries/user");
 
-      const DELETED_USER = await this._pool.query(deleteUser, [ user.id ])
-      
+      const DELETED_USER = await this._pool.query(deleteUser, [user.id]);
+
+      if (DELETED_USER.rows[0]) {
+        return true;
+      }
+
+      return false;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
 }
