@@ -7,25 +7,24 @@
 
         const defaultTimeToLive = 60000;
         try {
-          // let response
-          // //Check cookie time to live
-          // console.log('cookie: ',req.cookies["userSession"])
-          // console.log('cache: ', cachedSessions[`${req.cookies["userSession"]}`]);
-          // if (!req.cookies["userSession"] || !cachedSessions[`${req.cookies["userSession"]}`] || (cachedSessions[`${req.cookies["userSession"]}`].tll) - Date.now() < 0) {
-          //   console.log('checou');
-          //   response = await new this.#LoginUsers().execute(req.body);
-          // } else {
-          //   console.log('asdasdasdasd');
-          //   return res.json({message:`Acesso realizado com sucesso!`})
-          // }
-          const response = await new this.#LoginUsers().execute(req.body);
+          let response
+          //Check cookie time to live
+          if (!req.cookies["userSession"] || !cachedSessions[`${req.cookies["userSession"]}`] || (cachedSessions[`${req.cookies["userSession"]}`].ttl) - Date.now() < 0) {
+            response = await new this.#LoginUsers().execute(req.body);
+          } else {
+            return res.json({message:`Bem-vindo(a) de volta, ${cachedSessions[req.cookies["userSession"]].name}!`,data:cachedSessions[`${req.cookies["userSession"]}`]})
+          }
+          // const response = await new this.#LoginUsers().execute(req.body);
           if(response.data != "") {
             //Cache Session
-            cachedSessions[response.data] = Date.now()+defaultTimeToLive;
+            response.data.ttl = Date.now()+defaultTimeToLive
+            cachedSessions[Date.now()+defaultTimeToLive] = response.data
+            console.log(cachedSessions[Date.now()+defaultTimeToLive])
             response.data.password = null;
+            response.data.cardcvv = null;
             //Give Cookie
             res
-              .cookie("userSession", response.data, {maxAge: defaultTimeToLive, httpOnly: true})
+              .cookie("userSession", response.data.ttl, {maxAge: defaultTimeToLive, httpOnly: true})
               .json({ message: response.message, data: response.data });
           }
           else {
