@@ -1,4 +1,4 @@
-const { cachedSessions } = require('../../../server.js')
+const cachedSessions = require('../../../server.js')
 
 class LoginUsers {
   #LoginUsers = require("../../services/users/login_user");
@@ -6,20 +6,25 @@ class LoginUsers {
   async handler(req, res) {
 
     const defaultTimeToLive = 60000;
-
     try {
       //Check cookie time to live
-      if (!req.cookies["userSession"]
-      || !cachedSessions[`${req.cookies["userSession"]}`]
-      || (cachedSessions[`${req.cookies["userSession"]}`].tll) - Date.parse(Date.now()) < 0) {
-        const response = await new this.#LoginUsers().execute(req.body);
-      } else {
-        return res.json({message:`Acesso realizado com sucesso!`})
-      }
+      // console.log('cookie: ',req.cookies["userSession"])
+      // console.log('cache: ', cachedSessions[`${req.cookies["userSession"]}`]);
+      // if (!req.cookies["userSession"]){
+      //   if (!cachedSessions[`${req.cookies["userSession"]}`]) {
+      //     if ((cachedSessions[`${req.cookies["userSession"]}`].tll) - Date.now() < 0) {
+      //       const response = await new this.#LoginUsers().execute(req.body);
+      //     }
+      //   }
+      // } else {
+      //   console.log('asdasdasdasd');
+      //   return res.json({message:`Acesso realizado com sucesso!`})
+      // }
 
+      const response = await new this.#LoginUsers().execute(req.body);
       if(response.data != "") {
         //Cache Session
-        cachedSessions[`${response.data}`].tll = Date.parse(Date.now())+defaultTimeToLive;
+        cachedSessions[response.data] = Date.now()+defaultTimeToLive;
 
         //Give Cookie
         res

@@ -31,8 +31,8 @@
             </form> -->
             <section class="injectedSection gap-big">
                 <h1>Bem-vindo(a), <span id="welcomeNameDisplay">Nuricel</span>!</h1>
-                <div class="flex-row justify-center align-center gap-big">
-                    <form id="addMemeForm" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="flex-row flex-wrap justify-center align-center gap-big">
+                    <form id="addMemeForm" class="uploadDiv" action="/upload/meme" method="post" enctype="multipart/form-data">
                         <h3>Adicionar novo Meme</h3>
                         <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
                         <div class="flex-row">
@@ -46,7 +46,7 @@
                         </select>
                         <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
                     </form>
-                    <form id="addCollectionFrom" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                    <form id="addCollectionFrom" class="uploadDiv" action="/upload/collection/" method="post" enctype="multipart/form-data">
                         <h3>Adicionar novo Álbum</h3>
                         <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
                         <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
@@ -57,7 +57,7 @@
         </main>
     </div>
 </body>
-<script src="" type="module"></script>
+<script src="admin_login.js" type="module"></script>
 </html>
 
             

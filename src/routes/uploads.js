@@ -1,15 +1,19 @@
+const { application } = require("express");
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
 const path = require("path");
+const InsertMeme = require('../controllers/memes/new_meme');
+
+let newFilename
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'src/public/images')
     },
     filename: (req, file, cb)=>{
-        cb(null, `${Date.now()}` + path.extname(file.originalname))
-        ID++;
+        newFilename = `${Date.now()}` + path.extname(file.originalname)
+        cb(null, newFilename);
     }
 })
 
@@ -29,18 +33,10 @@ const upload = multer({
 }).single('imageUploadInput');
 
 
-router.post('/upload',(req,res)=>{
-
-    console.log(`The received req was:`, req)
-
-    // Make a post request to the server through memes.js with a json with
-    // name -> varchar
-    // collectionId -> integer
-    // isLootable -> boolean
-    // isMemeRare -> boolean 
+router.post('/upload/meme',(req,res)=>{
 
     upload(req,res,function (err){
-        console.log(req.body)
+
         if (err instanceof multer.MulterError) {
             console.log('Multer Error: ', err)
             return res.status(400).json({message:err})
@@ -48,7 +44,7 @@ router.post('/upload',(req,res)=>{
             console.log('Unknow Error: ',err)
             return res.status(500).json(err)
         }
-        return res.status(201).json({message:'Arquivo enviado com sucesso!'})
+        return res.status(201).json({message:'Arquivo enviado com sucesso!' , data:newFilename})
     })
 })
 
