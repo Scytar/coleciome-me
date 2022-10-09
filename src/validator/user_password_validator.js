@@ -14,7 +14,7 @@ class UserPasswordValidator {
         const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])(?:([0-9a-zA-Z$*&@#])(?!\1)){8,}$/
 
         if(!regex.test(password.trim())) {
-            this.errors += "Password must contain at least 1 uppercase character, 1 number and 1 special character"
+            this.errors += "Password must contain at least 1 uppercase character, 1 number without repeating and 1 special character"
 
             return ""
         }

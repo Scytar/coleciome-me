@@ -7,7 +7,7 @@ class InsertUsers {
       const userData = new this.#userValidator(user_data);
       
       if (userData.errors != "") {
-        throw new Error(userData.errors);
+        return { message: userData.errors , data: "" };
       }
       const InsertUser = await new this.#userTable().insert(userData.user);
 
