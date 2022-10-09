@@ -1,6 +1,6 @@
 class LoginUsers {
   #userTable = require("../../database/postgres/user");
-  // #jwt = require("../../module/jwt")
+  #jwt = require("../../module/jwt")
 
   async execute(user_data) {
     try {
@@ -11,7 +11,8 @@ class LoginUsers {
 
       if (LoginUser.userExists) {
         const encodedData = this.#jwt.encode(LoginUser.user);
-        return { message: "success login user", data: LoginUser.user };
+        
+        return { message: "success login user", data: encodedData };
       } else {
         return { message: "failed login user", data: "" };
       }

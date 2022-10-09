@@ -7,7 +7,7 @@ class myDb {
             user: "postgres",
             host: "localhost",
             database: "coleciomeme",
-            password: "postgres",
+            password: "luiz1235",
             port: 5432,
         }) 
     }
