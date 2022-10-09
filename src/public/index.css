@@ -242,3 +242,12 @@ input {
 .gap-big{
     gap: 40px;
 }
+
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h6{
+    font-weight: 400;
+}
