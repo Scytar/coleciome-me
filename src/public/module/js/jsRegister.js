@@ -4,6 +4,9 @@ export default () => {
     const newEmail = document.getElementById('emailRegister');
     const newPwd = document.getElementById('passwordRegister');
     const verifynewPwd = document.getElementById('passwordVerifyRegister');
+    const newCpf = document.getElementById('cpfRegister');
+    const newPhone = document.getElementById('phoneRegister');
+    const dddPhone = document.getElementById('phoneRegister');
 
     /* validações */
     //ponto de melhoria - colocar a mensagem de erro embaixo dos inputs 
@@ -13,9 +16,18 @@ export default () => {
     const errors = document.querySelectorAll('.error')
     errors.forEach(e => e.classList.remove('error'))
 
+    
     if(newName.value.length < 3) {
         error = true
         newName.classList.add('error')
+    }
+    if(newCpf.value.length < 10|| newCpf.value.length >= 12 || newCpf.value == "") {
+        error = true
+        newCpf.classList.add('error')
+    }
+    if(newPhone.value.length < 7 || newPhone.value.length >= 12 || newPhone.value == "") {
+        error = true
+        newPhone.classList.add('error')
     }
     if(!validaEmail.test(newEmail.value)){
         error = true
@@ -38,7 +50,9 @@ export default () => {
         const body = {
             username: newName.value,
             email: newEmail.value,
-            password: newPwd.value
+            password: newPwd.value,
+            cpf: newCpf.value,
+            phone: newPhone.value
         };
         const options = {
             method: 'POST',

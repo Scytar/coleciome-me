@@ -277,3 +277,15 @@ input {
 h6{
     font-weight: 400;
 }
+
+#dddPhoneRegister{
+    width: 3rem;
+}
+
+#phoneRegister{
+    width: 100%;
+}
+
+.width-full{
+    width: 100%;
+}
