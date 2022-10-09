@@ -10,7 +10,7 @@ class LoginUsers {
       );
 
       if (LoginUser.userExists) {
-        // const encodedData = this.#jwt.encode(LoginUser.user);
+        const encodedData = this.#jwt.encode(LoginUser.user);
         return { message: "success login user", data: LoginUser.user };
       } else {
         return { message: "failed login user", data: "" };

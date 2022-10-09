@@ -125,6 +125,10 @@ main{
 }
 
 #loginAnchorButton{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     font-family: 'Roboto';
     font-size: 0.8rem;
     cursor: pointer;
@@ -132,6 +136,20 @@ main{
     color: white;
     border-radius: 2rem;
     background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
+}
+
+#logoutAnchorButton{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Roboto';
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0.3rem 1.2rem;
+    color: white;
+    border-radius: 2rem;
+    background-image: linear-gradient(22deg,#ff6666 60%,#eb7a7a 80%);
 }
 
 input {
@@ -244,6 +262,13 @@ input {
     gap: 40px;
 }
 
+.error{
+    border: 1px solid red;
+}
+
+.invisible {
+    display: none;
+    
 .flex-wrap{
     display: flex;
     flex-wrap: wrap;

@@ -1,4 +1,4 @@
-class Home {
+class Session {
     #userTable = require("../../database/postgres/user");
     #jwt = require("../../module/jwt")
   
@@ -24,4 +24,4 @@ class Home {
     }
   }
   
-  module.exports = Home;
+  module.exports = Session;
