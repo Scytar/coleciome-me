@@ -223,7 +223,6 @@ btnLogin.addEventListener('click', () => {
 });
 
 
-
 anchors.forEach(a => {
     a.addEventListener('click', () => {
         renderiza.detail.name = a.dataset.pathname;
