@@ -9,6 +9,10 @@ import tradingMyRequests from './module/js/tradingMyRequests.js';
 import album from './module/js/album.js';
 import colection from './module/js/colection.js';
 import cart from './module/js/cart.js';
+//imports fetchs
+import jsRegister from './module/js/jsRegister.js';
+import jsLogin from './module/js/jsLogin.js';
+import logoutClearHeader from './module/js/jsLogout.js'
 
 const main = document.getElementById('root');
 
@@ -22,10 +26,16 @@ const btnPerfil = document.getElementById('btnPerfil');
 const btnPagamentos = document.getElementById('btnPagamentos');
 const btnLoja = document.getElementById('loja');
 const btnLogin = document.getElementById('loginAnchorButton');
-const btnRegister = document.getElementById('registerAnchorButton');
-const btn_login = document.getElementById('loginButton'); //aba de login
 const anchors = document.querySelectorAll('header a');
+const logoutAnchorButton = document.getElementById("logoutAnchorButton");
+
 let navAnchors;
+let cachedUser = {};
+
+export function updateCache(data) {
+    cachedUser = {data};
+    console.log(cachedUser)
+}
 
 const renderiza = { detail: { name: location.pathaname } };
 
@@ -48,10 +58,14 @@ function rota() {
                     rota();
                 });
             });
+            const btnRegister = document.getElementById('registerAnchorButton');
             btnRegister.addEventListener('click', () => {
                 renderiza.detail.name = '/cadastro';
                 rota();
             });
+
+            const btnlogon = document.getElementById("btnLogin");
+            btnlogon.addEventListener('click', () => jsLogin());
             break;
 
         case '/cadastro':
@@ -64,10 +78,16 @@ function rota() {
                     rota();
                 });
             });
+            const btn_login = document.getElementById('loginButton'); //aba de login
             btn_login.addEventListener('click', () => {
                 renderiza.detail.name = '/login';
                 rota();
             });
+
+            const newPwd = document.getElementById("passwordRegister");
+            const verifynewPwd = document.getElementById("passwordVerifyRegister");
+            const btnRegiter = document.getElementById("btnRegiter");
+            btnRegiter.addEventListener('click', () => jsRegister());
             break;
 
         case '/store':
@@ -222,7 +242,11 @@ btnLogin.addEventListener('click', () => {
     rota();
 });
 
-
+logoutAnchorButton.addEventListener('click', () => {
+    renderiza.detail.name = '/login';
+    logoutClearHeader();
+    rota();
+});
 
 anchors.forEach(a => {
     a.addEventListener('click', () => {

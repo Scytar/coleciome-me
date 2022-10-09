@@ -1,7 +1,14 @@
+#sectionFather {
+    display: flex;
+    justify-content: center;
+}
+
 .cadastrogin {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    max-width: 600px;
     margin-top: 40px;
 }
 
@@ -9,7 +16,7 @@
     display: flex;
     align-items: center;
     gap: 2px;
-    width: 662px;
+    width: 100%;
 }
 
 .cadastrogin #navLogin a {
@@ -17,11 +24,16 @@
     align-items: center;
     justify-content: center;
     color: rgba(255, 255, 255, 0.3);
-    width: 662px;
-    height: 47px;
+    width: 100%;
+    height: auto;
     border-start-start-radius: 15px;
     border-start-end-radius: 15px;
     background-color: rgba(64, 64, 64, 0.45);
+    padding: 0.5rem 0;
+}
+
+.loginTab {
+    width: 100%;
 }
 
 .cadastrogin #navLogin .selected {
@@ -33,19 +45,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 662px;
+    width: 100%;
     background-color: rgba(24, 24, 24, 0.45);
     padding-top: 50px;
     margin-top: 3px;
     padding-bottom: 30px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    gap: 30px;
 }
 
-.cadastrogin #conteinerLogin #userDoll, .cadastrogin #conteinerLogin #userDollRegister {
+.cadastrogin #conteinerLogin #userDoll,
+.cadastrogin #conteinerLogin #userDollRegister {
     width: 80px;
     height: 80px;
-    background-color: #CCFF66;
+    background-color: #ccff66;
     border-radius: 20px;
     margin-bottom: 30px;
 }
@@ -55,7 +69,7 @@
 }
 
 .cadastrogin #conteinerLogin select {
-    color: #F0EFEF;
+    color: #f0efef;
     cursor: pointer;
     width: 80px;
     height: 20px;
@@ -65,21 +79,26 @@
 }
 
 option {
-    color: #F0EFEF;
+    color: #f0efef;
     background-color: #222;
 }
 
-.cadastrogin #conteinerLogin input {
-    width: 300px;
-    margin-bottom: 28px;
+input {
+    width: 80%;
+    max-width: 300px;
 }
 
-.cadastrogin #conteinerLogin #btnLogin, .cadastrogin #conteinerLogin #btnRegiter {
+.cadastrogin #conteinerLogin #btnLogin,
+.cadastrogin #conteinerLogin #btnRegiter {
     font-family: 'Roboto';
     font-size: 1rem;
     cursor: pointer;
     padding: 0.5rem 1.5rem;
-    color: #F0EFEF;
+    color: #f0efef;
     border-radius: 2rem;
-    background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
+    background-image: linear-gradient(15deg, #2eb3c4 60%, #2ec4b6 80%);
+}
+
+#divDoTelefone{
+    max-width: 300px;
 }

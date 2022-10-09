@@ -1,5 +1,7 @@
+
 export default () => {
     const conteiner = document.createElement('section')
+    conteiner.setAttribute("id", "sectionFather")
 
     const conteudo = `
     <section class="cadastrogin">
@@ -10,20 +12,25 @@ export default () => {
 
         <div id="conteinerLogin">
             <div id="userDollRegister"></div>
-            <select name="options" id="dolls" required>
-                <option value="01">menino I</option>
-                <option value="02">menino II</option>
-                <option value="03">menino III</option>
-                <option value="04">Menino IV</option>
-                <option value="05">Menina I</option>
-                <option value="06">Menina II</option>
-                <option value="07">Menina III</option>
-                <option value="08">Menina IV</option>
-            </select>
+            
             <input type="text" id="nameRegister" maxlength="80" placeholder="Nome" required tabindex="1">
-            <input type="text" id="emailRegister" maxlength="80" placeholder="E-mail" required tabindex="2">
-            <input type="password" id="passwordRegister" maxlength="10" placeholder="Senha" required tabindex="3">
-            <input type="password" id="passwordVerifyRegister" maxlength="10" placeholder="Confirme sua senha" required tabindex="4">
+
+            <input type="text" id="cpfRegister" maxlength="11" placeholder="Somente números do seu CPF" required tabindex="2">
+            
+            <div id="divDoTelefone" class="flex-row gap-small align-center justify-center width-full">
+                <input type="text" id="dddPhoneRegister" maxlength="2" placeholder="DDD" required tabindex="3">
+                <input type="text" id="phoneRegister" maxlength="9" placeholder="Somente números do telefone" required tabindex="4">
+            </div>
+
+            <input type="email" id="emailRegister" maxlength="80" placeholder="E-mail" required tabindex="5">
+
+            <div>
+                <input type="password" id="passwordRegister" maxlength="32" placeholder="Senha" required tabindex="6">
+                <h6></h6>
+            </div>
+
+            <input type="password" id="passwordVerifyRegister" maxlength="32" placeholder="Confirme sua senha" required tabindex="7">
+
             <button id="btnRegiter">Registrar</button>
         </div>
     </section>
