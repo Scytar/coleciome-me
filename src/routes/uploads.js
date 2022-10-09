@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require('multer');
 const path = require("path");
-const InsertMeme = require('../controllers/memes/new_meme');
+const Memes = require('../database/postgres/memes');
 
 let newFilename
 
@@ -33,9 +33,9 @@ const upload = multer({
 }).single('imageUploadInput');
 
 
-router.post('/upload/meme',(req,res)=>{
+router.post('/upload/meme/:isLootable/:isRare/:collectionId',(req,res)=>{
 
-    upload(req,res,function (err){
+    upload(req,res, async function (err){
 
         if (err instanceof multer.MulterError) {
             console.log('Multer Error: ', err)
@@ -44,7 +44,22 @@ router.post('/upload/meme',(req,res)=>{
             console.log('Unknow Error: ',err)
             return res.status(500).json(err)
         }
-        return res.status(201).json({message:'Arquivo enviado com sucesso!' , data:newFilename})
+
+        if (!newFilename) {
+            return res.status(400).json({message:'Nenhum arquivo foi criado'})
+        } else {
+            const data = {
+                name:newFilename,
+                collectionId:req.params.collectionId,
+                isLootable:req.params.isLootable,
+                isMemeRare:req.params.isRare,
+            }
+            console.log('data: ', data)
+            const new_meme = await new Memes().create(data)
+            console.log('new_meme: ',new_meme)
+            return res.status(201).json({message:'Arquivo enviado com sucesso!' , data:new_meme})
+        }
+
     })
 })
 
