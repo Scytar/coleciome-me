@@ -1,9 +1,9 @@
-class Home {
-  #Home = require("../../services/users/home_user");
+class Session {
+  #Session = require("../../services/users/session_user");
 
   async handler(req, res) {
     try {
-      const response = await new this.#Home().execute(
+      const response = await new this.#Session().execute(
         req.cookies["userSession"]
       );
 
@@ -20,4 +20,4 @@ class Home {
   }
 }
 
-module.exports = Home;
+module.exports = Session;

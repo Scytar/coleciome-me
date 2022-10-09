@@ -1,9 +1,13 @@
+const fs = require('fs')
+const path = require('path')
 const jwt = require("jsonwebtoken");
-const key = require('../keys/jwtRS256.pub');
+const keyPath = __dirname + "/keys/jwtRS256.key"
+const key = fs.readFileSync(keyPath);
 
 module.exports = { 
     encode: (object) => {
-        jwt.sign(
+        console.log(object)
+        return jwt.sign(
             object, 
             key, 
             { algorithm: 'RS256' },

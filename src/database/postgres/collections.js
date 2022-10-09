@@ -6,7 +6,7 @@ class Collections extends myDb {
     try {
         const { NewCollection } = require('../../queries/collections');
 
-        const new_collection = await this._pool.query(NewCollection, [data.name]);
+        const new_collection = await this._pool.query(NewCollection, [data.collectionName,data.file_name]);
         return new_collection.rows[0]
     } catch (error) {
         console.error(error)

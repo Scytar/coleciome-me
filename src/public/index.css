@@ -267,4 +267,12 @@ input {
 
 .invisible {
     display: none;
+    
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h6{
+    font-weight: 400;
 }

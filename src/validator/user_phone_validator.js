@@ -11,7 +11,7 @@ class UserPhoneNumberValidator {
         }
 
         if(phone.length != 11) {
-            this.errors += "The phone number must contain 11 characters"
+            this.errors += "The phone number must contain 11 digits"
 
             return ""
         }

@@ -31,10 +31,13 @@
             </form> -->
             <section class="injectedSection gap-big">
                 <h1>Bem-vindo(a), <span id="welcomeNameDisplay">Nuricel</span>!</h1>
-                <div class="flex-row justify-center align-center gap-big">
-                    <form id="addMemeForm" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="flex-row flex-wrap justify-center gap-big">
+                    <form id="addMemeForm" class="uploadDiv" action="/upload/meme/true/true/1" method="post" enctype="multipart/form-data">
                         <h3>Adicionar novo Meme</h3>
-                        <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                        <div class="flex-column gap-small">
+                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
+                        </div>
                         <div class="flex-row">
                             <input type="checkbox" name="isRareInput" id="isRareInput">
                             <label for="isRareInput">Raro(a)</label>
@@ -46,9 +49,12 @@
                         </select>
                         <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
                     </form>
-                    <form id="addCollectionFrom" class="uploadDiv" action="/upload" method="post" enctype="multipart/form-data">
+                    <form id="addCollectionFrom" class="uploadDiv" action="/upload/collection/'teste'" method="post" enctype="multipart/form-data">
                         <h3>Adicionar novo Álbum</h3>
-                        <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                        <div class="flex-column gap-small">
+                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
+                        </div>
                         <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
                         <input type="submit" class="addButton" value="Adicionar Álbum" id="addCollectionButton">
                     </form>
@@ -57,7 +63,7 @@
         </main>
     </div>
 </body>
-<script src="" type="module"></script>
+<script src="admin_login.js" type="module"></script>
 </html>
 
             
