@@ -11,7 +11,7 @@ class LoginUsers {
 
         if(response.data != "") {
           res
-            .cookie("userSession", response.data)
+            .cookie("userSession", response.data, {maxAge: 60000 * 60 * 5})
             .json(response);
         }
         else {
