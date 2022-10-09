@@ -6,10 +6,10 @@ class ShopCard {
         const SHOPCARD = await new this.#Cards().shopCards(data);
   
         if(!SHOPCARD) {
-            return { message: "Failed purchasing card"}
+            return { message: "Failed purchasing card", data: ""}
         }
 
-        return SHOPCARD;
+        return { message: "Sucess purchasing card", data: SHOPCARD};
       } catch (error) {
         throw new Error(error);
       }

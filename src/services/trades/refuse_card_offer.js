@@ -7,9 +7,9 @@ class RefuseOffer {
         const REFUSE_CARD_OFFER = await new this.#Trades().refuseOffer(trade_data);
           
         if (REFUSE_CARD_OFFER) {
-          return { message: "Success in refusing offer" , data: REFUSE_CARD_OFFER };
+          return { message: "Success in refusing offer", data: REFUSE_CARD_OFFER };
         } else {
-          return { message: "Failed in refusing offer" };
+          return { message: "Failed in refusing offer", data: "" };
         }
       } catch (error) {
         throw new Error(error);

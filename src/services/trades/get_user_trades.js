@@ -9,7 +9,7 @@ class GetUserTrades {
             if (GET_USER_TRADES) {
             return { message: "Success in searching trades" , data: GET_USER_TRADES };
             } else {
-            return { message: "Failed in searching trades" };
+            return { message: "Failed in searching trades", data: "" };
             }
     
         } catch (error) {
