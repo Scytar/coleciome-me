@@ -1,5 +1,5 @@
 const NewMeme = `
-    INSERT INTO memes (name,collection,lootable,rare) VALUES($!,$2,$3,$4) RETURNING *;
+    INSERT INTO memes (name,collection,lootable,rare) VALUES($1,$2,$3,$4) RETURNING *;
 `
 
 const GetMemes = `

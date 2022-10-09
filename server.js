@@ -27,6 +27,10 @@ app.use(ordersRoutes)
 app.use(memesRoutes)
 app.use(uploadsRoutes)
 
+let cachedSessions = {};
+
 app.listen(port, () => {
   console.log(`Server app listening on port ${port}`);
 });
+
+module.exports = cachedSessions;
