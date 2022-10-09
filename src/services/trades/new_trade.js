@@ -12,9 +12,9 @@ class NewTrade {
       );
         
       if (NEWTRADE) {
-        return { message: "Success in creating new trade" };
+        return { message: "Success in creating new trade", data: NEWTRADE };
       } else {
-        return { message: "Failed in creating new trade" };
+        return { message: "Failed in creating new trade", data: "" };
       }
     } catch (error) {
       throw new Error(error);

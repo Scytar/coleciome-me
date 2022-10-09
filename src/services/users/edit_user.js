@@ -21,7 +21,7 @@ class EditUsers {
       const userData = new this.#userValidator(old_data);
 
       if (userData.errors != "") {
-        throw new Error(userData.errors);
+        return { message: userData.errors , data: "" };
       }
 
       const UpdateUser = await new this.#userTable().update(

@@ -6,7 +6,6 @@ const key = fs.readFileSync(keyPath);
 
 module.exports = { 
     encode: (object) => {
-        console.log(object)
         return jwt.sign(
             object, 
             key, 
@@ -16,6 +15,10 @@ module.exports = {
     },
     decode: (encodedObject) => { 
         return jwt.verify(encodedObject, key, {algorithms: 'RS256'}, function(err, decoded) {
+            if (err) {
+                return err
+            }
+
             return decoded
         })
     }

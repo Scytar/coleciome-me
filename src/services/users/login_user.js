@@ -11,7 +11,8 @@ class LoginUsers {
 
       if (LoginUser.userExists) {
         const encodedData = this.#jwt.encode(LoginUser.user);
-        return { message: "success login user", data: LoginUser.user };
+        
+        return { message: "success login user", data: encodedData };
       } else {
         return { message: "failed login user", data: "" };
       }
