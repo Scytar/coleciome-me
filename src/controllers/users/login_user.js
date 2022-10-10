@@ -17,7 +17,7 @@ class LoginUsers {
         const user_data =  this.#jwt.decode(req.cookies["userSession"]);
         user_data.password = null;
         user_data.cvv = null;
-        return res.json({message:`Bem-vindo(a) de volta, ${user_data.name}`)
+        return res.json({message:`Bem-vindo(a) de volta, ${user_data.name}`})
       }
       // const response = await new this.#LoginUsers().execute(req.body);
       if(response.data != "") {
