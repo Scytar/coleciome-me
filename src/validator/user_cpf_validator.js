@@ -11,7 +11,7 @@ class UserCpfValidator {
             return ""
         }
 
-        if((cpf.length).trim() != 11) {
+        if((cpf.length) != 11) {
             this.errors += "Invalid cpf"
 
             return ""

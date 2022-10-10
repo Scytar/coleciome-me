@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 class InsertUsers {
   #insert_user = require("../../services/users/insert_user");
 
@@ -6,6 +8,7 @@ class InsertUsers {
       const response = await new this.#insert_user().execute(req.body);
       res.json(response);
     } catch (error) {
+      res.json({message:error})
       console.error(error);
     }
   }

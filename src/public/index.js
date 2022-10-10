@@ -239,4 +239,3 @@ anchors.forEach(a => {
         rota();
     });
 });
-

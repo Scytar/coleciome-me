@@ -1,6 +1,6 @@
 class LoginUsers {
   #userTable = require("../../database/postgres/user");
-  // #jwt = require("../../module/jwt")
+  #jwt = require("../../module/jwt")
 
   async execute(user_data) {
     try {
@@ -17,6 +17,7 @@ class LoginUsers {
       }
     } catch (error) {
       console.error(error);
+      return {error}
     }
   }
 }
