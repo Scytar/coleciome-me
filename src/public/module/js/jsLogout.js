@@ -1,6 +1,4 @@
 
-
-export default function logoutClearHeader(){
     const colecao = document.getElementById("colecao");
     const store = document.getElementById("store");
     const perfil = document.getElementById("perfil");
@@ -9,11 +7,14 @@ export default function logoutClearHeader(){
     const logoutAnchorButton = document.getElementById("logoutAnchorButton");
 
 
-    colecao.classList.remove('invisible')
-    store.classList.remove('invisible')
-    perfil.classList.remove('invisible')
-    trocas.classList.remove('invisible')
+export default function logoutClearHeader(){
+
+    colecao.classList.add('invisible')
+    store.classList.add('invisible')
+    perfil.classList.add('invisible')
+    trocas.classList.add('invisible')
     loginAnchorButton.classList.remove('invisible')
     logoutAnchorButton.classList.add('invisible')
-    browser.cookies.remove({name:'userSession'})
+
+    return {}
 }

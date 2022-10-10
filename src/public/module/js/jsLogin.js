@@ -1,12 +1,17 @@
-const colecao = document.getElementById("colecao");
-const store = document.getElementById("store");
-const perfil = document.getElementById("perfil");
-const trocas = document.getElementById("trocas");
-const loginAnchorButton = document.getElementById("loginAnchorButton");
-const logoutAnchorButton = document.getElementById("logoutAnchorButton");
-const profileNameHeader = document.getElementById('profileNameHeader');
+import { updateCache , renderSection , renderModal } from '../../index.js'
+import getUserItems from './jsColection.js'
 
-import { updateCache } from '../../index.js'
+
+const btnInicial = document.getElementById('inicial');
+const btnColecao = document.getElementById('colecao');
+const btnLoja = document.getElementById('loja');
+const btnTrocas = document.getElementById('trocas');
+const btnPerfil = document.getElementById('perfil');
+const btnEntrar = document.getElementById('loginAnchorButton');
+const btnSair = document.getElementById('logoutAnchorButton');
+const sectionColection = document.getElementById('sectionColection');
+
+
 
 export default () => {
     const emailLogin = document.getElementById('emailLogin');
@@ -16,11 +21,11 @@ export default () => {
     const validaEmail = /\S+@\S+\.\S+/;
     let error = false;
     if (!validaEmail.test(emailLogin.value)) {
-        error = true;
+        error = "Erro: Login inválido";
         emailLogin.classList.add('error');
     }
     if (pswLogin.value.length < 3) {
-        error = true;
+        error = "Erro: Senha inválida";
         pswLogin.classList.add('error');
     }
     if (error) {
@@ -50,19 +55,29 @@ export default () => {
                 throw new Error('Ocorreu um erro!');
             })
             .then((data) => {
-                emailLogin.value = '';
-                pswLogin.value = '';
-                updateCache(data.data)
 
-                colecao.classList.remove("invisible")
-                store.classList.remove("invisible")
-                perfil.classList.remove("invisible")
-                profileNameHeader.innerHTML = data.data.name
-                trocas.classList.remove("invisible")
-                loginAnchorButton.classList.add("invisible")
-                logoutAnchorButton.classList.remove("invisible")
+                if (data.data){
 
-                return true
+                    emailLogin.value = '';
+                    pswLogin.value = '';
+                    updateCache(data.data)
+    
+                    profileNameHeader.innerHTML = data.data.name.split(" ", 1);
+                    btnColecao.style.display = 'flex'
+                    btnLoja.style.display = 'flex'
+                    btnPerfil.style.display = 'flex'
+                    btnTrocas.style.display = 'flex'
+                    btnEntrar.style.display = 'none'
+                    btnSair.style.display = 'flex'
+
+                    renderSection(sectionColection)
+                    getUserItems();
+
+                } else {
+                    renderModal(data.message);
+                }
+
+                return null
             })
             .catch(error => {
                 console.log(error)

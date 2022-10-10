@@ -11,12 +11,14 @@ class LoginUsers {
 
       if (LoginUser.userExists) {
         const encodedData = this.#jwt.encode(LoginUser.user);
-        return { message: "success login user", data: LoginUser.user };
+        
+        return { message: "success login user", token: encodedData , data:LoginUser.user};
       } else {
-        return { message: "failed login user", data: "" };
+        return { message: "Falha na autenticação de acesso.\r\n Favor, verificar os dados inseridos.", data: "" };
       }
     } catch (error) {
       console.error(error);
+      return {error}
     }
   }
 }

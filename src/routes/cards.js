@@ -54,7 +54,7 @@ router.put(
 );
 //tradeId -> integer
 
-router.get(
+router.put(
   "/card/show_total_items",
   new ShowTotalItems().handler.bind(new ShowTotalItems())
 );
@@ -69,7 +69,6 @@ router.post(
   "/card/daily_collect",
   new DailyCollect().handler.bind(new DailyCollect())
 );
-//userid -> integer
 //userid -> integer
 
 module.exports = router;

@@ -10,4 +10,8 @@ const GetLootables = `
     SELECT id FROM memes WHERE lootable = true AND rare = $1;
 `
 
-module.exports = { NewMeme , GetMemes , GetLootables } ;
+const GetMeme = `
+    select * from memes where id = $1
+`
+
+module.exports = { NewMeme , GetMemes , GetLootables , GetMeme } ;
