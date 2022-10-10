@@ -12,6 +12,7 @@ import cart from './module/js/cart.js';
 //imports fetchs
 import jsRegister from './module/js/jsRegister.js';
 import jsLogin from './module/js/jsLogin.js';
+import logoutClearHeader from './module/js/jsLogout.js'
 
 const main = document.getElementById('root');
 
@@ -26,7 +27,15 @@ const btnPagamentos = document.getElementById('btnPagamentos');
 const btnLoja = document.getElementById('loja');
 const btnLogin = document.getElementById('loginAnchorButton');
 const anchors = document.querySelectorAll('header a');
+const logoutAnchorButton = document.getElementById("logoutAnchorButton");
+
 let navAnchors;
+let cachedUser = {};
+
+export function updateCache(data) {
+    cachedUser = {data};
+    console.log(cachedUser)
+}
 
 const renderiza = { detail: { name: location.pathaname } };
 
@@ -230,6 +239,12 @@ window.addEventListener('load', () => {
 /* Atribuindo as funções aos botões */
 btnLogin.addEventListener('click', () => {
     renderiza.detail.name = '/login';
+    rota();
+});
+
+logoutAnchorButton.addEventListener('click', () => {
+    renderiza.detail.name = '/login';
+    logoutClearHeader();
     rota();
 });
 

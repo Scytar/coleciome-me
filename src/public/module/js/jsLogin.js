@@ -1,3 +1,13 @@
+const colecao = document.getElementById("colecao");
+const store = document.getElementById("store");
+const perfil = document.getElementById("perfil");
+const trocas = document.getElementById("trocas");
+const loginAnchorButton = document.getElementById("loginAnchorButton");
+const logoutAnchorButton = document.getElementById("logoutAnchorButton");
+const profileNameHeader = document.getElementById('profileNameHeader');
+
+import { updateCache } from '../../index.js'
+
 export default () => {
     const emailLogin = document.getElementById('emailLogin');
     const pswLogin = document.getElementById('passwordLogin');
@@ -14,7 +24,7 @@ export default () => {
         pswLogin.classList.add('error');
     }
     if (error) {
-        return;
+        return console.log(error);
     } else {
         loginSection();
     }
@@ -34,20 +44,28 @@ export default () => {
 
         fetch('/user/login', options)
             .then(response => {
-                alert('aqui');
                 if (response.status == 200) {
-                    alert('entrei');
-                    return;
+                    return response.json();
                 }
                 throw new Error('Ocorreu um erro!');
             })
-            .then(() => {
+            .then((data) => {
                 emailLogin.value = '';
                 pswLogin.value = '';
-                return alert('pag profile');
+                updateCache(data.data)
+
+                colecao.classList.remove("invisible")
+                store.classList.remove("invisible")
+                perfil.classList.remove("invisible")
+                profileNameHeader.innerHTML = data.data.name
+                trocas.classList.remove("invisible")
+                loginAnchorButton.classList.add("invisible")
+                logoutAnchorButton.classList.remove("invisible")
+
+                return true
             })
             .catch(error => {
-                alert(error);
+                console.log(error)
             });
     }
 };

@@ -1,4 +1,4 @@
-#sectionFather{
+#sectionFather {
     display: flex;
     justify-content: center;
 }
@@ -32,7 +32,7 @@
     padding: 0.5rem 0;
 }
 
-.loginTab{
+.loginTab {
     width: 100%;
 }
 
@@ -52,12 +52,14 @@
     padding-bottom: 30px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
+    gap: 30px;
 }
 
-.cadastrogin #conteinerLogin #userDoll, .cadastrogin #conteinerLogin #userDollRegister {
+.cadastrogin #conteinerLogin #userDoll,
+.cadastrogin #conteinerLogin #userDollRegister {
     width: 80px;
     height: 80px;
-    background-color: #CCFF66;
+    background-color: #ccff66;
     border-radius: 20px;
     margin-bottom: 30px;
 }
@@ -67,7 +69,7 @@
 }
 
 .cadastrogin #conteinerLogin select {
-    color: #F0EFEF;
+    color: #f0efef;
     cursor: pointer;
     width: 80px;
     height: 20px;
@@ -77,22 +79,26 @@
 }
 
 option {
-    color: #F0EFEF;
+    color: #f0efef;
     background-color: #222;
 }
 
-.cadastrogin #conteinerLogin input {
+input {
     width: 80%;
     max-width: 300px;
-    margin-bottom: 28px;
 }
 
-.cadastrogin #conteinerLogin #btnLogin, .cadastrogin #conteinerLogin #btnRegiter {
+.cadastrogin #conteinerLogin #btnLogin,
+.cadastrogin #conteinerLogin #btnRegiter {
     font-family: 'Roboto';
     font-size: 1rem;
     cursor: pointer;
     padding: 0.5rem 1.5rem;
-    color: #F0EFEF;
+    color: #f0efef;
     border-radius: 2rem;
-    background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
+    background-image: linear-gradient(15deg, #2eb3c4 60%, #2ec4b6 80%);
+}
+
+#divDoTelefone{
+    max-width: 300px;
 }

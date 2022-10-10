@@ -268,7 +268,8 @@ input {
 
 .invisible {
     display: none;
-    
+}
+
 .flex-wrap{
     display: flex;
     flex-wrap: wrap;
@@ -276,4 +277,16 @@ input {
 
 h6{
     font-weight: 400;
+}
+
+#dddPhoneRegister{
+    width: 3rem;
+}
+
+#phoneRegister{
+    width: 100%;
+}
+
+.width-full{
+    width: 100%;
 }
