@@ -14,7 +14,9 @@ import cart from './module/js/cart.js'; */
 import jsRegister from './module/js/jsRegister.js';
 import jsLogin from './module/js/jsLogin.js';
 import logoutClearHeader from './module/js/jsLogout.js';
-import getUserItems from './module/js/jsColection.js'
+import getUserItems from './module/js/jsColection.js';
+import logout from './module/js/jsLogout.js';
+import { nameAdmin } from './module/js/admin_login.js';
 
 
 const main = document.getElementById('root');
@@ -31,6 +33,7 @@ const btnRegisterTabFromRegister = document.getElementById('registerTabFromRegis
 const btnLoginTabFromRegister = document.getElementById('loginTabFromRegister');
 const btnRegisterTabFromLogin = document.getElementById('registerTabFromLogin');
 const btnLoginTabFromLogin = document.getElementById('loginTabFromLogin');
+const btnUpload = document.getElementById('upload');
 
 //Botões que fazem coisas de verdade (comunica com Back)
 const btnLogin = document.getElementById('btnLogin');
@@ -45,6 +48,7 @@ const sectionColection = document.getElementById('sectionColection');
 const sectionStore = document.getElementById('sectionStore');
 const sectionTrading = document.getElementById('sectionTrading');
 const sectionMyRequests = document.getElementById('sectionMyRequests');
+const sectionAdmin = document.getElementById('sectionAdmin');
 
 //Elementos do Modal
 const messageModalBackground = document.getElementById('messageModalBackground');
@@ -146,11 +150,21 @@ btnLoginTabFromLogin.addEventListener('click', (e)=> {
     renderSection(sectionLogin);
 });
 
+btnUpload.addEventListener('click', (e)=> {
+    renderSection(sectionAdmin);
+    nameAdmin();
+});
+
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
 
 btnLogin.addEventListener('click',(e) => {
     jsLogin()
 });
+
+btnSair.addEventListener('click',(e) => {
+    logout()
+});
+    
 
 
                                                         function facilitarNossoTeste(){

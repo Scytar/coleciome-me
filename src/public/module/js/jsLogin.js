@@ -10,6 +10,7 @@ const btnPerfil = document.getElementById('perfil');
 const btnEntrar = document.getElementById('loginAnchorButton');
 const btnSair = document.getElementById('logoutAnchorButton');
 const sectionColection = document.getElementById('sectionColection');
+const btnUpload = document.getElementById('upload');
 
 
 
@@ -52,7 +53,7 @@ export default () => {
                 if (response.status == 200) {
                     return response.json();
                 }
-                throw new Error('Ocorreu um erro!');
+                return console.error('Ocorreu um erro!');
             })
             .then((data) => {
 
@@ -61,6 +62,11 @@ export default () => {
                     emailLogin.value = '';
                     pswLogin.value = '';
                     updateCache(data.data)
+                    btnUpload.style.display = 'none'
+                    
+                    if(data.data.usertype == "admin") {
+                        btnUpload.style.display = 'flex'
+                    }
     
                     profileNameHeader.innerHTML = data.data.name.split(" ", 1);
                     btnColecao.style.display = 'flex'

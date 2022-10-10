@@ -371,3 +371,9 @@ h6 {
 .width-full {
     width: 100%;
 }
+
+#sectionAdmin{
+    display: none;
+    justify-content: center;
+    align-items: center;
+}

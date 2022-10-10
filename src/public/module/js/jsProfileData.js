@@ -9,7 +9,7 @@ export default () => {
         error = true
         nameData.classList.add('error')
     }
-    if(cpfData.value.length < 10|| cpfData.value.length >= 12 || cpfData.value == "") {
+    if(cpfData.value.length < 10 || cpfData.value.length >= 12 || cpfData.value == "") {
         error = true
         cpfData.classList.add('error')
     }

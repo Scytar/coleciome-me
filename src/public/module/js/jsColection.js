@@ -44,7 +44,6 @@ export default function getUserItems() {
                             rarityBorder = "greenBorder"
                         }
 
-                        console.log(data.data.name)
                         coletionsFig.innerHTML += `
                         <div class="memeContainer ${rarityBorder}">
                             <img src="../images/${data.data.name}" class="fig">
