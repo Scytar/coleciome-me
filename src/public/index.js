@@ -1,4 +1,4 @@
-import home from './module/js/home.js';
+/* import home from './module/js/home.js';
 import login from './module/js/login.js';
 import registration from './module/js/registration.js';
 import store from './module/js/store.js';
@@ -8,249 +8,198 @@ import tradingMyOffers from './module/js/tradingMyOffers.js';
 import tradingMyRequests from './module/js/tradingMyRequests.js';
 import album from './module/js/album.js';
 import colection from './module/js/colection.js';
-import cart from './module/js/cart.js';
+import cart from './module/js/cart.js'; */
+
 //imports fetchs
 import jsRegister from './module/js/jsRegister.js';
 import jsLogin from './module/js/jsLogin.js';
-import logoutClearHeader from './module/js/jsLogout.js'
+import logoutClearHeader from './module/js/jsLogout.js';
+import getUserItems from './module/js/jsColection.js';
+import logout from './module/js/jsLogout.js';
+import nameAdmin from './module/js/admin_login.js';
+import editUserInfo from './module/js/jsProfileData.js';
+import showUserInfo from './module/js/jsProfileDataDisplay.js';
+
 
 const main = document.getElementById('root');
 
-/* const btnHome = document.getElementById('inicial');
-const btnAlbum = document.getElementById('album');
+//Botões de navegação
+const btnInicial = document.getElementById('inicial');
 const btnColecao = document.getElementById('colecao');
-const btnLoja = document.getElementById('loja');*/
-const btnOffers = document.getElementById('offers')
-const btnRequests = document.getElementById('requests')
-const btnPerfil = document.getElementById('btnPerfil');
-const btnPagamentos = document.getElementById('btnPagamentos');
 const btnLoja = document.getElementById('loja');
-const btnLogin = document.getElementById('loginAnchorButton');
-const anchors = document.querySelectorAll('header a');
-const logoutAnchorButton = document.getElementById("logoutAnchorButton");
+const btnTrocas = document.getElementById('trocas');
+const btnPerfil = document.getElementById('perfil');
+const btnEntrar = document.getElementById('loginAnchorButton');
+const btnSair = document.getElementById('logoutAnchorButton');
+const btnRegisterTabFromRegister = document.getElementById('registerTabFromRegister');
+const btnLoginTabFromRegister = document.getElementById('loginTabFromRegister');
+const btnRegisterTabFromLogin = document.getElementById('registerTabFromLogin');
+const btnLoginTabFromLogin = document.getElementById('loginTabFromLogin');
+const btnUpload = document.getElementById('upload');
+const btnPagamentosFromPerfil = document.getElementById('btnPagamentos');
+const btnPerfilFromPagamentos = document.getElementById('btnPerfilFromPayment');
 
-let navAnchors;
+
+//Botões que fazem coisas de verdade (comunica com Back)
+const btnLogin = document.getElementById('btnLogin');
+const btnEditUserInfo = document.getElementById('btnEditUserInfo');
+
+//Todos os elementos pai das Sessões a Serem exibidas
+const sectionHome = document.getElementById('sectionHome');
+const sectionRegister = document.getElementById('sectionRegister');
+const sectionLogin = document.getElementById('sectionLogin');
+const sectionProfile = document.getElementById('sectionProfile');
+const sectionPayment = document.getElementById('sectionPayment');
+const sectionColection = document.getElementById('sectionColection');
+const sectionStore = document.getElementById('sectionStore');
+const sectionTrading = document.getElementById('sectionTrading');
+const sectionMyRequests = document.getElementById('sectionMyRequests');
+const sectionAdmin = document.getElementById('sectionAdmin');
+
+//Elementos do Modal
+const messageModalBackground = document.getElementById('messageModalBackground');
+const messageModal = document.getElementById('messageModal');
+const messageBox = document.getElementById('messageBox');
+const messageModalYesButton = document.getElementById('messageModalYesButton');
+const messageModalNoButton = document.getElementById('messageModalNoButton');
+
 let cachedUser = {};
 
 export function updateCache(data) {
-    cachedUser = {data};
-    console.log(cachedUser)
+    cachedUser = { data };
+}
+
+export function getCache() {
+    return cachedUser;
 }
 
 const renderiza = { detail: { name: location.pathaname } };
 
-main.appendChild(home());
 
-function rota() {
-    switch (renderiza.detail.name) {
-        case '/inicial':
-            main.innerHTML = '';
-            main.appendChild(home());
-            break;
+//Lógica do Modal
+messageModalBackground.addEventListener('click',(e)=> {
+    messageModalBackground.style.display = 'none';
+});
+messageModal.addEventListener('click',(e)=> {
+    e.stopImmediatePropagation();
+});
+messageModalYesButton.addEventListener('click',(e)=> {
+    messageModalBackground.style.display = 'none';
+    //inserir mais coisas a fazer aqui (de preferência um switch case com a função a ser realizada quando clicar)
+});
+messageModalNoButton.addEventListener('click',(e)=> {
+    messageModalBackground.style.display = 'none';
+});
 
-        case '/login':
-            main.innerHTML = '';
-            main.appendChild(login());
-            navAnchors = document.querySelectorAll('nav a');
-            navAnchors.forEach(a => {
-                a.addEventListener('click', () => {
-                    renderiza.detail.name = a.dataset.pathname;
-                    rota();
-                });
-            });
-            const btnRegister = document.getElementById('registerAnchorButton');
-            btnRegister.addEventListener('click', () => {
-                renderiza.detail.name = '/cadastro';
-                rota();
-            });
 
-            const btnlogon = document.getElementById("btnLogin");
-            btnlogon.addEventListener('click', () => jsLogin());
-            break;
+//Função que renderiza somente a Sessão desejada
+export function renderSection(sectionName) {
+    //Esconde todas as Sections
+    sectionHome.style.display = 'none';
+    sectionRegister.style.display = 'none';
+    sectionLogin.style.display = 'none';
+    sectionProfile.style.display = 'none';
+    sectionPayment.style.display = 'none';
+    sectionColection.style.display = 'none';
+    sectionStore.style.display = 'none';
+    sectionTrading.style.display = 'none';
+    sectionMyRequests.style.display = 'none';
 
-        case '/cadastro':
-            main.innerHTML = '';
-            main.appendChild(registration());
-            navAnchors = document.querySelectorAll('nav a');
-            navAnchors.forEach(a => {
-                a.addEventListener('click', () => {
-                    renderiza.detail.name = a.dataset.pathname;
-                    rota();
-                });
-            });
-            const btn_login = document.getElementById('loginButton'); //aba de login
-            btn_login.addEventListener('click', () => {
-                renderiza.detail.name = '/login';
-                rota();
-            });
-
-            const newPwd = document.getElementById("passwordRegister");
-            const verifynewPwd = document.getElementById("passwordVerifyRegister");
-            const btnRegiter = document.getElementById("btnRegiter");
-            btnRegiter.addEventListener('click', () => jsRegister());
-            break;
-
-        case '/store':
-            main.innerHTML = '';
-            main.appendChild(store());
-
-            const buyComum = document.getElementById('buyComum');
-            buyComum.addEventListener('click', () => {
-                renderiza.detail.name = '/cart';
-                rota();
-            });
-
-            const buyGold = document.getElementById('buyGold');
-            buyGold.addEventListener('click', () => {
-                renderiza.detail.name = '/cart';
-                rota();
-            });
-            break;
-
-        case '/perfil':
-            main.innerHTML = '';
-            main.appendChild(profileData());
-            navAnchors = document.querySelectorAll('nav a');
-            navAnchors.forEach(a => {
-                a.addEventListener('click', () => {
-                    renderiza.detail.name = a.dataset.pathname;
-                    rota();
-                });
-            });
-            btnPagamentos.addEventListener('click', () => {
-                renderiza.detail.name = '/pagamentos';
-                rota();
-            });
-            break;
-
-        case '/pagamentos':
-            main.innerHTML = '';
-            main.appendChild(profilePayments());
-            navAnchors = document.querySelectorAll('nav a');
-            navAnchors.forEach(a => {
-                a.addEventListener('click', () => {
-                    renderiza.detail.name = a.dataset.pathname;
-                    rota();
-                });
-            });
-            btnPerfil.addEventListener('click', () => {
-                renderiza.detail.name = '/perfil';
-                rota();
-            });
-            break;
-
-        case '/trocas':
-            main.innerHTML = '';
-            main.appendChild(tradingMyOffers());
-            navAnchors = document.querySelectorAll('nav a');
-            navAnchors.forEach(a => {
-                a.addEventListener('click', () => {
-                    renderiza.detail.name = a.dataset.pathname;
-                    rota();
-                });
-            });
-            btnPerfil.addEventListener('click', () => {
-                renderiza.detail.name = '/perfil';
-                rota();
-            });
-            break;
-
-        case '/solicitacoes':
-            main.innerHTML = '';
-            main.appendChild(tradingMyRequests());
-            navAnchors = document.querySelectorAll('nav a');
-            navAnchors.forEach(a => {
-                a.addEventListener('click', () => {
-                    renderiza.detail.name = a.dataset.pathname;
-                    rota();
-                });
-            });
-            btnPerfil.addEventListener('click', () => {
-                renderiza.detail.name = '/perfil';
-                rota();
-            });
-        case '/album':
-            main.innerHTML = '';
-            main.appendChild(album());
-            break;
-
-        case '/colection':
-            main.innerHTML = '';
-            main.appendChild(colection());
-            break;
-
-        case '/cart':
-            main.innerHTML = '';
-            main.appendChild(cart());
-            break;
-
-        default:
-            `Página não encontrada`;
-    }
+    //Mostra apenas a Section que passa no parâmetro
+    sectionName.style.display = 'flex';
 }
 
-window.addEventListener('onstatechange', rota);
+//Função que chama o modal
+export function renderModal(message) {
+    messageModalBackground.style.display = 'flex'
+    messageBox.textContent = message;
+}
 
-window.addEventListener('load', () => {
-    switch (renderiza.detail.name) {
-        case '/inicial':
-            main.innerHTML = '';
-            main.appendChild(home());
-            break;
-
-        case '/login':
-            main.innerHTML = '';
-            main.appendChild(login());
-            break;
-
-        case '/cadastro':
-            main.innerHTML = '';
-            main.appendChild(registration());
-            break;
-
-        case '/perfil':
-            main.innerHTML = '';
-            main.appendChild(profilePayments());
-        case '/store':
-            main.innerHTML = '';
-            main.appendChild(store());
-            break;
-
-        case '/album':
-            main.innerHTML = '';
-            main.appendChild(album());
-            break;
-
-        case '/colection':
-            main.innerHTML = '';
-            main.appendChild(colection());
-            break;
-
-        case '/cart':
-            main.innerHTML = '';
-            main.appendChild(cart());
-            break;
-
-        default:
-            `Página não encontrada`;
-    }
-});
-
-/* Atribuindo as funções aos botões */
-btnLogin.addEventListener('click', () => {
-    renderiza.detail.name = '/login';
-    rota();
-});
-
-logoutAnchorButton.addEventListener('click', () => {
-    renderiza.detail.name = '/login';
-    logoutClearHeader();
-    rota();
-});
-
-anchors.forEach(a => {
-    a.addEventListener('click', () => {
-        renderiza.detail.name = a.dataset.pathname;
-        rota();
+//Event Listeners para renderizar as Sections
+    btnInicial.addEventListener('click', (e)=> {
+        renderSection(sectionHome);
     });
+
+    //Coleção do Usuário
+    btnColecao.addEventListener('click', (e)=> {
+        renderSection(sectionColection);
+        getUserItems();
+    });
+    //Loja
+    btnLoja.addEventListener('click', (e)=> {
+        renderSection(sectionStore);
+    });
+    //Trocas
+    btnTrocas.addEventListener('click', (e)=> {
+        renderSection(sectionTrading);
+    });
+    //Perfil do usuário (editar dados)
+    btnPerfil.addEventListener('click', (e)=> {
+        renderSection(sectionProfile);
+        showUserInfo()
+    });
+    //Seção de 
+    btnEntrar.addEventListener('click', (e)=> {
+        renderSection(sectionLogin);
+    });
+
+    btnRegisterTabFromRegister.addEventListener('click', (e)=> {
+        renderSection(sectionRegister);
+    });
+
+    btnLoginTabFromRegister.addEventListener('click', (e)=> {
+        renderSection(sectionLogin);
+    });
+
+    btnRegisterTabFromLogin.addEventListener('click', (e)=> {
+        renderSection(sectionRegister);
+    });
+
+    btnLoginTabFromLogin.addEventListener('click', (e)=> {
+        renderSection(sectionLogin);
+    });
+
+    btnUpload.addEventListener('click', (e)=> {
+        renderSection(sectionAdmin);
+        nameAdmin();
+    });
+
+    btnPagamentosFromPerfil.addEventListener('click', (e)=> {
+        renderSection(sectionPayment);
+    });
+
+    btnPerfilFromPagamentos.addEventListener('click', (e)=> {
+        renderSection(sectionProfile);
+    });
+
+//EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
+
+btnLogin.addEventListener('click',(e) => {
+    jsLogin();
 });
+
+btnSair.addEventListener('click',(e) => {
+    logout();
+});
+
+btnEditUserInfo.addEventListener('click', (e) => {
+    editUserInfo();
+})
+    
+
+
+                                                        function facilitarNossoTeste(){
+                                                            renderSection(sectionLogin);
+                                                        }
+
+                                                        facilitarNossoTeste()
+
+sectionHome
+sectionRegister
+sectionLogin
+sectionProfile
+sectionPayment
+sectionColection
+sectionStore
+sectionTrading
+sectionMyRequests

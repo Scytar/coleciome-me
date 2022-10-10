@@ -3,7 +3,7 @@ class GetLootablesMemes {
   
     async handler(req, res) {
       try {
-        const response = await new this.#get_lootables_memes().execute(req.body);
+        const response = await new this.#get_lootables_memes().execute(req.params);
         res.json(response);
       } catch (error) {
         console.error(error);

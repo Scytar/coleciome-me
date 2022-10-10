@@ -9,7 +9,7 @@ router.post("/orders/insert", new InsertOrder().handler.bind(new InsertOrder));
 //userid -> integer
 //valueToAddToWallet -> real
 
-router.get("/orders/get", new GetOrders().handler.bind(new GetOrders));
+router.get("/orders/get/:userid/:orderStatus", new GetOrders().handler.bind(new GetOrders));
 //userid -> integer
 //orderStatus -> ['confirmed','awaiting payment','canceled']
 router.put("/orders/confirm", new ConfirmOrder().handler.bind(new ConfirmOrder));

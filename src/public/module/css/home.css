@@ -1,3 +1,10 @@
+.styleHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+
 main #gif-content {
     text-align: center;
     background-image: url('../img/border-orange.svg');

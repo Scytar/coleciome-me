@@ -18,8 +18,9 @@
             </div>
             <div id="headerRight">
                 <a data-pathname="/colection" id="colecao" class="invisible">COLEÇÃO</a>
-                <a data-pathname="/store" id="store" class="invisible">LOJA</a>
+                <a data-pathname="/store" id="loja" class="invisible">LOJA</a>
                 <a data-pathname="/trocas" id="trocas" class="invisible">TROCAS</a>
+                <a data-pathname="/upload" id="upload" class="invisible">CRIAR MEME</a>
                 <a data-pathname="/perfil" id="perfil" class="invisible justify-center align-center gap-small">
                     <?xml version="1.0" ?><svg class="feather feather-user" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     <span id="profileNameHeader">PERFIL</span></a>
@@ -32,8 +33,404 @@
             </div>
         </header>
         <main id="root">
+
+            <!-- ######################## home ######################## -->
+            <section id="sectionHome" class="styleHome">
+                <div id="home-parent">
+                    <div id="gif-content">
+                        <img id="gif" src="./module/img/opai.gif" alt="gif divertido">
+                    </div>
+                    <div id="content">
+                        <section>
+                            <h1>DIVIRTA-SE</h1>
+                            <h2>COLECIONANDO E TROCANDO MEMES</h2>
+                        </section>
+                        <section id="user">
+                            <img id="imgUser" src="./module/img/userHome.png">
+                            <div id="inf">
+                                <p>João Maria<ap> 
+                                <div id="bar"></div>
+                            </div>
+                        </section>
+                        <p id="pCol">Coleção de Memes</p>
+                        <div id="homeImgs">
+                            <img id="homeImgs1" src="./module/img/home2.png" alt="Memes">
+                            <img id="homeImgs2" src="./module/img/home3.png" alt="Memes">
+                            <img id="homeImgs3" src="./module/img/home4.png" alt="Memes">
+                        </div> 
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ######################## Cadastro ######################## -->
+            <section id="sectionRegister" class="sectionFather">
+                <section class="cadastrogin">
+                    <nav id="navLogin">
+                        <a id="registerTabFromRegister" data-pathname="/cadastro" class="selected">Cadastrar</a>
+                        <a id="loginTabFromRegister" data-pathname="/login">Entrar</a>
+                    </nav>
+            
+                    <div id="conteinerLogin">
+                        <div id="userDollRegister"></div>
+                        
+                        <input type="text" id="nameRegister" maxlength="80" placeholder="Nome" required tabindex="1">
+            
+                        <input type="text" id="cpfRegister" maxlength="11" placeholder="Somente números do seu CPF" required tabindex="2">
+                        
+                        <div id="divDoTelefone" class="flex-row gap-small align-center justify-center width-full">
+                            <input type="text" id="dddPhoneRegister" maxlength="2" placeholder="DDD" required tabindex="3">
+                            <input type="text" id="phoneRegister" maxlength="9" placeholder="Somente números do telefone" required tabindex="4">
+                        </div>
+            
+                        <input type="email" id="emailRegister" maxlength="80" placeholder="E-mail" required tabindex="5">
+            
+                        <div id="passwordDiv">
+                            <input type="password" id="passwordRegister" maxlength="32" placeholder="Senha" required tabindex="6">
+                            <h6>A senha deve possuir mais de 8 dígitos, uma letra maiúscula, minúscula e um símbolo</h6>
+                        </div>
+            
+                        <input type="password" id="passwordVerifyRegister" maxlength="32" placeholder="Confirme sua senha" required tabindex="7">
+            
+                        <button id="btnRegiter">Registrar</button>
+                    </div>
+                </section>
+            </section>
+            
+            <!-- ######################## Login ######################## -->
+            <section id="sectionLogin" class="sectionFather">
+                <section class="cadastrogin">
+                    <nav id="navLogin">
+                        <a id="registerTabFromLogin" data-pathname="/cadastro" class="loginTab">Cadastrar</a>
+                        <a id="loginTabFromLogin" data-pathname="/login" class="selected loginTab">Entrar</a>
+                    </nav>
+            
+                    <div id="conteinerLogin">
+                        <div id="userDoll">
+                            <img id="imgUser" src="./module/img/userHome.png" alt="gif divertido">
+                        </div>
+                        <input type="email" id="emailLogin" maxlength="80" placeholder="E-mail" required tabindex="1">
+                        <input type="password" id="passwordLogin" maxlength="10" placeholder="Senha" required tabindex="2">
+                        <button id="btnLogin">Entrar</button>
+                    </div>
+                </section>
+            </section>
+
+            <!-- ######################## perfil ######################## -->
+            <section id="sectionProfile" class="pageWithUser profile">
+                <section id="spacUser">
+                    <h2 id="nameUser">Maggie</h2>
+                    <img class="avatar" src="./module/img/doll03.png"></img>
+                    <p>Memeiro desde <span id="tempoMemeiro"></span></p>
+                    <div id="bar"></div>
+                    <p>Minha carteira:</p>
+                    <div id="pocket">🍪 <span id="walletDisplay">00</span></div>
+                </section>
+            
+                <section id="userData">
+            
+                <nav id="navLogin">
+                    <a data-pathname="/perfil"  class="selected" >Dados do usuário</a>
+                    <a id="btnPagamentos" data-pathname="/pagamentos" >Pagamentos</a>
+                </nav>
+            
+            <div id="conteinerLogin">
+                <h3 class="paymentSubtitle">Dados do usuário</h3>
+                <div id="userInformation">
+            
+                    <div class="flex-row justify-center align-center gap-small">
+                        <div id="labelDiv">
+                            <label class="profileData" for="nameData">
+                            Nome:
+                            </label>
+                            <label class="profileData" for="cpfData">
+                            CPF:
+                            </label>
+                            <label class="profileData" for="celularData">
+                            Celular:
+                            </label>
+                            <label class="profileData" for="emailData">
+                            Email:
+                            </label>
+                            <label class="profileData" for="senhaData">
+                            Senha atual:
+                            </label>
+                            <label class="profileData" for="newData">
+                            Nova senha:
+                            </label>
+                            <label class="profileData" for="confNewData">
+                            Confirmar:
+                            </label>
+                        </div>
+                
+                        <div id="inputDiv">
+                            <input type="text" id="nameData" name="nameData" required>
+                            <input type="text" id="cpfData" name="cpfData" required>
+                            <input type="text" id="celularData" name="celularData" required>
+                            <input type="email" id="emailData" name="emailData" required>
+                            <input type="password" name="senhaData" id="senhaData" required placeholder="Digite sua senha atual">
+                            <input type="password" id="newData" name="newData" placeholder="(opcional)">
+                            <input type="password" id="confNewData" name="confNewData" placeholder="Repita nova senha">
+                        </div>
+                    </div>
+
+                    <button id="btnEditUserInfo">Atualizar</button>
+                </div>
+                </section>
+            </section>
+
+            <!-- ######################## pagamento ######################## -->
+            <section id="sectionPayment" class="pageWithUser profile">
+                <section id="spacUser">
+                    <h2 id="nameUserFromPayment">Maggie</h2>
+                    <img class="avatar" src="./module/img/doll03.png"></img>
+                        <p>Memeiro desde <span id="tempoMemeiroFromPayment"></span></p>
+                        <div id="bar"></div>
+                        <p>Minha carteira:</p>
+                    <div>🍪 <span id="pocketFromPayment">0</span></div>
+                </section>
+            
+                <section id="userData">
+                    <nav id="navLogin">
+                        <a id="btnPerfilFromPayment" data-pathname="/perfil" >Dados do usuário</a>
+                        <a data-pathname="/pagamentos" class="selected">Pagamentos</a>
+                    </nav>
+            
+                    <article id="CardDataSave">
+                        <h3>Cartão cadastrado</h3>
+                        <div id="infCardSave">
+            
+                            <label for="numberCard">
+                                Número do cartão:
+                                <input type="text" id="numberCard" name="numberCard" required>
+                            </label>
+                            
+                            <label for="nameCard">
+                                Nome (titular):
+                                <input type="text" id="nameCard" name="nameCard" required>
+                            </label>            
+            
+                            <label for="validity">
+                                Validade:
+                                <input type="text" id="validity" name="validity" required>
+                            </label>
+                                        
+                            <label for="cvv">
+                                CVV:
+                                <input type="password" id="cvv" name="cvv" required>
+                            </label>
+            
+                            <button id="btnSendEditCard">Enviar</button>
+                        </div>
+                        
+                    </article>
+                </section>
+            </section>
+
+            <!-- ######################## Coleção ######################## -->
+            <section id="sectionColection" class="pageWithUser">
+                <section id="collectionFather">
+                    <h3>Minha coleção</h3>
+                    <div id="coletionsFig">
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/funny-look.gif" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/opai.gif" class="rareFig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/meme-downloading.gif" class="rareFig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer orangeBorder"><img src="./module/img/dog-angry.jpg" class="rareFig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/dog-smile.jpg" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                    <div class="memeContainer greenBorder"><img src="./module/img/papagaio.webp" class="fig"></div>
+                </section>
+            </section>
+            
+            <!-- ######################## Loja ######################## -->
+            <section id="sectionStore" class="pageWithUser styleStore">
+                <div id="conteinerStore" class="gap-big">
+                    <section id="bonus">
+                        <h2>Bônus diário</h2>
+                        <div id="bonusDiary" class="storeItem greenBorder">
+                            <img id="loginBonus" src="./module/img/random-card.svg" alt="">
+                        </div>
+                    </section>
+            
+                    <section id="storeFig">
+                        <h2>Loja de figurinhas</h2>
+            
+                        <div id="storeItemsContainer">
+                            <div class="conteinerPack">
+                                <div class="storeItem greenBorder">
+                                    <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                                </div>
+                                <button class="btnPay" id="buyComum">Comprar</button>
+                            </div>
+            
+                            <div class="conteinerPack">
+                            <div class="storeItem orangeBorder">
+                                <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                            </div>
+                                <button class="btnPay" id="buyGold">Comprar</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="walletCreditStore" class="flex-column justify-center align-center gap-big border-purple">
+                        <h2>Compre Créditos na Carteira</h2>
+                        <div class="flex-column justify-center align-center gap-small">
+                            <div class="flex-row justify-center align-center">
+                                <p class="creditLabel">🍪</p>
+                                <input id="valueToAddToWalletInput" type="number" placeholder="Quantidade">
+                            </div>
+                            <button class="btnPay">Comprar</button>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <!-- ######################## Minhas Ofertas ######################## -->
+            <section id="sectionTrading" class="tradingCards"> <!-- Esse ID estava inserido no arquivo store.js -->
+                <nav id="navTrading">
+                    <a id="offers" data-pathname="/trocas" class="selected" >Ofertas</a>
+                    <a id="requests" data-pathname="/solicitacoes">Minhas solicitações</a>
+                </nav>
+
+                <div id="containerTrading">
+                    <div class="cardsGroup">
+                        <div class="cardsTrading">
+
+                        </div>
+
+                        <div id="linha-vertical"></div>
+
+                        <div class="cardsTrading">
+
+                        </div>
+                    </div>
+
+                    <div id="linha-horizontal"></div>
+
+                    <div class="cardsGroup"> 
+                        <div class="cardsTrading">
+
+                        </div>
+
+                        <div id="linha-vertical"></div>
+
+                        <div class="cardsTrading">
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            
+            <!-- ######################## Minhas Solicitações ######################## -->
+            <section id="sectionMyRequests" class="styleMyRequests sectionMyRequests">
+                <section>
+                    <nav id="navTrading">
+                        <a id="offers" data-pathname="/trocas">Ofertas</a>
+                        <a id="requests" data-pathname="/solicitacoes" class="selected">Minhas solicitações</a>
+                    </nav>
+
+                    <div id="containerTrading">
+                        <div class="cardsGroup">
+                            <div class="cardsTrading">
+                                <img src="./module/img/comum.svg"></img>
+                                <img src="./module/img/comum.svg"></img>
+                            </div>
+
+                            <div id="linha-vertical"></div>
+
+                            <div class="cardsTrading">
+                                <img src="./module/img/comum.svg"></img>
+                                <img src="./module/img/comum.svg"></img>
+                            </div>
+                        </div>
+
+                        <div id="linha-horizontal"></div>
+
+                        <div class="cardsGroup">
+                            <div class="cardsTrading">
+                                <img src="./module/img/comum.svg"></img>
+                                <img src="./module/img/comum.svg"></img>
+                            </div>
+
+                            <div id="linha-vertical"></div>
+
+                            <div class="cardsTrading">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button id="solicitar">Solicitar</button>
+                </section>
+            </section>
+
+            <!-- ######################## Admin login ######################## -->
+
+            <section id="sectionAdmin">
+                <section class="injectedSection gap-big">
+                <h1>Bem-vindo(a), <span id="welcomeNameDisplay"></span>!</h1>
+                <div class="flex-row flex-wrap justify-center gap-big">
+                    <form id="addMemeForm" class="uploadDiv" action="/upload/meme/true/false/1" method="post" enctype="multipart/form-data">
+                        <h3>Adicionar novo Meme</h3>
+                        <div class="flex-column gap-small">
+                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
+                        </div>
+                        <div class="flex-row">
+                            <input type="checkbox" name="isRareInput" id="isRareInput">
+                            <label for="isRareInput">Raro(a)</label>
+                        </div>
+                        <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
+                    </form>
+                    <!-- <form id="addCollectionFrom" class="uploadDiv" action="/upload/collection/'teste'" method="post" enctype="multipart/form-data">
+                        <h3>Adicionar novo Álbum</h3>
+                        <div class="flex-column gap-small">
+                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
+                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
+                        </div>
+                        <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
+                        <input type="submit" class="addButton" value="Adicionar Álbum" id="addCollectionButton">
+                    </form> -->
+                </div>
+            </section>
+        </section>
+
+            <!-- ######################## Final da Main ######################## -->
         </main>
     </div>
+
+    
+            <!-- ######################## Modal ######################## -->
+    <section id="messageModalBackground">
+        <div id="messageModal">
+            <p id="messageBox">Este é um teste de mensagem</p>
+            <div id="messageModalButtons">
+                <button id="messageModalYesButton">Ok</button>
+                <button id="messageModalNoButton">Voltar</button>
+            </div>
+        </div>
+    </section>
 </body>
 <script src="./index.js" type="module"></script>
 </html>

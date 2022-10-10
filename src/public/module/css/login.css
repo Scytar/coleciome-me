@@ -1,4 +1,8 @@
-#sectionFather {
+#sectionLogin, #sectionRegister {
+    display: none;
+}
+
+.sectionFather {
     display: flex;
     justify-content: center;
 }
@@ -64,8 +68,15 @@
     margin-bottom: 30px;
 }
 
-#conteinerLogin #userDoll #imgUser {
+#conteinerLogin #userDoll #imgUser{
     width: 80px;
+}
+
+#userDollRegister {
+    background-image: url(../img/doolCad.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .cadastrogin #conteinerLogin select {
@@ -101,4 +112,18 @@ input {
 
 #divDoTelefone{
     max-width: 300px;
+}
+
+#passwordDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 80%;
+    max-width: 300px;
+}
+
+#passwordRegister {
+    width: 100%;
 }

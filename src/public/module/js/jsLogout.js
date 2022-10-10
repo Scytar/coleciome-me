@@ -1,19 +1,56 @@
+const btnInicial = document.getElementById('inicial');
+const btnColecao = document.getElementById('colecao');
+const btnLoja = document.getElementById('loja');
+const btnTrocas = document.getElementById('trocas');
+const btnPerfil = document.getElementById('perfil');
+const btnEntrar = document.getElementById('loginAnchorButton');
+const btnSair = document.getElementById('logoutAnchorButton');
+const btnUpload = document.getElementById('upload');
+
+const sectionHome = document.getElementById('sectionHome');
+
+import { renderSection , getCache } from '../../index.js'
 
 
 export default function logoutClearHeader(){
-    const colecao = document.getElementById("colecao");
-    const store = document.getElementById("store");
-    const perfil = document.getElementById("perfil");
-    const trocas = document.getElementById("trocas");
-    const loginAnchorButton = document.getElementById("loginAnchorButton");
-    const logoutAnchorButton = document.getElementById("logoutAnchorButton");
 
+    //Fetch para realizar logout
+    const options = {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 
+            'Content-Type': 'application/json'
+        }
+    };
 
-    colecao.classList.remove('invisible')
-    store.classList.remove('invisible')
-    perfil.classList.remove('invisible')
-    trocas.classList.remove('invisible')
-    loginAnchorButton.classList.remove('invisible')
-    logoutAnchorButton.classList.add('invisible')
-    browser.cookies.remove({name:'userSession'})
+    fetch('/user/logout', options) 
+        .then(response => {
+            if (response.status == 200) {
+                return response.json();
+            }
+            return console.error('Ocorreu um erro!');
+        })
+        .then((data) => {
+            console.log(data)
+
+            if (data.data != ""){
+                btnColecao.style.display = 'none'
+                btnLoja.style.display = 'none'
+                btnPerfil.style.display = 'none'
+                btnTrocas.style.display = 'none'
+                btnEntrar.style.display = 'flex'
+                btnSair.style.display = 'none'
+                btnUpload.style.display = 'none'
+
+                renderSection(sectionHome);
+
+               return renderModal(data.message)
+            }
+            return renderModal("Falha ao tentar sair do usuário")  
+        })
+        .catch(error => {
+            console.error(error)
+        });
+
+    return {}
 }
