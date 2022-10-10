@@ -1,3 +1,4 @@
+
 const cachedSessions = require('../../../server')
 
 class LoginUsers {
@@ -8,16 +9,15 @@ class LoginUsers {
 
     const defaultTimeToLive = 60000;
     try {
-      console.log(cachedSessions)
       let response
       //Check cookie time to live
       if (!req.cookies["userSession"] || !cachedSessions[`${req.cookies["userSession"]}`] || (cachedSessions[`${req.cookies["userSession"]}`].ttl) - Date.now() < 0) {
         response = await new this.#LoginUsers().execute(req.body);
       } else {
-        const dataToReturn = cachedSessions[`${req.cookies["userSession"]}`]
-        dataToReturn.password = null;
-        dataToReturn.cvv = null;
-        return res.json({message:`Bem-vindo(a) de volta, ${cachedSessions[req.cookies["userSession"]].name}!`,data:dataToReturn})
+        const user_data =  this.#jwt.decode(req.cookies["userSession"]);
+        user_data.password = null;
+        user_data.cvv = null;
+        return res.json({message:`Bem-vindo(a) de volta, ${user_data.name}`)
       }
       // const response = await new this.#LoginUsers().execute(req.body);
       if(response.data != "") {
@@ -32,9 +32,8 @@ class LoginUsers {
           .cookie("userSession", response.token, {maxAge: defaultTimeToLive, httpOnly: true})
           .json({ message: response.message, data: response.data });
       } else {
-        return res.json({message:response.message})
-      }
-      
+          res.json(response);
+      }      
     } catch (error) {
       console.error(error);
     }

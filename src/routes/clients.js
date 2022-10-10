@@ -7,6 +7,7 @@ const DeleteUsers = require('../controllers/users/delete_user')
 const EditUsers = require('../controllers/users/edit_user')
 const LoginUsers = require('../controllers/users/login_user')
 const Session = require('../controllers/users/session_user')
+const Logout = require('../controllers/users/logout_user')
 
 router.post("/user/insert", new InsertUsers().handler.bind(new InsertUsers));
 //username -> varchar
@@ -26,5 +27,7 @@ router.delete("/user/delete", new DeleteUsers().handler.bind(new DeleteUsers));
 router.post("/user/login", new LoginUsers().handler.bind(new LoginUsers));
 
 router.post("/session", new Session().handler.bind(new Session));
+
+router.post("/user/logout", new Logout().handler.bind(new Logout));
 
 module.exports = router;

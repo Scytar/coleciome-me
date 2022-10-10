@@ -1,4 +1,4 @@
-class Session {
+class Logout {
   #Session = require("../../services/users/session_user");
 
   async handler(req, res) {
@@ -9,8 +9,8 @@ class Session {
 
       if (response.data != "") {
         res
-          .cookie("userSession", response.data)
-          .json(response)
+            .clearCookie("userSession")
+            .json(response);
       } else {
         res.json(response);
       }
@@ -20,4 +20,4 @@ class Session {
   }
 }
 
-module.exports = Session;
+module.exports = Logout;

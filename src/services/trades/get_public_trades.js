@@ -9,7 +9,7 @@ class GetPublicTrades {
             if (GET_PUBLIC_TRADES) {
             return { message: "Success in searching public trades" , data: GET_PUBLIC_TRADES };
             } else {
-            return { message: "Failed in searching public trades" };
+            return { message: "Failed in searching public trades", data: "" };
             }
     
         } catch (error) {

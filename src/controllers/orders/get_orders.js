@@ -3,7 +3,7 @@ class GetOrders {
   
     async handler(req, res) {
       try {
-        const response = await new this.#get_orders().execute(req.body);
+        const response = await new this.#get_orders().execute(req.params);
         res.json(response);
       } catch (error) {
         console.error(error);

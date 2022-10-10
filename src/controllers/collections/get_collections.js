@@ -3,7 +3,7 @@ class GetCollections {
   
     async handler(req, res) {
       try {
-        const response = await new this.#get_collections().execute(req.body);
+        const response = await new this.#get_collections().execute();
         res.json(response);
       } catch (error) {
         console.error(error);

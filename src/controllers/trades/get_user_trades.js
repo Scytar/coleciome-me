@@ -3,7 +3,7 @@ class GetUserTrades {
   
     async handler(req, res) {
       try {
-        const response = await new this.#get_user_trades().execute(req.body);
+        const response = await new this.#get_user_trades().execute(req.params);
         res.json(response);
       } catch (error) {
         console.error(error);

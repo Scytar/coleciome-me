@@ -15,7 +15,7 @@ const DailyCollect = require("../controllers/cards/daily_collect");
 router.post("/trades/new_trade", new NewTrade().handler.bind(new NewTrade()));
 
 router.get(
-  "/trades/get_user_trades",
+  "/trades/get_user_trades/:userid/:tradeStatus",
   new GetUserTrades().handler.bind(new GetUserTrades())
 );
 //userid -> integer
@@ -54,8 +54,8 @@ router.put(
 );
 //tradeId -> integer
 
-router.put(
-  "/card/show_total_items",
+router.get(
+  "/card/show_total_items/:ownerid",
   new ShowTotalItems().handler.bind(new ShowTotalItems())
 );
 //ownerid -> integer
