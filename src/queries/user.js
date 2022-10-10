@@ -15,9 +15,9 @@ const updateUser = `
     phone = $5,
     cardname = $6,
     cardnum = $7,
-    cardcvv = &8,
-    card_expiration = $9
-    update_date = now() WHERE id = $10 RETURNING id;  
+    cardcvv = $8,
+    card_expiration = $9,
+    update_date = now() WHERE id = $10 RETURNING *;  
 `;
 
 

@@ -21,7 +21,9 @@
                 <a data-pathname="/store" id="store">LOJA</a>
                 <a data-pathname="/perfil" id="perfil">PERFIL</a>
                 <a data-pathname="/trocas" id="trocas">TROCAS</a>
-                <button id="loginAnchorButton">🙍 <span id="userNameDisplay">Administrador</span></button>
+                <a data-pathname="/perfil" id="perfil" class="invisible justify-center align-center gap-small">
+                    <?xml version="1.0" ?><svg class="feather feather-user" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span id="profileNameHeader">PERFIL</span></a>
             </div>
         </header>
         <main id="root">
@@ -31,34 +33,7 @@
             </form> -->
             <section class="injectedSection gap-big">
                 <h1>Bem-vindo(a), <span id="welcomeNameDisplay">Nuricel</span>!</h1>
-                <div class="flex-row flex-wrap justify-center gap-big">
-                    <form id="addMemeForm" class="uploadDiv" action="/upload/meme/true/true/1" method="post" enctype="multipart/form-data">
-                        <h3>Adicionar novo Meme</h3>
-                        <div class="flex-column gap-small">
-                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
-                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
-                        </div>
-                        <div class="flex-row">
-                            <input type="checkbox" name="isRareInput" id="isRareInput">
-                            <label for="isRareInput">Raro(a)</label>
-                        </div>
-                        <select name="" id="selectCollectionInput">
-                            <option value="" hidden>Categoria</option>
-                            <option value="1">Alpha</option>
-                            <option value="2">Sticker Figure</option>
-                        </select>
-                        <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
-                    </form>
-                    <form id="addCollectionFrom" class="uploadDiv" action="/upload/collection/'teste'" method="post" enctype="multipart/form-data">
-                        <h3>Adicionar novo Álbum</h3>
-                        <div class="flex-column gap-small">
-                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
-                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
-                        </div>
-                        <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
-                        <input type="submit" class="addButton" value="Adicionar Álbum" id="addCollectionButton">
-                    </form>
-                </div>
+                <iframe id="iframeAddCard" src="./admin_iframe.html"></iframe>
             </section>
         </main>
     </div>

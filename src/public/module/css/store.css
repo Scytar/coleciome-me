@@ -1,3 +1,7 @@
+#sectionStore {
+    display: none;
+}
+
 #conteinerStore {
     margin-top: 40px;
     width: 100%;

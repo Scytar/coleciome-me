@@ -1,7 +1,21 @@
-#colectionFig h3 {
+#sectionColection {
+    display: none;
+}
+
+#collectionFather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: #F0EFEF;
+    width: 100%;
+    padding: 20px;
+}
+
+#collectionFather h3 {
     text-align: center;
     color: #F0EFEF;
-    margin-block: 20px;
 }
 
 #coletionsFig {

@@ -70,6 +70,5 @@ router.post(
   new DailyCollect().handler.bind(new DailyCollect())
 );
 //userid -> integer
-//userid -> integer
 
 module.exports = router;

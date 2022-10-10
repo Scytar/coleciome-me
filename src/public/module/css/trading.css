@@ -1,4 +1,8 @@
-#tradingCards{
+#sectionTrading, #sectionMyRequests {
+    display: none;
+}
+
+.tradingCards{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,12 +10,12 @@
     gap: 2px;
 }
 
-#tradingCards #navTrading {
+.tradingCards #navTrading {
     display: flex;
     flex-direction: row;
 }
 
-#tradingCards #navTrading a {
+.tradingCards #navTrading a {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -24,22 +28,22 @@
     background-color: rgba(64, 64, 64, 0.45);
 }
 
-#tradingCards #conteinerTrading {
+.tradingCards #conteinerTrading {
     display: flex;
     flex-direction: row;
     width: 200px;
     height: 150px;
 }
 
-#tradingCards #conteinerTrading img {
+.tradingCards #conteinerTrading img {
     width: 30px;
 }
 
-#tradingCards #conteinerTrading spam {
+.tradingCards #conteinerTrading spam {
     width: 30px;
 }
 
-#tradingCards #navTrading .selected {
+.tradingCards #navTrading .selected {
     color: rgba(255, 255, 255, 0.8);
     background-color: rgba(64, 64, 64, 0.7);
 }
@@ -119,3 +123,4 @@
     width: 600px;
     border-bottom: 1px solid #DE6EFC;
 }
+

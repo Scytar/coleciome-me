@@ -7,7 +7,7 @@ export default () => {
 
         <section id="bonus">
             <h2>Bônus diário</h2>
-            <div class="storeItem greenBorder">
+            <div id="bonusDiary" class="storeItem greenBorder">
                 <img id="loginBonus" src="./module/img/random-card.svg" alt="">
             </div>
         </section>

@@ -29,6 +29,17 @@ class Memes extends myDb {
       console.log(error);
     }
   }
+
+  async getMeme(data) {
+    try {
+      const { GetMeme } = require("../../queries/memes");
+
+      const get_meme = await this._pool.query(GetMeme, [data]);
+      return get_meme.rows[0];
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 module.exports = Memes;

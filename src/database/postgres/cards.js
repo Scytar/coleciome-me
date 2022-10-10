@@ -96,7 +96,6 @@ class Cards extends myDb {
       const today = Date.parse(new Date());
 
       const isDailyAvailable = Math.floor((today - daily_check_date)/82800000)
-      console.log("is daily available? ", isDailyAvailable);
       if (isDailyAvailable < 1) {
         return {message:"You must wait at least 23 hours to collect another daily."}
       }
