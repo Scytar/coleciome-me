@@ -13,10 +13,10 @@ class Session {
         );
   
         if (LoginUser.userExists) {
-          const encodedData = this.#jwt.encode(LoginUser.user);
-          return { message: "sucess login user", data: encodedData };
+          //const encodedData = this.#jwt.encode(LoginUser.user);
+          return { message: "Sucess", data: { name: LoginUser.user.name, email: LoginUser.user.email } };
         } else {
-          return { message: "failed login user", data: "" };
+          return { message: "Failed", data: "" };
         }
       } catch (error) {
         console.error(error);

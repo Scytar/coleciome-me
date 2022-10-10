@@ -117,7 +117,7 @@ class Cards extends myDb {
 
       if (select_card_lootable && insert_card_user && reset_daily) {
         await this._pool.query('commit;')
-        return select_card_lootable.rows[positionToPickRandomly].id
+        return select_card_lootable.rows[positionToPickRandomly]
       }
 
       await this._pool.query('roolback;')

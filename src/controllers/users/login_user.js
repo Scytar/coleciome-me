@@ -3,8 +3,6 @@ class LoginUsers {
   #jwt = require('../../module/jwt');
 
   async handler(req, res) {
-
-    const defaultTimeToLive = 60000;
     try {
       if ( !req.cookies["userSession"] ) {
         const response = await new this.#LoginUsers().execute(req.body);
