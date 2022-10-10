@@ -2,29 +2,17 @@ import { getCache } from '../../index.js'
 
 export default function getUserItems() {
     
-    console.log(getCache().data.id)
-    const body = {
-        ownerid: getCache().data.id
-    };
-    const options = {
-        method: 'PUT',
-        headers: { 
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    };
+    const ownerid = getCache().data.id;
 
-    fetch('/card/show_total_items', options)
+    fetch(`/card/show_total_items/${ownerid}`)
         .then(response => {
             if (response.status == 200) {
                 return response.json();
-            }
-            throw new Error('Ocorreu um erro!');
+            } else { return new Error('Ocorreu um erro!'); }
         })
         .then((data) => {
             const coletionsFig = document.getElementById('coletionsFig')
             coletionsFig.innerHTML = ``
-
             data.data.forEach(element => {
                 fetch(`/memes/get/${element.itemid}`)
                     .then(res=>{
