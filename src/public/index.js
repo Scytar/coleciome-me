@@ -16,7 +16,9 @@ import jsLogin from './module/js/jsLogin.js';
 import logoutClearHeader from './module/js/jsLogout.js';
 import getUserItems from './module/js/jsColection.js';
 import logout from './module/js/jsLogout.js';
-import { nameAdmin } from './module/js/admin_login.js';
+import nameAdmin from './module/js/admin_login.js';
+import editUserInfo from './module/js/jsProfileData.js';
+import showUserInfo from './module/js/jsProfileDataDisplay.js';
 
 
 const main = document.getElementById('root');
@@ -34,9 +36,13 @@ const btnLoginTabFromRegister = document.getElementById('loginTabFromRegister');
 const btnRegisterTabFromLogin = document.getElementById('registerTabFromLogin');
 const btnLoginTabFromLogin = document.getElementById('loginTabFromLogin');
 const btnUpload = document.getElementById('upload');
+const btnPagamentosFromPerfil = document.getElementById('btnPagamentos');
+const btnPerfilFromPagamentos = document.getElementById('btnPerfilFromPayment');
+
 
 //Botões que fazem coisas de verdade (comunica com Back)
 const btnLogin = document.getElementById('btnLogin');
+const btnEditUserInfo = document.getElementById('btnEditUserInfo');
 
 //Todos os elementos pai das Sessões a Serem exibidas
 const sectionHome = document.getElementById('sectionHome');
@@ -103,67 +109,82 @@ export function renderSection(sectionName) {
     sectionName.style.display = 'flex';
 }
 
-//Função chama o modal
+//Função que chama o modal
 export function renderModal(message) {
     messageModalBackground.style.display = 'flex'
     messageBox.textContent = message;
 }
 
 //Event Listeners para renderizar as Sections
-btnInicial.addEventListener('click', (e)=> {
-    renderSection(sectionHome);
-});
-btnColecao.addEventListener('click', (e)=> {
-    renderSection(sectionColection);
-    getUserItems();
-});
+    btnInicial.addEventListener('click', (e)=> {
+        renderSection(sectionHome);
+    });
 
-btnLoja.addEventListener('click', (e)=> {
-    renderSection(sectionStore);
-});
+    //Coleção do Usuário
+    btnColecao.addEventListener('click', (e)=> {
+        renderSection(sectionColection);
+        getUserItems();
+    });
+    //Loja
+    btnLoja.addEventListener('click', (e)=> {
+        renderSection(sectionStore);
+    });
+    //Trocas
+    btnTrocas.addEventListener('click', (e)=> {
+        renderSection(sectionTrading);
+    });
+    //Perfil do usuário (editar dados)
+    btnPerfil.addEventListener('click', (e)=> {
+        renderSection(sectionProfile);
+        showUserInfo()
+    });
+    //Seção de 
+    btnEntrar.addEventListener('click', (e)=> {
+        renderSection(sectionLogin);
+    });
 
-btnTrocas.addEventListener('click', (e)=> {
-    renderSection(sectionTrading);
-});
+    btnRegisterTabFromRegister.addEventListener('click', (e)=> {
+        renderSection(sectionRegister);
+    });
 
-btnPerfil.addEventListener('click', (e)=> {
-    renderSection(sectionProfile);
-});
+    btnLoginTabFromRegister.addEventListener('click', (e)=> {
+        renderSection(sectionLogin);
+    });
 
-btnEntrar.addEventListener('click', (e)=> {
-    renderSection(sectionLogin);
-});
+    btnRegisterTabFromLogin.addEventListener('click', (e)=> {
+        renderSection(sectionRegister);
+    });
 
-btnRegisterTabFromRegister.addEventListener('click', (e)=> {
-    renderSection(sectionRegister);
-});
+    btnLoginTabFromLogin.addEventListener('click', (e)=> {
+        renderSection(sectionLogin);
+    });
 
-btnLoginTabFromRegister.addEventListener('click', (e)=> {
-    renderSection(sectionLogin);
-});
+    btnUpload.addEventListener('click', (e)=> {
+        renderSection(sectionAdmin);
+        nameAdmin();
+    });
 
-btnRegisterTabFromLogin.addEventListener('click', (e)=> {
-    renderSection(sectionRegister);
-});
+    btnPagamentosFromPerfil.addEventListener('click', (e)=> {
+        renderSection(sectionPayment);
+    });
 
-btnLoginTabFromLogin.addEventListener('click', (e)=> {
-    renderSection(sectionLogin);
-});
-
-btnUpload.addEventListener('click', (e)=> {
-    renderSection(sectionAdmin);
-    nameAdmin();
-});
+    btnPerfilFromPagamentos.addEventListener('click', (e)=> {
+        renderSection(sectionProfile);
+    });
 
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
 
 btnLogin.addEventListener('click',(e) => {
-    jsLogin()
+    jsLogin();
 });
 
 btnSair.addEventListener('click',(e) => {
-    logout()
+    logout();
 });
+
+btnEditUserInfo.addEventListener('click', (e) => {
+    editUserInfo();
+})
     
 
 

@@ -1,9 +1,13 @@
-export default () => {
+import {renderModal} from '../../index.js'
+
+export default function editUserInfo() {
     const nameData = document.getElementById('nameData')
-    const enderecoData = document.getElementById('enderecoData')
     const cpfData = document.getElementById('cpfData')
-    const emailData = document.getElementById('emailData')
     const celularData = document.getElementById('celularData')
+    const emailData = document.getElementById('emailData')
+    const senhaData = document.getElementById('senhaData')
+    const newSenhaData = document.getElementById('newData')
+    const confirmNewSenhaData = document.getElementById('confNewData')
 
     if(nameData.value.length < 3) {
         error = true
@@ -32,6 +36,13 @@ export default () => {
         newPwd.classList.add('error')
         verifynewPwd.classList.add('error')
     }
+    if((senhaData === newSenhaData) || 
+    (newSenhaData !== confirmNewSenhaData) ||
+    (newSenhaData.length < 8)) {
+        error = true
+        newSenhaData.classList.add('error')
+        confirmNewSenhaData.classList.add('error')
+    }
 
     if(error){
         return
@@ -40,15 +51,17 @@ export default () => {
     }
 
     function update() {
-        const name = document.getElementById('name')
-        const email = document.getElementById('email')
 
         const body = {
-            username: nameData.value,
-            email: enderecoData.value,
-            password: cpfData.value,
-            cpf: emailData.value,
-            phone: celularData.value
+            email: emailData.value,
+            password: senhaData.value,
+            new_data:{
+                username: nameData.value,
+                cpf: cpfData.value,
+                phone: celularData.value,
+                email: emailData.value,
+                password: newSenhaData.value
+            }
         };
         const options = {
             method: 'PUT',
@@ -58,21 +71,17 @@ export default () => {
             body: JSON.stringify(body)
         }
 
-        fetch('http://localhost:8000/api/'+id, options)
+        fetch('http://localhost:80/user/edit', options)
         .then(response => {
             if (response.status == 200) {
                 return response.json()
             } else {
-                return `Tente novamente!`
+                return console.error(`Tente novamente!`)
             }
         })
-        .then(() => {
-            name.value = ""
-            email.value = ""
-            btnCad.innerHTML = 'Cadastrar'
-            btnCad.removeEventListener('click', update)
-            btnCad.addEventListener('click', createUser)
-            getUsers()
+        .then((data) => {
+            
+            renderModal()
         })
     }
 

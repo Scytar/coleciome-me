@@ -60,7 +60,8 @@
 
 #infCardSave, #userInformation {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: wrap;
+    flex-direction: column;
     justify-content: center;
     row-gap: 25px;
     column-gap: 10%;

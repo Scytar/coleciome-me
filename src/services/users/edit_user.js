@@ -30,9 +30,9 @@ class EditUsers {
       );
 
       if (UpdateUser) {
-        return { message: "Success updating user", data: userData };
+        return { message: "Sucesso ao atualizar usuário!", data: userData };
       } else {
-        return { message: "Failed updating user", data: "" };
+        return { message: "Falha desconhecdia ao atualizar usuário", data: "" };
       }
     } catch (error) {
       throw new Error(error);

@@ -20,8 +20,7 @@ export default function logoutClearHeader(){
         credentials: 'include',
         headers: { 
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
+        }
     };
 
     fetch('/user/logout', options) 
@@ -32,6 +31,7 @@ export default function logoutClearHeader(){
             return console.error('Ocorreu um erro!');
         })
         .then((data) => {
+            console.log(data)
 
             if (data.data != ""){
                 btnColecao.style.display = 'none'
