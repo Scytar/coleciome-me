@@ -10,7 +10,7 @@ router.post("/memes/insert", new InsertMeme().handler.bind(new InsertMeme));
 //isLootable -> boolean
 //isMemeRare -> boolean
 
-router.get("/memes/getLootablesMemes", new GetLootablesMemes().handler.bind(new GetLootablesMemes));
+router.get("/memes/getLootablesMemes/:isRare", new GetLootablesMemes().handler.bind(new GetLootablesMemes));
 //isRare -> boolean
 
 module.exports = router;

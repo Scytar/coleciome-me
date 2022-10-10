@@ -3,7 +3,7 @@ class GetPublicTrades {
   
     async handler(req, res) {
       try {
-        const response = await new this.#get_public_trades().execute(req.body);
+        const response = await new this.#get_public_trades().execute();
         res.json(response);
       } catch (error) {
         console.error(error);
