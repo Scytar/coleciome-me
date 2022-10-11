@@ -1,6 +1,6 @@
 const NewTrade = `
-    INSERT INTO trades(author,offer,offer_value,request) 
-    VALUES($1, $2, $3, $4);
+    INSERT INTO trades(author,offer,offer_value,cardid,request) 
+    VALUES($1, $2, $3, $4, $5);
 `
 
 const verifyTotalItems = `SELECT * FROM total_items WHERE ownerid = $1`

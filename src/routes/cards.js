@@ -13,9 +13,13 @@ const ShopCard = require("../controllers/cards/shop_card");
 const DailyCollect = require("../controllers/cards/daily_collect");
 
 router.post("/trades/new_trade", new NewTrade().handler.bind(new NewTrade()));
+//author -> integer
+// offer -> integer
+// offer_value -> real
+// cardid -> integer
 
 router.get(
-  "/trades/get_user_trades/:userid/:tradeStatus",
+  "/trades/get_user_trades/:userid",
   new GetUserTrades().handler.bind(new GetUserTrades())
 );
 //userid -> integer

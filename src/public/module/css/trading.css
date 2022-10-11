@@ -1,5 +1,6 @@
 #sectionTrading, #sectionMyRequests {
     display: none;
+    padding: 0 5%;
 }
 
 .tradingCards{
@@ -13,19 +14,19 @@
 .tradingCards #navTrading {
     display: flex;
     flex-direction: row;
+    width: 100%;
 }
 
-.tradingCards #navTrading a {
+.navTradingTab{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.3);
-    width: 440px;
-    height: 47px;
-    border-start-start-radius: 15px;
-    border-start-end-radius: 15px;
-    background-color: rgba(64, 64, 64, 0.45);
+    color: #ffffff4d;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 20px 20px 0 0;
+    background-color: #40404073;
 }
 
 .tradingCards #conteinerTrading {
@@ -122,5 +123,57 @@
 #linha-horizontal {
     width: 600px;
     border-bottom: 1px solid #DE6EFC;
+}
+
+
+
+
+
+
+.showTradesContainer{
+    background-color: #18181873;
+    padding: 20px;
+    border-radius:  0 0 20px 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+}
+
+
+.tradingItemContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #40404073;
+    border-radius: 20px;
+}
+
+.authorSide{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrowsFromTrades{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.dealerSide{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
 }
 

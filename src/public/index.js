@@ -23,6 +23,7 @@ import displayStoreInfo from './module/js/jsStore.js'
 import collectDaily from './module/js/jsDailyCollect.js'
 import createDepositOrder from "./module/js/jsBuyCredit.js"
 import buyCard from './module/js/jsBuyCard.js';
+import getPublicOffers from './module/js/jsGetPublicOffers.js'
 
 
 const main = document.getElementById('root');
@@ -42,6 +43,8 @@ const btnLoginTabFromLogin = document.getElementById('loginTabFromLogin');
 const btnUpload = document.getElementById('upload');
 const btnPagamentosFromPerfil = document.getElementById('btnPagamentos');
 const btnPerfilFromPagamentos = document.getElementById('btnPerfilFromPayment');
+const offersTab = document.getElementById("offers");
+const requestsTab = document.getElementById('requests');
 
 
 //Botões que fazem coisas de verdade (comunica com Back)
@@ -103,6 +106,14 @@ messageModalNoButton.addEventListener('click',(e)=> {
 });
 
 
+//Função que chama o modal
+export function renderModal(message) {
+    messageModalBackground.style.display = 'flex'
+    messageBox.innerHTML = message;
+}
+
+
+
 //Função que renderiza somente a Sessão desejada
 export function renderSection(sectionName) {
     //Esconde todas as Sections
@@ -121,11 +132,6 @@ export function renderSection(sectionName) {
     sectionName.style.display = 'flex';
 }
 
-//Função que chama o modal
-export function renderModal(message) {
-    messageModalBackground.style.display = 'flex'
-    messageBox.innerHTML = message;
-}
 
 //Event Listeners para renderizar as Sections
     btnInicial.addEventListener('click', (e)=> {
@@ -145,6 +151,7 @@ export function renderModal(message) {
     //Trocas
     btnTrocas.addEventListener('click', (e)=> {
         renderSection(sectionTrading);
+        getPublicOffers();
     });
     //Perfil do usuário (editar dados)
     btnPerfil.addEventListener('click', (e)=> {
@@ -184,6 +191,14 @@ export function renderModal(message) {
     btnPerfilFromPagamentos.addEventListener('click', (e)=> {
         renderSection(sectionProfile);
     });
+
+    offersTab.addEventListener('click',(e)=>{
+        renderSection(sectionTrading)
+        getPublicOffers()
+    })
+    requestsTab.addEventListener('click',(e)=>{
+        renderSection(sectionMyRequests)
+    })
 
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
 
@@ -231,22 +246,22 @@ buyCredits.addEventListener('click', (e)=>{
 
 
 
-                                                        function facilitarNossoTeste(){
-                                                            renderSection(sectionLogin);
-                                                        }
+                                                        // function facilitarNossoTeste(){
+                                                        //     renderSection(sectionLogin);
+                                                        // }
 
-                                                        facilitarNossoTeste()
+                                                        // facilitarNossoTeste()
 
-sectionHome
-sectionRegister
-sectionLogin
-sectionProfile
-sectionPayment
-sectionColection
-sectionStore
-sectionTrading
-sectionMyRequests
-sectionAdmin
+// sectionHome
+// sectionRegister
+// sectionLogin
+// sectionProfile
+// sectionPayment
+// sectionColection
+// sectionStore
+// sectionTrading
+// sectionMyRequests
+// sectionAdmin
 
 
 

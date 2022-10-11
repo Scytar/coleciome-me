@@ -2,16 +2,17 @@ const { Pool } = require("pg");
 const myDb = require(".");
 
 class Cards extends myDb {
-  async trade(author, offer, offer_value, request) {
+  async trade(author, offer, offer_value, cardid, request) {
     try {
       const { NewTrade } = require("../../queries/cards");
-
+      console.log('chamou a query');
       await this._pool.query(`BEGIN;`);
       const new_trade = await this._pool.query(NewTrade, [
         author,
         offer,
         offer_value,
-        request,
+        cardid,
+        request
       ]);
 
       if (new_trade) {

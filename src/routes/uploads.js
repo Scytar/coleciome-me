@@ -68,7 +68,7 @@ router.post('/upload/meme/:isLootable/:isRare/:collectionId', (req, res) => {
             const new_meme = await new Memes().create(data);
             return res
                 .status(201)
-                .redirect('/')
+                .redirect('/admin_iframe.html')
                 // .json({
                 //     message: 'Arquivo enviado com sucesso!',
                 //     data: new_meme
