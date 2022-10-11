@@ -19,6 +19,7 @@ import nameAdmin from './module/js/admin_login.js';
 import editUserInfo from './module/js/jsProfileData.js';
 import showUserInfo from './module/js/jsProfileDataDisplay.js';
 import checkSession from './module/js/jsResumeSession.js'
+import displayStoreInfo from './module/js/jsStore.js'
 
 
 const main = document.getElementById('root');
@@ -128,6 +129,7 @@ export function renderModal(message) {
     //Loja
     btnLoja.addEventListener('click', (e)=> {
         renderSection(sectionStore);
+        displayStoreInfo();
     });
     //Trocas
     btnTrocas.addEventListener('click', (e)=> {

@@ -68,10 +68,11 @@ router.post('/upload/meme/:isLootable/:isRare/:collectionId', (req, res) => {
             const new_meme = await new Memes().create(data);
             return res
                 .status(201)
-                .json({
-                    message: 'Arquivo enviado com sucesso!',
-                    data: new_meme
-                });
+                .redirect('/')
+                // .json({
+                //     message: 'Arquivo enviado com sucesso!',
+                //     data: new_meme
+                // })
         }
     });
 });
@@ -103,7 +104,7 @@ router.post('/upload/collection/:collectionName', (req, res) => {
                 .json({
                     message: 'Arquivo enviado com sucesso!',
                     data: new_collection
-                });
+                })
         }
     });
 });

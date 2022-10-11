@@ -5,7 +5,6 @@ class Memes extends myDb {
   async create(data) {
     try {
       const { NewMeme } = require("../../queries/memes");
-      console.log('Antes da query: ',data)
       const new_meme = await this._pool.query(NewMeme, [
         data.name,
         data.collectionId,
