@@ -13,5 +13,7 @@ router.get("/orders/get/:userid/:orderStatus", new GetOrders().handler.bind(new 
 //userid -> integer
 //orderStatus -> ['confirmed','awaiting payment','canceled']
 router.put("/orders/confirm", new ConfirmOrder().handler.bind(new ConfirmOrder));
+//userid -> integer
+//orderid -> integer
 
 module.exports = router;

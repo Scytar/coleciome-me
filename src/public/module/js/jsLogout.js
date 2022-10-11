@@ -42,7 +42,8 @@ export default function logoutClearHeader(){
                 btnUpload.style.display = 'none'
 
                 renderSection(sectionHome);
-
+                location.reload()
+                
                return renderModal(data.message)
             }
             location.reload()

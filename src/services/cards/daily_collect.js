@@ -6,10 +6,14 @@ class ShopCard {
         const DAILYCOLLECT = await new this.#Cards().dailyCollect(data)
 
         if(!DAILYCOLLECT) {
-          return { message: "Failed daily collect card", data: ""}
-      }
+          return { message: "Falha ao resgatar", data: ""}
+        }
 
-      return { message: "Sucess daily collect card", data: DAILYCOLLECT};
+        if (!DAILYCOLLECT.id) {
+          return {message:"Espere 23h para resgatar novamente!", data: ""}
+        }
+
+      return { message: "Recompensa diária resgatada!", data: DAILYCOLLECT};
       } catch (error) {
         throw new Error(error);
       }

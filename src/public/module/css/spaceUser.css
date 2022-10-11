@@ -18,9 +18,13 @@
     margin-block: 20px;
 }
 
-#spacUser #tempoMemeiro {
-    font-size: 0.8rem;
+/* #tempoMemeiro {
+    font-size: 16px;
 }
+
+#tempoMemeiroFromPayment {
+    font-size: 16px;
+} */
 
 #spacUser #bar {
     width: 250px;

@@ -1,15 +1,15 @@
 const NewTrade = `
-    INSERT INTO trades(author,offer,offer_value,request) 
-    VALUES($1, $2, $3, $4);
+    INSERT INTO trades(author,offer,offer_value,cardid,request) 
+    VALUES($1, $2, $3, $4, $5);
 `
 
 const verifyTotalItems = `SELECT * FROM total_items WHERE ownerid = $1`
 
 const shopCardUPDATE = `UPDATE users SET wallet = wallet - $1 WHERE id = $2;`
 
-const SelectCardLootable = `SELECT id, name FROM memes WHERE lootable = true AND rare = $1;`
+const SelectCardLootable = `SELECT * FROM memes WHERE lootable = true AND rare = $1;`
 
-const InsertCardUser = `INSERT INTO total_items (ownerid,itemid) VALUES($1, $2) RETURNING itemid;`
+const InsertCardUser = `INSERT INTO total_items (ownerid,itemid) VALUES($1, $2) RETURNING *;`
 
 const DailyCheck = `
     SELECT daily_collect FROM users WHERE id = $1;

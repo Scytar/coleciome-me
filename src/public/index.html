@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./module/img/favicon.ico">
     <title>Coleciomeme</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,6 +62,7 @@
                     </div>
                 </div>
             </section>
+
             
             <!-- ######################## Cadastro ######################## -->
             <section id="sectionRegister" class="sectionFather">
@@ -91,7 +93,7 @@
             
                         <input type="password" id="passwordVerifyRegister" maxlength="32" placeholder="Confirme sua senha" required tabindex="7">
             
-                        <button id="btnRegiter">Registrar</button>
+                        <button id="btnRegister">Registrar</button>
                     </div>
                 </section>
             </section>
@@ -249,17 +251,17 @@
             
                         <div id="storeItemsContainer">
                             <div class="conteinerPack">
-                                <div class="storeItem greenBorder">
+                                <div id="buyCommonImage" class="storeItem greenBorder">
                                     <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
                                 </div>
-                                <button class="btnPay" id="buyComum">Comprar</button>
+                                <button class="btnPay" id="btnBuyCommon">Comprar</button>
                             </div>
             
                             <div class="conteinerPack">
-                            <div class="storeItem orangeBorder">
-                                <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
-                            </div>
-                                <button class="btnPay" id="buyGold">Comprar</button>
+                                <div id="buyRareImage" class="storeItem orangeBorder">
+                                    <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                                </div>
+                                <button class="btnPay" id="btnBuyRare">Comprar</button>
                             </div>
                         </div>
                     </section>
@@ -271,91 +273,46 @@
                                 <p class="creditLabel">🍪</p>
                                 <input id="valueToAddToWalletInput" type="number" placeholder="Quantidade">
                             </div>
-                            <button class="btnPay">Comprar</button>
+                            <button class="btnPay" id="buyCredits">Comprar</button>
                         </div>
                     </section>
                 </div>
             </section>
 
-            <!-- ######################## Minhas Ofertas ######################## -->
-            <section id="sectionTrading" class="tradingCards"> <!-- Esse ID estava inserido no arquivo store.js -->
+            <!-- ######################## Ofertas ######################## -->
+            <section id="sectionTrading" class="tradingCards">
+
                 <nav id="navTrading">
-                    <a id="offers" data-pathname="/trocas" class="selected" >Ofertas</a>
-                    <a id="requests" data-pathname="/solicitacoes">Minhas solicitações</a>
+                    <a data-pathname="/trocas" class="selected navTradingTab" >Ofertas</a>
+                    <a id="requests" class="navTradingTab" data-pathname="/solicitacoes">Minhas solicitações</a>
                 </nav>
+                <div id="showOffersContainer" class="showTradesContainer">
 
-                <div id="containerTrading">
-                    <div class="cardsGroup">
-                        <div class="cardsTrading">
+                    Carregando...
 
+                    <!-- <div class="tradingItemContainer">
+                        <div class="authorSide">
+                            <div>Figurinha vai aqui</div>
+                            <p>🍪 100</p>
+                            <button class="btnSend">Comprar</button>
                         </div>
+                    </div> -->
 
-                        <div id="linha-vertical"></div>
-
-                        <div class="cardsTrading">
-
-                        </div>
-                    </div>
-
-                    <div id="linha-horizontal"></div>
-
-                    <div class="cardsGroup"> 
-                        <div class="cardsTrading">
-
-                        </div>
-
-                        <div id="linha-vertical"></div>
-
-                        <div class="cardsTrading">
-                            
-                        </div>
-
-                    </div>
                 </div>
+                
             </section>
             
             <!-- ######################## Minhas Solicitações ######################## -->
-            <section id="sectionMyRequests" class="styleMyRequests sectionMyRequests">
-                <section>
-                    <nav id="navTrading">
-                        <a id="offers" data-pathname="/trocas">Ofertas</a>
-                        <a id="requests" data-pathname="/solicitacoes" class="selected">Minhas solicitações</a>
-                    </nav>
+            <section id="sectionMyRequests" class="tradingCards">
 
-                    <div id="containerTrading">
-                        <div class="cardsGroup">
-                            <div class="cardsTrading">
-                                <img src="./module/img/comum.svg"></img>
-                                <img src="./module/img/comum.svg"></img>
-                            </div>
+                <nav id="navTrading">
+                    <a id="offers" class="navTradingTab" data-pathname="/trocas">Ofertas</a>
+                    <a data-pathname="/solicitacoes" class="selected navTradingTab">Minhas solicitações</a>
+                </nav>        
+                <div id="showOffersContainer" class="showTradesContainer">
 
-                            <div id="linha-vertical"></div>
-
-                            <div class="cardsTrading">
-                                <img src="./module/img/comum.svg"></img>
-                                <img src="./module/img/comum.svg"></img>
-                            </div>
-                        </div>
-
-                        <div id="linha-horizontal"></div>
-
-                        <div class="cardsGroup">
-                            <div class="cardsTrading">
-                                <img src="./module/img/comum.svg"></img>
-                                <img src="./module/img/comum.svg"></img>
-                            </div>
-
-                            <div id="linha-vertical"></div>
-
-                            <div class="cardsTrading">
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <button id="solicitar">Solicitar</button>
-                </section>
+                </div>
+                
             </section>
 
             <!-- ######################## Admin login ######################## -->
@@ -363,29 +320,7 @@
             <section id="sectionAdmin">
                 <section class="injectedSection gap-big">
                 <h1>Bem-vindo(a), <span id="welcomeNameDisplay"></span>!</h1>
-                <div class="flex-row flex-wrap justify-center gap-big">
-                    <form id="addMemeForm" class="uploadDiv" action="/upload/meme/true/false/1" method="post" enctype="multipart/form-data">
-                        <h3>Adicionar novo Meme</h3>
-                        <div class="flex-column gap-small">
-                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
-                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
-                        </div>
-                        <div class="flex-row">
-                            <input type="checkbox" name="isRareInput" id="isRareInput">
-                            <label for="isRareInput">Raro(a)</label>
-                        </div>
-                        <input type="submit" class="addButton" value="Adicionar Meme" id="addMemeButton">
-                    </form>
-                    <!-- <form id="addCollectionFrom" class="uploadDiv" action="/upload/collection/'teste'" method="post" enctype="multipart/form-data">
-                        <h3>Adicionar novo Álbum</h3>
-                        <div class="flex-column gap-small">
-                            <input type="file" class="uploadInput" name="imageUploadInput" id="imageUploadInput">
-                            <h6>Somente arquivos jpg, jpeg, png, gif e webp de até 1MB</h6>
-                        </div>
-                        <input type="text" name="" id="collectionName" placeholder="Nome do Álbum">
-                        <input type="submit" class="addButton" value="Adicionar Álbum" id="addCollectionButton">
-                    </form> -->
-                </div>
+                <iframe id="iframeAddCard" src="./admin_iframe.html"></iframe>
             </section>
         </section>
 

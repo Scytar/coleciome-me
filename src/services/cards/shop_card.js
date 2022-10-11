@@ -6,10 +6,10 @@ class ShopCard {
         const SHOPCARD = await new this.#Cards().shopCards(data);
   
         if(!SHOPCARD) {
-            return { message: "Failed purchasing card", data: ""}
+            return { message: "Ops! Algo deu errado na sua compra. Por favor, tente novamente mais tarde!", data: ""}
         }
 
-        return { message: "Sucess purchasing card", data: SHOPCARD};
+        return { message: "Parabéns! Meme comprado com sucesso", data: SHOPCARD};
       } catch (error) {
         throw new Error(error);
       }

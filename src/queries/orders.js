@@ -16,7 +16,7 @@ const UpdateWallet = `
 `
 
 const CloseOrder = `
-    UPDATE wallet_orders SET closing_date = now() WHERE userid = $1 AND status = 'confirmed' AND closing_date IS NULL RETURNING id;
+    UPDATE wallet_orders SET closing_date = now() WHERE userid = $1 AND status = 'confirmed' AND closing_date IS NULL RETURNING *;
 `
 
 module.exports = { NewOrder , GetOrders , ConfirmOrder , UpdateWallet , CloseOrder};

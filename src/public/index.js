@@ -20,6 +20,10 @@ import editUserInfo from './module/js/jsProfileData.js';
 import showUserInfo from './module/js/jsProfileDataDisplay.js';
 import checkSession from './module/js/jsResumeSession.js'
 import displayStoreInfo from './module/js/jsStore.js'
+import collectDaily from './module/js/jsDailyCollect.js'
+import createDepositOrder from "./module/js/jsBuyCredit.js"
+import buyCard from './module/js/jsBuyCard.js';
+import getPublicOffers from './module/js/jsGetPublicOffers.js'
 
 
 const main = document.getElementById('root');
@@ -39,11 +43,20 @@ const btnLoginTabFromLogin = document.getElementById('loginTabFromLogin');
 const btnUpload = document.getElementById('upload');
 const btnPagamentosFromPerfil = document.getElementById('btnPagamentos');
 const btnPerfilFromPagamentos = document.getElementById('btnPerfilFromPayment');
+const offersTab = document.getElementById("offers");
+const requestsTab = document.getElementById('requests');
 
 
 //Botões que fazem coisas de verdade (comunica com Back)
 const btnLogin = document.getElementById('btnLogin');
 const btnEditUserInfo = document.getElementById('btnEditUserInfo');
+const bonusDiary = document.getElementById('bonusDiary');
+const btnBuyCommon = document.getElementById("btnBuyCommon");
+const buyCommonImage = document.getElementById('buyCommonImage');
+const btnBuyRare = document.getElementById("btnBuyRare");
+const buyRareImage = document.getElementById('buyRareImage');
+const buyCredits = document.getElementById("buyCredits");
+const btnRegister = document.getElementById("btnRegister");
 
 //Todos os elementos pai das Sessões a Serem exibidas
 const sectionHome = document.getElementById('sectionHome');
@@ -93,6 +106,14 @@ messageModalNoButton.addEventListener('click',(e)=> {
 });
 
 
+//Função que chama o modal
+export function renderModal(message) {
+    messageModalBackground.style.display = 'flex'
+    messageBox.innerHTML = message;
+}
+
+
+
 //Função que renderiza somente a Sessão desejada
 export function renderSection(sectionName) {
     //Esconde todas as Sections
@@ -105,16 +126,12 @@ export function renderSection(sectionName) {
     sectionStore.style.display = 'none';
     sectionTrading.style.display = 'none';
     sectionMyRequests.style.display = 'none';
+    sectionAdmin.style.display = 'none';
 
     //Mostra apenas a Section que passa no parâmetro
     sectionName.style.display = 'flex';
 }
 
-//Função que chama o modal
-export function renderModal(message) {
-    messageModalBackground.style.display = 'flex'
-    messageBox.textContent = message;
-}
 
 //Event Listeners para renderizar as Sections
     btnInicial.addEventListener('click', (e)=> {
@@ -134,17 +151,18 @@ export function renderModal(message) {
     //Trocas
     btnTrocas.addEventListener('click', (e)=> {
         renderSection(sectionTrading);
+        getPublicOffers();
     });
     //Perfil do usuário (editar dados)
     btnPerfil.addEventListener('click', (e)=> {
         renderSection(sectionProfile);
         showUserInfo()
     });
-    //Seção de 
+    //Seção de Login
     btnEntrar.addEventListener('click', (e)=> {
         renderSection(sectionLogin);
     });
-
+    //Seção de Cadastro
     btnRegisterTabFromRegister.addEventListener('click', (e)=> {
         renderSection(sectionRegister);
     });
@@ -174,6 +192,14 @@ export function renderModal(message) {
         renderSection(sectionProfile);
     });
 
+    offersTab.addEventListener('click',(e)=>{
+        renderSection(sectionTrading)
+        getPublicOffers()
+    })
+    requestsTab.addEventListener('click',(e)=>{
+        renderSection(sectionMyRequests)
+    })
+
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
 
 btnLogin.addEventListener('click',(e) => {
@@ -185,27 +211,57 @@ btnSair.addEventListener('click',(e) => {
     logout();
 });
 
+btnRegister.addEventListener('click',(e)=>{
+    jsRegister()
+})
+
 btnEditUserInfo.addEventListener('click', (e) => {
     editUserInfo();
 })
-    
+
+bonusDiary.addEventListener('click', (e)=>{
+    collectDaily()
+})
 
 
-                                                        function facilitarNossoTeste(){
-                                                            renderSection(sectionLogin);
-                                                        }
+buyCommonImage.addEventListener('click', (e)=>{
+    buyCard(false)
+})
+    btnBuyCommon.addEventListener('click', (e)=>{
+        buyCard(false)
+    })
 
-                                                        facilitarNossoTeste()
 
-sectionHome
-sectionRegister
-sectionLogin
-sectionProfile
-sectionPayment
-sectionColection
-sectionStore
-sectionTrading
-sectionMyRequests
+buyRareImage.addEventListener('click', (e)=>{
+    buyCard(true)
+})
+    btnBuyRare.addEventListener('click', (e)=>{
+        buyCard(true)
+    })
+
+
+buyCredits.addEventListener('click', (e)=>{
+    createDepositOrder()
+})
+
+
+
+                                                        // function facilitarNossoTeste(){
+                                                        //     renderSection(sectionLogin);
+                                                        // }
+
+                                                        // facilitarNossoTeste()
+
+// sectionHome
+// sectionRegister
+// sectionLogin
+// sectionProfile
+// sectionPayment
+// sectionColection
+// sectionStore
+// sectionTrading
+// sectionMyRequests
+// sectionAdmin
 
 
 

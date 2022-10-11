@@ -1,12 +1,16 @@
+import { renderModal } from '../../index.js'
+
 export default () => {
-    const newAvatar = document.getElementById('dolls');
+    //const newAvatar = document.getElementById('dolls');
     const newName = document.getElementById('nameRegister');
     const newEmail = document.getElementById('emailRegister');
     const newPwd = document.getElementById('passwordRegister');
     const verifynewPwd = document.getElementById('passwordVerifyRegister');
     const newCpf = document.getElementById('cpfRegister');
-    const newPhone = document.getElementById('phoneRegister');
-    const dddPhone = document.getElementById('phoneRegister');
+    let newPhone = document.getElementById('phoneRegister');
+    const dddPhone = document.getElementById('dddPhoneRegister');
+    newPhone = dddPhone.value + newPhone.value
+    console.log(`newPhone: ${newPhone}`)
 
     /* validações */
     //ponto de melhoria - colocar a mensagem de erro embaixo dos inputs 
@@ -25,7 +29,7 @@ export default () => {
         error = true
         newCpf.classList.add('error')
     }
-    if(newPhone.value.length < 7 || newPhone.value.length >= 12 || newPhone.value == "") {
+    if(newPhone.length < 7 || newPhone.length >= 12 || newPhone == "") {
         error = true
         newPhone.classList.add('error')
     }
@@ -40,7 +44,7 @@ export default () => {
         verifynewPwd.classList.add('error')
     }
     if(error){
-        return
+        return renderModal("Dados inválidos!")
     } else {
         register()
     }
@@ -52,7 +56,7 @@ export default () => {
             email: newEmail.value,
             password: newPwd.value,
             cpf: newCpf.value,
-            phone: newPhone.value
+            phone: newPhone
         };
         const options = {
             method: 'POST',
@@ -65,22 +69,27 @@ export default () => {
         fetch('/user/insert', options)
             .then(response => {
                 if (response.status == 200) {
-                    return;
+                    return response.json();
                 }
-                throw new Error(
-                    `Infelizmente, não conseguimos cadastrá-lo! \n
-                    Verifique suas informações e tente novamente!`
-                );
+                renderModal(`Infelizmente, não conseguimos cadastrá-lo!`)
             })
-            .then(() => {
-                newName.value = '';
-                newEmail.value = '';
-                newPwd.value = '';
-                verifynewPwd.value = '';
-                return alert('Bem vindo, memeiro!');
+            .then((data) => {
+                if(data.data != "") {
+                    newName.value = '';
+                    newEmail.value = '';
+                    dddPhone.value = '';
+                    newPhone.value = '';
+                    newCpf.value = '';
+                    newPwd.value = '';
+                    verifynewPwd.value = '';
+
+                    return renderModal('Bem vindo, memeiro!');
+                }
+                return renderModal(data.message)
+                
             })
             .catch(error => {
-                alert(error);
+                renderModal(error);
             });
     }
     
