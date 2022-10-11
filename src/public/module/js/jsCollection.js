@@ -14,7 +14,7 @@ export default async function getUserItems() {
     .then((data) => {
         const coletionsFig = document.getElementById('coletionsFig')
         coletionsFig.innerHTML = ``
-
+        
         const goal = data.data.length
         const itemsToRender = []
         const elementToRender = document.createElement('div')
@@ -44,8 +44,8 @@ export default async function getUserItems() {
                         <div class="memeContainer ${rarityBorder}">
                             <img src="../images/${_data.data.name}" class="fig">
                         </div>
-                        <span>🍪 <input type="number" id="value-${element.itemid}" class="offerValueInput"></span>
-                        <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" id="btn-${element.itemid}" class="btnSend">Anunciar</button>
+                        <span>🍪 <input type="number" id="value-${element.id}" class="offerValueInput"></span>
+                        <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" id="btn-${element.id}" class="btnSend">Anunciar</button>
                     </div>
                 `;
 
@@ -56,8 +56,11 @@ export default async function getUserItems() {
 
                     coletionsFig.appendChild(elementToRender);
 
-                    itemsToRender.forEach(el => {
+                    for (let i = 0; i < data.data.length; i++) {
+                        const el = data.data[i];
+                        
                         const button = document.getElementById(`btn-${el.id}`)
+                        
                         button.addEventListener('click',(e)=>{
                             const offerData = {
                                 author:Number(button.dataset.ownerid),
@@ -65,9 +68,10 @@ export default async function getUserItems() {
                                 offer_value:Number(document.getElementById(`value-${el.id}`).value),
                                 cardid:Number(button.dataset.itemid)
                             }
+                            document.getElementById(`value-${el.id}`).value = ''
                             offerItem(offerData)
                         })
-                    });
+                    }
                 }
             })
         }

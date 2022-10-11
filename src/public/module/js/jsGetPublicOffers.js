@@ -14,9 +14,11 @@ export default function getPublicOffers(){
     .then(data=>{
 
         const offerArray = data.data
-        
+        const goal = offerArray.length
+        const elementsToRender = []
+
         showOffersContainer.innerHTML = "";
-console.log(offerArray)
+
         (offerArray).forEach(element => {
 
             if (data.data != "") {
@@ -37,17 +39,17 @@ console.log(offerArray)
                         rarityBorder = "greenBorder"
                     }
                     // <img src="../images/${data.data.name}" class="fig">
-                    coletionsFig.innerHTML += `
-                        <div class="tradingItemContainer">
-                            <div class="authorSide">
-                                <div class="memeContainer ${rarityBorder}">
-                                    <img src="../images/${el.name}" class="fig">
-                                </div>
-                                <p>🍪 ${element.offer_value}</p>
-                                <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
-                            </div>
-                        </div>
-                    `
+                    // coletionsFig.innerHTML += `
+                    //     <div class="tradingItemContainer">
+                    //         <div class="authorSide">
+                    //             <div class="memeContainer ${rarityBorder}">
+                    //                 <img src="../images/${el.name}" class="fig">
+                    //             </div>
+                    //             <p>🍪 ${element.offer_value}</p>
+                    //             <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
+                    //         </div>
+                    //     </div>
+                    // `
                 })
             }
         });

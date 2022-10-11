@@ -17,20 +17,20 @@ export default async function getMyOffers(){
         }
     })
     .then(data=>{
-        console.log(data)
+        console.log(data.data)
 
         
-        showOffersContainer.appendChild() += `
-        <div class="tradingItemContainer">
-            <div class="authorSide">
-                <div class="memeContainer ${rarityBorder}">
-                    <img src="../images/${el.name}" class="fig">
-                </div>
-                <p>🍪 ${element.offer_value}</p>
-                <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
-            </div>
-        </div>
-    `
+    //     showOffersContainer.appendChild() += `
+    //     <div class="tradingItemContainer">
+    //         <div class="authorSide">
+    //             <div class="memeContainer ${rarityBorder}">
+    //                 <img src="../images/${el.name}" class="fig">
+    //             </div>
+    //             <p>🍪 ${element.offer_value}</p>
+    //             <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
+    //         </div>
+    //     </div>
+    // `
     })
 
 
