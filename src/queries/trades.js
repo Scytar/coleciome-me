@@ -1,5 +1,5 @@
 const GetUserTrades = `
-    SELECT * FROM trades WHERE author = $1;
+    SELECT * FROM trades WHERE author = $1 AND status = $2;
 `
 
 const GetPublicTrades = `
