@@ -127,3 +127,11 @@ input {
 #passwordRegister {
     width: 100%;
 }
+
+#messageBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-direction: column;
+}

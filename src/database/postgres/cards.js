@@ -92,14 +92,17 @@ class Cards extends myDb {
       const daily_check_date = Date.parse(daily_check.rows[0].daily_collect);
       const today = Date.parse(new Date());
 
-      const isDailyAvailable = Math.floor((today - daily_check_date)/82800000)
+      console.log('===== Alterar postgres/cards.js linha 95 e 96 =====')
+      const isDailyAvailable = Math.floor((today - daily_check_date)/1000)
       if (isDailyAvailable < 1) {
-        return {message:"You must wait at least 23 hours to collect another daily."}
+        return {message:"Espere 23h para resgatar novamente!"}
       }
 
       const daily_streak = await this._pool.query(DailyStreak, [data.userid]);
 
-      const isRare = ((daily_streak.rows[0]['daily_streak']+1%28) === 0) 
+      const isRare = (((daily_streak.rows[0]['daily_streak']+1)%5) == 0) 
+      console.log('is rare? ',isRare)
+      console.log(((daily_streak.rows[0]['daily_streak']+1)%5))
 
       await this._pool.query('begin;')
       const select_card_lootable = await this._pool.query(SelectCardLootable,[isRare]);

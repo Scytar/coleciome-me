@@ -7,7 +7,7 @@ const verifyTotalItems = `SELECT * FROM total_items WHERE ownerid = $1`
 
 const shopCardUPDATE = `UPDATE users SET wallet = wallet - $1 WHERE id = $2;`
 
-const SelectCardLootable = `SELECT id, name FROM memes WHERE lootable = true AND rare = $1;`
+const SelectCardLootable = `SELECT * FROM memes WHERE lootable = true AND rare = $1;`
 
 const InsertCardUser = `INSERT INTO total_items (ownerid,itemid) VALUES($1, $2) RETURNING itemid;`
 

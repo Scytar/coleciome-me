@@ -65,14 +65,14 @@ export default () => {
         fetch('/user/insert', options)
             .then(response => {
                 if (response.status == 200) {
-                    return;
+                    return response.json();
                 }
                 throw new Error(
                     `Infelizmente, não conseguimos cadastrá-lo! \n
                     Verifique suas informações e tente novamente!`
                 );
             })
-            .then(() => {
+            .then((data) => {
                 newName.value = '';
                 newEmail.value = '';
                 newPwd.value = '';

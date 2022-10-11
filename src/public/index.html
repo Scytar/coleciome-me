@@ -92,7 +92,7 @@
             
                         <input type="password" id="passwordVerifyRegister" maxlength="32" placeholder="Confirme sua senha" required tabindex="7">
             
-                        <button id="btnRegiter">Registrar</button>
+                        <button id="btnRegister">Registrar</button>
                     </div>
                 </section>
             </section>
@@ -250,17 +250,17 @@
             
                         <div id="storeItemsContainer">
                             <div class="conteinerPack">
-                                <div class="storeItem greenBorder">
+                                <div id="buyCommonImage" class="storeItem greenBorder">
                                     <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
                                 </div>
-                                <button class="btnPay" id="buyComum">Comprar</button>
+                                <button class="btnPay" id="btnBuyCommon">Comprar</button>
                             </div>
             
                             <div class="conteinerPack">
-                            <div class="storeItem orangeBorder">
-                                <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
-                            </div>
-                                <button class="btnPay" id="buyGold">Comprar</button>
+                                <div id="buyRareImage" class="storeItem orangeBorder">
+                                    <img src="./module/img/random-card.svg" alt="pacote de figurinhas normais">
+                                </div>
+                                <button class="btnPay" id="btnBuyRare">Comprar</button>
                             </div>
                         </div>
                     </section>
@@ -272,7 +272,7 @@
                                 <p class="creditLabel">🍪</p>
                                 <input id="valueToAddToWalletInput" type="number" placeholder="Quantidade">
                             </div>
-                            <button class="btnPay">Comprar</button>
+                            <button class="btnPay" id="buyCredits">Comprar</button>
                         </div>
                     </section>
                 </div>
