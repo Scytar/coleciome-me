@@ -45,7 +45,7 @@ class Cards extends myDb {
         SelectCardLootable,
         InsertCardUser,
       } = require("../../queries/cards");
-
+      
       await this._pool.query(`BEGIN;`);
       const update = await this._pool.query(shopCardUPDATE, [
         data.price,
@@ -67,7 +67,7 @@ class Cards extends myDb {
       if (update && select && insert) {
         await this._pool.query(`COMMIT;`);
 
-        return insert.rows[0].itemid;
+        return select.rows[positionToPickRandomly];
       }
 
       await this._pool.query(`ROLLBACK;`);

@@ -9,7 +9,7 @@ const shopCardUPDATE = `UPDATE users SET wallet = wallet - $1 WHERE id = $2;`
 
 const SelectCardLootable = `SELECT * FROM memes WHERE lootable = true AND rare = $1;`
 
-const InsertCardUser = `INSERT INTO total_items (ownerid,itemid) VALUES($1, $2) RETURNING itemid;`
+const InsertCardUser = `INSERT INTO total_items (ownerid,itemid) VALUES($1, $2) RETURNING *;`
 
 const DailyCheck = `
     SELECT daily_collect FROM users WHERE id = $1;

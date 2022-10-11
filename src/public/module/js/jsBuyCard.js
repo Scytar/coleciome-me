@@ -1,4 +1,3 @@
-import { json } from 'body-parser'
 import { getCache , renderSection , renderModal } from '../../index.js'
 
 export default function buyCard(isRare){
@@ -11,23 +10,46 @@ export default function buyCard(isRare){
         isRare: isRare
     }
 
+    console.log(body)
+
     const options = {
         method:"post",
-        Headers: {
+        headers: {
             'Content-Type':"application/json"
         },
         body: JSON.stringify(body)
     }
 
-    fetch('/card/shop_card')
+    fetch('/card/shop_card', options)
     .then(res=>{
-        if (res.status == 200){
-            return res.json()
+        try {
+            if (res.status == 200){
+                return res.json()
+            }
+        } catch (error) {
+            return console.error(error)
         }
-        throw console.error(error)
+        
     })
     .then(data=>{
-        console.log(data)
+
+        if (data.data != "") {
+
+            let rarityBorder = 'greenBorder'
+            if (data.data.rare) {
+                rarityBorder = 'orangeBorder'
+            }
+
+            renderModal(`
+                <div class="memeContainer ${rarityBorder}">
+                    <img src="../images/${data.data.name}" class="fig">
+                </div>
+                <span>${data.message}</span>
+            `)
+        } else {
+            renderModal(data.message)
+        }
+
     })
 
 }

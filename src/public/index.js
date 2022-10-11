@@ -225,10 +225,6 @@ buyRareImage.addEventListener('click', (e)=>{
     })
 
 
-buyGold.addEventListener('click', (e)=>{
-    
-})
-
 buyCredits.addEventListener('click', (e)=>{
     createDepositOrder()
 })
