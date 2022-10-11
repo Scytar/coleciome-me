@@ -105,6 +105,7 @@ export function renderSection(sectionName) {
     sectionStore.style.display = 'none';
     sectionTrading.style.display = 'none';
     sectionMyRequests.style.display = 'none';
+    sectionAdmin.style.display = 'none';
 
     //Mostra apenas a Section que passa no parâmetro
     sectionName.style.display = 'flex';
