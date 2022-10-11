@@ -32,9 +32,6 @@ class Cards extends myDb {
 
       const total_items = await this._pool.query(verifyTotalItems, [ownerid]);
 
-      console.log('ownerid :', ownerid)
-      console.log('total items: ', total_items)
-
       return total_items.rows;
     } catch (error) {
       console.error(error);

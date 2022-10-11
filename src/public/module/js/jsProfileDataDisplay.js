@@ -21,7 +21,6 @@ const validity = document.getElementById('validity');
 export default function showUserInfo(){
 
     const user = getCache().data;
-    console.log('Usuário em Cache: ',user)
 
     let dataUser = user.creation_date.split('T')
     dataUser = dataUser[0].split('-').reverse().join('/');
@@ -36,8 +35,8 @@ export default function showUserInfo(){
     celularData.value = user.phone;
     emailData.value = user.email;
 
-    nameUserFromPayment.innerHTML = user.name;
-    tempoMemeiroFromPayment.innerHTML = user.dataUser;
+    nameUserFromPayment.innerHTML = user.name.split(" ", 1);;
+    tempoMemeiroFromPayment.innerHTML = dataUser;
     pocketFromPayment.innerHTML = user.wallet;
     numberCard.value = user.cardname;
     nameCard.value = user.cardnum;

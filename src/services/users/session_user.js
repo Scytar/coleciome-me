@@ -13,8 +13,10 @@ class Session {
         );
   
         if (LoginUser.userExists) {
-          //const encodedData = this.#jwt.encode(LoginUser.user);
-          return { message: "Sucess", data: { name: LoginUser.user.name, email: LoginUser.user.email } };
+          decodedData.password = null;
+          decodedData.cardcvv = null;
+          const encodedData = this.#jwt.encode(LoginUser.user);
+          return { message: "Success", token:encodedData, data:decodedData };
         } else {
           return { message: "Failed", data: "" };
         }

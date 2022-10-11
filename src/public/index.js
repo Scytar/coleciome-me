@@ -13,12 +13,12 @@ import cart from './module/js/cart.js'; */
 //imports fetchs
 import jsRegister from './module/js/jsRegister.js';
 import jsLogin from './module/js/jsLogin.js';
-import logoutClearHeader from './module/js/jsLogout.js';
 import getUserItems from './module/js/jsColection.js';
 import logout from './module/js/jsLogout.js';
 import nameAdmin from './module/js/admin_login.js';
 import editUserInfo from './module/js/jsProfileData.js';
 import showUserInfo from './module/js/jsProfileDataDisplay.js';
+import checkSession from './module/js/jsResumeSession.js'
 
 
 const main = document.getElementById('root');
@@ -175,6 +175,7 @@ export function renderModal(message) {
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
 
 btnLogin.addEventListener('click',(e) => {
+    e.preventDefault();
     jsLogin();
 });
 
@@ -203,3 +204,7 @@ sectionColection
 sectionStore
 sectionTrading
 sectionMyRequests
+
+
+
+checkSession()

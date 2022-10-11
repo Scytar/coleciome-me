@@ -9,8 +9,8 @@ class Session {
 
       if (response.data != "") {
         res
-          .cookie("userSession", response.data)
-          .json(response)
+          .cookie("userSession", response.token)
+          .json({message:response.message,data:response.data})
       } else {
         res.json(response);
       }

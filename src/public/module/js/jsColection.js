@@ -13,6 +13,7 @@ export default function getUserItems() {
         .then((data) => {
             const coletionsFig = document.getElementById('coletionsFig')
             coletionsFig.innerHTML = ``
+
             data.data.forEach(element => {
                 fetch(`/memes/get/${element.itemid}`)
                     .then(res=>{
@@ -21,8 +22,6 @@ export default function getUserItems() {
                         }
                     })
                     .then((data)=>{
-                        // data.data.name
-                        // data.data.rare
 
                         let rarityBorder
 

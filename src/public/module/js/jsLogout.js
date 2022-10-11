@@ -9,7 +9,7 @@ const btnUpload = document.getElementById('upload');
 
 const sectionHome = document.getElementById('sectionHome');
 
-import { renderSection , getCache } from '../../index.js'
+import { renderSection , renderModal } from '../../index.js'
 
 
 export default function logoutClearHeader(){
@@ -31,7 +31,6 @@ export default function logoutClearHeader(){
             return console.error('Ocorreu um erro!');
         })
         .then((data) => {
-            console.log(data)
 
             if (data.data != ""){
                 btnColecao.style.display = 'none'
@@ -46,6 +45,7 @@ export default function logoutClearHeader(){
 
                return renderModal(data.message)
             }
+            location.reload()
             return renderModal("Falha ao tentar sair do usuário")  
         })
         .catch(error => {

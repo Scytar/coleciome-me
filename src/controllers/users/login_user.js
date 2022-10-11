@@ -7,7 +7,7 @@ class LoginUsers {
 
   async handler(req, res) {
 
-    const defaultTimeToLive = 60000;
+    const defaultTimeToLive = 1800000;
     try {
       let response
       //Check cookie time to live
@@ -17,12 +17,11 @@ class LoginUsers {
         const user_data =  this.#jwt.decode(req.cookies["userSession"]);
         user_data.password = null;
         user_data.cvv = null;
-        return res.json({message:`Bem-vindo(a) de volta, ${user_data.name}`})
+        return res.json({message:`Bem-vindo(a) de volta, ${user_data.name}`, data:user_data})
       }
       // const response = await new this.#LoginUsers().execute(req.body);
       if(response.data != "") {
         //Cache Session
-        console.log(response)
         response.data.ttl = Date.now()+defaultTimeToLive
         cachedSessions[response.token] = response.data
         response.data.password = null;

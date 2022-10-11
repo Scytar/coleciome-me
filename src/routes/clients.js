@@ -26,7 +26,7 @@ router.delete("/user/delete", new DeleteUsers().handler.bind(new DeleteUsers));
 
 router.post("/user/login", new LoginUsers().handler.bind(new LoginUsers));
 
-router.post("/session", new Session().handler.bind(new Session));
+router.get("/session", new Session().handler.bind(new Session));
 
 router.post("/user/logout", new Logout().handler.bind(new Logout));
 

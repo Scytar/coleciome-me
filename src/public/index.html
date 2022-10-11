@@ -104,14 +104,14 @@
                         <a id="loginTabFromLogin" data-pathname="/login" class="selected loginTab">Entrar</a>
                     </nav>
             
-                    <div id="conteinerLogin">
+                    <form id="conteinerLogin">
                         <div id="userDoll">
                             <img id="imgUser" src="./module/img/userHome.png" alt="gif divertido">
                         </div>
                         <input type="email" id="emailLogin" maxlength="80" placeholder="E-mail" required tabindex="1">
                         <input type="password" id="passwordLogin" maxlength="10" placeholder="Senha" required tabindex="2">
                         <button id="btnLogin">Entrar</button>
-                    </div>
+                    </form>
                 </section>
             </section>
 
@@ -123,7 +123,7 @@
                     <p>Memeiro desde <span id="tempoMemeiro"></span></p>
                     <div id="bar"></div>
                     <p>Minha carteira:</p>
-                    <div id="pocket">🍪 <span id="walletDisplay">00</span></div>
+                    <div class="pocket">🍪 <span id="walletDisplay">00</span></div>
                 </section>
             
                 <section id="userData">
@@ -173,7 +173,7 @@
                         </div>
                     </div>
 
-                    <button id="btnEditUserInfo">Atualizar</button>
+                    <button id="btnEditUserInfo" class="btnSend">Atualizar</button>
                 </div>
                 </section>
             </section>
@@ -186,7 +186,7 @@
                         <p>Memeiro desde <span id="tempoMemeiroFromPayment"></span></p>
                         <div id="bar"></div>
                         <p>Minha carteira:</p>
-                    <div>🍪 <span id="pocketFromPayment">0</span></div>
+                    <div class="pocket">🍪 <span id="pocketFromPayment">0</span></div>
                 </section>
             
                 <section id="userData">
@@ -219,7 +219,7 @@
                                 <input type="password" id="cvv" name="cvv" required>
                             </label>
             
-                            <button id="btnSendEditCard">Enviar</button>
+                            <button id="btnSendEditCard" class="btnSend">Enviar</button>
                         </div>
                         
                     </article>

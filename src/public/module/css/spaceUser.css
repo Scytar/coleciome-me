@@ -29,7 +29,7 @@
     margin-block: 20px;
 }
 
-#spacUser #pocket {
+.pocket {
     font-family: 'Rubik Dirt', cursive;
     font-weight: 400;
     font-size: 1.2rem;
