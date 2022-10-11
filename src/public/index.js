@@ -13,7 +13,7 @@ import cart from './module/js/cart.js'; */
 //imports fetchs
 import jsRegister from './module/js/jsRegister.js';
 import jsLogin from './module/js/jsLogin.js';
-import getUserItems from './module/js/jsColection.js';
+import getUserItems from './module/js/jsCollection.js';
 import logout from './module/js/jsLogout.js';
 import nameAdmin from './module/js/admin_login.js';
 import editUserInfo from './module/js/jsProfileData.js';
@@ -24,6 +24,7 @@ import collectDaily from './module/js/jsDailyCollect.js'
 import createDepositOrder from "./module/js/jsBuyCredit.js"
 import buyCard from './module/js/jsBuyCard.js';
 import getPublicOffers from './module/js/jsGetPublicOffers.js'
+import getMyOffers from './module/js/jsGetMyOffers.js'
 
 
 const main = document.getElementById('root');
@@ -90,6 +91,12 @@ export function getCache() {
 const renderiza = { detail: { name: location.pathaname } };
 
 
+//Função que chama o modal
+export function renderModal(message) {
+    messageModalBackground.style.display = 'flex'
+    messageBox.innerHTML = message;
+}
+
 //Lógica do Modal
 messageModalBackground.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
@@ -104,13 +111,6 @@ messageModalYesButton.addEventListener('click',(e)=> {
 messageModalNoButton.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
 });
-
-
-//Função que chama o modal
-export function renderModal(message) {
-    messageModalBackground.style.display = 'flex'
-    messageBox.innerHTML = message;
-}
 
 
 
@@ -198,6 +198,7 @@ export function renderSection(sectionName) {
     })
     requestsTab.addEventListener('click',(e)=>{
         renderSection(sectionMyRequests)
+        getMyOffers();
     })
 
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)

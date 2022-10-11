@@ -84,13 +84,19 @@
     gap: 20px;
 }
 
-#conteinerStore #storeFig .conteinerPack {
+.conteinerPack {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 240px;
-    height: 240px;
+    width: auto;
+    height: auto;
+    gap: 8px;
+
+}
+
+.conteinerPack p {
+    font-size: 1.5rem;
 }
 
 #conteinerStore #storeFig .conteinerPack img {
@@ -100,13 +106,11 @@
 
 .btnPay {
     font-weight: 600;
-    width: 80px;
     border-radius: 20px;
     background-image: linear-gradient(15deg,#2eb3c4 60%,#2EC4B6 80%);
     border: none;
-    margin: 10px;
     cursor: pointer;
-    padding: 8px;
+    padding: 8px 12px;
 }
 
 .creditLabel{

@@ -10,8 +10,6 @@ export default function buyCard(isRare){
         isRare: isRare
     }
 
-    console.log(body)
-
     const options = {
         method:"post",
         headers: {

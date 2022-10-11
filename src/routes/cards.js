@@ -23,7 +23,6 @@ router.get(
   new GetUserTrades().handler.bind(new GetUserTrades())
 );
 //userid -> integer
-//tradeStatus -> ['open','answered','closed']
 
 router.get(
   "/trades/get_public_trades",

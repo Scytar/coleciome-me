@@ -1,5 +1,5 @@
 import { updateCache , renderSection , renderModal } from '../../index.js'
-import getUserItems from './jsColection.js'
+import getUserItems from './jsCollection.js'
 
 
 const btnInicial = document.getElementById('inicial');
