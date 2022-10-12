@@ -46,7 +46,7 @@ class Trades extends myDb {
 
           if (close_trade && debit_buyer && credit_seller && change_card_owner){
               await this._pool.query('commit;');
-              return {message:'Card bought succesfully!'}
+              return {message:'Meme comprado com sucesso!'}
           }
           await this._pool.query('rollback;');
           return false;

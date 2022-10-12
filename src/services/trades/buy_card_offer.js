@@ -7,16 +7,17 @@ class BuyCardOffer {
 
             
             if (BUY_CARD_OFFER) {
-            return { message: "Sucess buying trade", data: BUY_CARD_OFFER };
+            return { message: "Meme comprado com sucesso!", data: BUY_CARD_OFFER };
             } else {
-            return { message: "Failed buying trade", data: "" };
+            console.log("Error: ",BUY_CARD_OFFER)
+            return { message: "Erro ao comprar meme", data: "" };
             }
     
         } catch (error) {
+            
             throw new Error(error);
         }
     }
 }
   
 module.exports = BuyCardOffer;
-  

@@ -25,6 +25,7 @@ import createDepositOrder from "./module/js/jsBuyCredit.js"
 import buyCard from './module/js/jsBuyCard.js';
 import getPublicOffers from './module/js/jsGetPublicOffers.js'
 import getMyOffers from './module/js/jsGetMyOffers.js'
+import buyOffer from './module/js/jsBuyOffer.js'
 
 
 const main = document.getElementById('root');
@@ -98,17 +99,17 @@ export function renderModal(message) {
 }
 
 //Lógica do Modal
-messageModalBackground.addEventListener('click',(e)=> {
+messageModalBackground?.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
 });
-messageModal.addEventListener('click',(e)=> {
+messageModal?.addEventListener('click',(e)=> {
     e.stopImmediatePropagation();
 });
-messageModalYesButton.addEventListener('click',(e)=> {
+messageModalYesButton?.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
     //inserir mais coisas a fazer aqui (de preferência um switch case com a função a ser realizada quando clicar)
 });
-messageModalNoButton.addEventListener('click',(e)=> {
+messageModalNoButton?.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
 });
 
@@ -134,114 +135,114 @@ export function renderSection(sectionName) {
 
 
 //Event Listeners para renderizar as Sections
-    btnInicial.addEventListener('click', (e)=> {
+    btnInicial?.addEventListener('click', (e)=> {
         renderSection(sectionHome);
     });
 
     //Coleção do Usuário
-    btnColecao.addEventListener('click', (e)=> {
+    btnColecao?.addEventListener('click', (e)=> {
         renderSection(sectionColection);
         getUserItems();
     });
     //Loja
-    btnLoja.addEventListener('click', (e)=> {
+    btnLoja?.addEventListener('click', (e)=> {
         renderSection(sectionStore);
         displayStoreInfo();
     });
     //Trocas
-    btnTrocas.addEventListener('click', (e)=> {
+    btnTrocas?.addEventListener('click', (e)=> {
         renderSection(sectionTrading);
         getPublicOffers();
     });
     //Perfil do usuário (editar dados)
-    btnPerfil.addEventListener('click', (e)=> {
+    btnPerfil?.addEventListener('click', (e)=> {
         renderSection(sectionProfile);
         showUserInfo()
     });
     //Seção de Login
-    btnEntrar.addEventListener('click', (e)=> {
+    btnEntrar?.addEventListener('click', (e)=> {
         renderSection(sectionLogin);
     });
     //Seção de Cadastro
-    btnRegisterTabFromRegister.addEventListener('click', (e)=> {
+    btnRegisterTabFromRegister?.addEventListener('click', (e)=> {
         renderSection(sectionRegister);
     });
 
-    btnLoginTabFromRegister.addEventListener('click', (e)=> {
+    btnLoginTabFromRegister?.addEventListener('click', (e)=> {
         renderSection(sectionLogin);
     });
 
-    btnRegisterTabFromLogin.addEventListener('click', (e)=> {
+    btnRegisterTabFromLogin?.addEventListener('click', (e)=> {
         renderSection(sectionRegister);
     });
 
-    btnLoginTabFromLogin.addEventListener('click', (e)=> {
+    btnLoginTabFromLogin?.addEventListener('click', (e)=> {
         renderSection(sectionLogin);
     });
 
-    btnUpload.addEventListener('click', (e)=> {
+    btnUpload?.addEventListener('click', (e)=> {
         renderSection(sectionAdmin);
         nameAdmin();
     });
 
-    btnPagamentosFromPerfil.addEventListener('click', (e)=> {
+    btnPagamentosFromPerfil?.addEventListener('click', (e)=> {
         renderSection(sectionPayment);
     });
 
-    btnPerfilFromPagamentos.addEventListener('click', (e)=> {
+    btnPerfilFromPagamentos?.addEventListener('click', (e)=> {
         renderSection(sectionProfile);
     });
 
-    offersTab.addEventListener('click',(e)=>{
+    offersTab?.addEventListener('click',(e)=>{
         renderSection(sectionTrading)
         getPublicOffers()
     })
-    requestsTab.addEventListener('click',(e)=>{
+    requestsTab?.addEventListener('click',(e)=>{
         renderSection(sectionMyRequests)
         getMyOffers();
     })
 
 //EventListener para dos elementos que fazem coisas de verdade (comunica com o back)
 
-btnLogin.addEventListener('click',(e) => {
+btnLogin?.addEventListener('click',(e) => {
     e.preventDefault();
     jsLogin();
 });
 
-btnSair.addEventListener('click',(e) => {
+btnSair?.addEventListener('click',(e) => {
     logout();
 });
 
-btnRegister.addEventListener('click',(e)=>{
+btnRegister?.addEventListener('click',(e)=>{
     jsRegister()
 })
 
-btnEditUserInfo.addEventListener('click', (e) => {
+btnEditUserInfo?.addEventListener('click', (e) => {
     editUserInfo();
 })
 
-bonusDiary.addEventListener('click', (e)=>{
+bonusDiary?.addEventListener('click', (e)=>{
     collectDaily()
 })
 
 
-buyCommonImage.addEventListener('click', (e)=>{
+buyCommonImage?.addEventListener('click', (e)=>{
     buyCard(false)
 })
-    btnBuyCommon.addEventListener('click', (e)=>{
+    btnBuyCommon?.addEventListener('click', (e)=>{
         buyCard(false)
     })
 
 
-buyRareImage.addEventListener('click', (e)=>{
+buyRareImage?.addEventListener('click', (e)=>{
     buyCard(true)
 })
-    btnBuyRare.addEventListener('click', (e)=>{
+    btnBuyRare?.addEventListener('click', (e)=>{
         buyCard(true)
     })
 
 
-buyCredits.addEventListener('click', (e)=>{
+buyCredits?.addEventListener('click', (e)=>{
     createDepositOrder()
 })
 
@@ -263,6 +264,10 @@ buyCredits.addEventListener('click', (e)=>{
 // sectionTrading
 // sectionMyRequests
 // sectionAdmin
+
+document.getElementById('teste')?.addEventListener('click', (e)=>{
+    buyOffer(e.target.dataset.tradeid)
+})
 
 
 
