@@ -39,13 +39,12 @@ export default async function getUserItems() {
                 }
 
                 elementToRender.innerHTML += `
-                    <div class="flex-column justify-center align-center gap-small border-thin bg-dark">
+                    <div class="cardContainer flex-column justify-center align-center gap-small border-thin bg-dark" data-ownerid="${element.ownerid}" data-memeid="${element.itemid}" data-itemid="${element.id}">
                         <div class="memeContainer ${rarityBorder}">
                             <img src="../images/${_data.data.name}" class="fig">
                         </div>
-                        <span>🍪 <input type="number" id="value-${element.id}" class="offerValueInput"></span>
-                        <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" id="btn-${element.id}" class="btnSend">Anunciar</button>
-                        <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" id="btn-trade-${element.id}" class="btnSend btnPurple tradeBtnInCollection">Trocar</button>
+                        <span>🍪 <input type="number" id="value-${element.id}" data-id="${element.id}" class="offerValueInput"></span>
+                        <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" data-id="${element.id}" id="btn-${element.id}" class="btnSend btnToOfferInCollection">Anunciar</button>
                     </div>
                 `;
 
@@ -64,6 +63,7 @@ export default async function getUserItems() {
                         const button = document.getElementById(`btn-${el.id}`)
                         
                         button.addEventListener('click',(e)=>{
+                            e.preventDefault()
                             const offerData = {
                                 author:Number(button.dataset.ownerid),
                                 offer:el.id,
@@ -74,18 +74,6 @@ export default async function getUserItems() {
                             offerItem(offerData)
                         })
 
-                        const tradeButton = document.getElementById(`btn-trade-${el.id}`)
-                        
-                        tradeButton.addEventListener('click',(e)=>{
-                            const offerData = {
-                                userid:Number(tradeButton.dataset.ownerid),
-                                itemToOfferBack:Number(el.id),
-                                changeToOfferBack:Number(document.getElementById(`value-${el.id}`).value),
-                                cardid:Number(tradeButton.dataset.itemid)
-                            }
-                            document.getElementById(`value-${el.id}`).value = ''
-                            tradeItem(offerData)
-                        })
                     }
                 }
             })

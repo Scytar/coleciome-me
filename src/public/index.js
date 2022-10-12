@@ -112,9 +112,17 @@ export function renderModal(message) {
     messageBox.innerHTML = message;
 }
 
+//Modal usando appendChild
+export function renderAppendModal(elementToAppend) {
+    messageModalBackground.style.display = 'flex';
+    messageBox.appendChild(elementToAppend)
+}
+
+
 //Lógica do Modal
 messageModalBackground?.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
+    messageBox.innerHTML = ``
 });
 messageModal?.addEventListener('click',(e)=> {
     e.stopImmediatePropagation();

@@ -198,13 +198,13 @@ main {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 20px 0;
+    padding: 20px;
     border-radius: 20px;
     background-color: #222;
-    max-width: 600px;
+    max-width: 80vw;
     max-height: 80vh;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -213,7 +213,8 @@ main {
 #messageBox{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
+    align-items: center;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -431,3 +432,11 @@ h6 {
 .bg-dark{
     background-color: #0a0a0a;
 }
+
+/* .btnToOfferInCollection{
+    display: flex;
+}
+
+.btnToTradeInCollection{
+    display: none;
+} */
