@@ -13,7 +13,7 @@ export default async function getUserItems() {
     })
     .then((data) => {
         const coletionsFig = document.getElementById('coletionsFig')
-        coletionsFig.innerHTML = ``
+        coletionsFig.innerHTML = `Carregando...`
         
         const goal = data.data.length
         const itemsToRender = []
@@ -31,12 +31,10 @@ export default async function getUserItems() {
             })
             .then((_data)=>{
 
-                let rarityBorder
+                let rarityBorder = 'greenBorder'
 
                 if (_data.data.rare) {
                     rarityBorder = "orangeBorder"
-                } else {
-                    rarityBorder = "greenBorder"
                 }
 
                 elementToRender.innerHTML += `
@@ -53,6 +51,8 @@ export default async function getUserItems() {
                 itemsToRender.push(_data.data)
 
                 if (goal == itemsToRender.length) {
+
+                    coletionsFig.innerHTML = ``
 
                     coletionsFig.appendChild(elementToRender);
 

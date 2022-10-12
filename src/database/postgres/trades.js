@@ -29,6 +29,7 @@ class Trades extends myDb {
     async buyCardOffer(data) {
         try {
           const { SelectTrade , CloseBuy , DebitBuyer , CreditSeller , ChangeCardOwner , SelectBuyer } = require('../../queries/trades');
+            const { SetItemAsNotTrading } = require('../../queries/cards')
 
           const select_trade = await this._pool.query(SelectTrade, [data.tradeId]);
           const selected_trade = select_trade.rows[0]
@@ -43,8 +44,9 @@ class Trades extends myDb {
           const debit_buyer = await this._pool.query(DebitBuyer, [selected_trade.offer_value, data.userid]);
           const credit_seller = await this._pool.query(CreditSeller, [selected_trade.offer_value, selected_trade.author]);
           const change_card_owner = await this._pool.query(ChangeCardOwner,[data.userid, selected_trade.offer]);
+          const set_offer_as_not_trading = await this._pool.query(SetItemAsNotTrading,[selected_trade.offer])
 
-          if (close_trade && debit_buyer && credit_seller && change_card_owner){
+          if (close_trade && debit_buyer && credit_seller && change_card_owner && set_offer_as_not_trading){
               await this._pool.query('commit;');
               return {message:'Meme comprado com sucesso!'}
           }
@@ -59,21 +61,23 @@ class Trades extends myDb {
 
     async answerCardOffer(data) {
         try {
-            const { SelectTrade, ItemToOfferBack, UpdateTradeWithAnswer } = require('../../queries/trades');
+            const { UpdateTradeWithAnswer } = require('../../queries/trades');
+            const { SetItemAsTrading } = require('../../queries/cards')
 
-            const select_trade = await this._pool.query(SelectTrade, [data.tradeId]);
-            const selected_trade = select_trade.rows[0]
+            // const select_trade = await this._pool.query(SelectTrade, [data.tradeId]);
+            // const selected_trade = select_trade.rows[0]
 
-            const item_to_offer_back = await this._pool.query(ItemToOfferBack, [data.userid, selected_trade.request])
+            // const item_to_offer_back = await this._pool.query(ItemToOfferBack, [data.userid, selected_trade.request])
 
-            if (!item_to_offer_back.rows[0]) {
-                return {message:"You don't have the requested card!"}
-            }
+            // if (!item_to_offer_back.rows[0]) {
+            //     return {message:"You don't have the requested card!"}
+            // }
 
             await this._pool.query('begin;');
-            const update_trade_with_answer = await this._pool.query(UpdateTradeWithAnswer, [data.userid, data.changeToOfferBack, data.tradeId])
+            const update_trade_with_answer = await this._pool.query(UpdateTradeWithAnswer, [data.userid, data.changeToOfferBack, data.tradeId, data.ItemToOfferBack])
+            const set_item_to_offer_back_as_trading = await this._pool.query(SetItemAsTrading,[data.ItemToOfferBack])
 
-            if (update_trade_with_answer) {
+            if (update_trade_with_answer && set_item_to_offer_back_as_trading) {
                 await this._pool.query('commit;')
                 return update_trade_with_answer.rows[0].id
             }
@@ -86,12 +90,27 @@ class Trades extends myDb {
         }
     }
 
+    
+    async showItems(ownerid) {
+        try {
+        const { verifyTotalItems } = require("../../queries/cards");
+
+        const total_items = await this._pool.query(verifyTotalItems, [ownerid]);
+
+        return total_items.rows;
+        } catch (error) {
+        console.error(error);
+        }
+    }
+
     async refuseOffer(data) {
         try {
             const { RefuseOffer } = require('../../queries/trades');
+            const { SetItemAsNotTrading } = require('../../queries/cards')
 
             await this._pool.query('begin;')
             const refuse_offer = await this._pool.query(RefuseOffer, [data.tradeId]);
+            const set_item_to_offer_back_as_not_trading = await this._pool.query(SetItemAsNotTrading,[data.ItemToOfferBack])
 
             if (refuse_offer) {
                 await this._pool.query('commit;')
@@ -129,12 +148,42 @@ class Trades extends myDb {
             const give_card_to_dealer = await this._pool.query(ChangeCardOwner, [selected_trade.dealer, selected_trade.offer]);
             const give_card_to_author = await this._pool.query(ChangeCardOwner, [selected_trade.author, item_to_offer_back.rows[0].id]);
 
+            const unset_trading_in_dealer_card = await this._pool.query(SetItemAsNotTrading,[selected_trade.offer])
+            const unset_trading_in_author_card = await this._pool.query(SetItemAsNotTrading,[selected_trade.author])
+
             const close_trade = await this._pool.query(CloseTrade, [data.tradeId]);
 
-            if (debit_buyer && credit_seller && give_card_to_author && give_card_to_dealer && close_trade) {
+            if (debit_buyer && credit_seller && give_card_to_author && give_card_to_dealer && close_trade && unset_trading_in_dealer_card && unset_trading_in_author_card) {
                 await this._pool.query('commit;');
                 return close_trade.rows[0]
             }
+            await this._pool.query('rollback;')
+            return false;
+
+        } catch (error) {
+            console.error(error);
+            return error
+        }
+    }
+
+    async cancelOffer(data) {
+        try {
+            const { SelectTrade , CloseTrade } = require('../../queries/trades');
+            const { SetItemAsNotTrading } = require('../../queries/cards')
+
+
+            const select_trade = await this._pool.query(SelectTrade, [data.tradeId])
+            const selected_trade = select_trade.rows[0]
+
+            await this._pool.query('begin;')
+            const refuse_offer = await this._pool.query(CloseTrade, [data.tradeId]);
+            const unset_item_trading = await this._pool.query(SetItemAsNotTrading,[selected_trade.offer])
+
+            if (refuse_offer && unset_item_trading) {
+                await this._pool.query('commit;')
+                return data.tradeId
+            }
+
             await this._pool.query('rollback;')
             return false;
 

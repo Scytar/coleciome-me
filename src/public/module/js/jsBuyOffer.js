@@ -1,4 +1,7 @@
 import { getCache , renderSection , renderModal } from '../../index.js'
+import getUserItems from './jsCollection.js';
+
+const sectionColection = document.getElementById('sectionColection');
 
 export default async function buyOffer(tradeId){
      
@@ -16,9 +19,10 @@ export default async function buyOffer(tradeId){
     const response = await fetch('/trades/buy_card_offer', options)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
 
-        renderModal(data.data.message)
+        renderModal(data.message)
+        renderSection(sectionColection)
+        getUserItems();
     })
     .catch(err => console.error(err))
      

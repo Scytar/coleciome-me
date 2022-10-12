@@ -24,12 +24,12 @@ export default function getPublicOffers(){
         const goal = []
         const itemsToGoal = []
 
-        showOffersContainer.innerHTML = "";
+        showOffersContainer.innerHTML = `Carregando...`;
 
         (data.data).forEach(element => {
 
             if (data.data != "") {
-
+                showOffersContainer.innerHTML = ``
                 if (element.author != getCache().data.id) {
                     goal.push('')
                     fetch(`/memes/get/${element.cardid}`)
@@ -42,13 +42,12 @@ export default function getPublicOffers(){
 
                         itemsToGoal.push(_data.data)
 
-                        let rarityBorder
+                        let rarityBorder = 'greenBorder'
         
-                        if (data.data.rare) {
+                        if (_data.data.rare) {
                             rarityBorder = "orangeBorder"
-                        } else {
-                            rarityBorder = "greenBorder"
                         }
+                            
                         // <img src="../images/${data.data.name}" class="fig">
                         const elementToRender = document.createElement('div')
                         elementToRender.classList.add('tradingItemContainer')
@@ -79,14 +78,16 @@ export default function getPublicOffers(){
                         
                         // create a button element <button data-tradeid="${element.id}" id="buyOffer-${element.id}" class="btnSend">Comprar</button>
                         const button = document.createElement('button')
-                        button.setAttribute('data-tradeid', element.id)
-                        button.setAttribute('id', `buyOffer-${element.id}`)
+                        // button.setAttribute('data-tradeid', element.id)
+                        // button.setAttribute('id', `buyOffer-${element.id}`)
+                        button.dataset.tradeid = element.id
+                        button.dataset.id = `buyOffer-${element.id}`
                         button.classList.add('btnSend')
                         button.innerText = "Comprar"
                                         
                         button.addEventListener('click', (e)=>{
                             e.preventDefault()
-                            buyOffer(e.target.dataset.tradeid)                            
+                            buyOffer(Number(e.target.dataset.tradeid))                            
                         })
 
                         // append memeContainerDiv and paragraph on authorSideDiv
@@ -101,6 +102,7 @@ export default function getPublicOffers(){
                         
 
                         showOffersContainer.appendChild(elementToRender)
+
                         // if (goal.length == itemsToGoal.length) {
                 
 
@@ -109,5 +111,9 @@ export default function getPublicOffers(){
                 }
             }
         });
+
+        if (goal.length == 0) {
+            showOffersContainer.innerHTML = `Nada a ser exibido aqui... 😟`
+        }
     })
 }

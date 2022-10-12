@@ -4,7 +4,7 @@ const myDb = require(".");
 class Cards extends myDb {
   async trade(author, offer, offer_value, cardid, request) {
     try {
-      const { NewTrade } = require("../../queries/cards");
+      const { NewTrade , SetItemAsTrading } = require("../../queries/cards");
       
       await this._pool.query(`BEGIN;`);
       const new_trade = await this._pool.query(NewTrade, [
@@ -15,7 +15,9 @@ class Cards extends myDb {
         request
       ]);
 
-      if (new_trade) {
+      const set_item_as_trading = await this._pool.query(SetItemAsTrading, [offer])
+
+      if (new_trade && set_item_as_trading) {
         await this._pool.query(`COMMIT;`);
         return new_trade;
       }

@@ -12,7 +12,7 @@ const sectionColection = document.getElementById('sectionColection');
 const btnUpload = document.getElementById('upload');
 
 export default function checkSession(){
-    fetch("http://localhost:80/session")
+    fetch("/session")
     .then(res=>{
         if (res.status == 200) {
             return res.json()

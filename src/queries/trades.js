@@ -35,7 +35,7 @@ const ItemToOfferBack = `
 `
 
 const UpdateTradeWithAnswer = `
-    UPDATE trades SET dealer = $1, change = $2, answer_date = now(), status = 'answered' WHERE id = $3 RETURNING id;
+    UPDATE trades SET dealer = $1, change = $2, request = $4, answer_date = now(), status = 'answered' WHERE id = $3 RETURNING *;
 `
 
 const RefuseOffer = `
@@ -44,4 +44,9 @@ const RefuseOffer = `
 const CloseTrade = `
     UPDATE trades SET closing_date = now(), status = 'closed' WHERE id = $1 RETURNING *;
 `
+
+// const CancelOffer = `
+//     UPDATE trades SET status = 'canceled by user' WHERE id = $1;
+// `
+
 module.exports = { GetUserTrades , GetPublicTrades , SelectTrade , SelectBuyer , CloseBuy , DebitBuyer , CreditSeller , ChangeCardOwner , ItemToOfferBack , UpdateTradeWithAnswer , RefuseOffer, CloseTrade }

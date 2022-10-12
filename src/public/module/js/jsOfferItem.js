@@ -1,4 +1,5 @@
-import { getCache, renderModal } from '../../index.js'
+import { getCache, renderModal , renderSection } from '../../index.js'
+import getMyOffers from './jsGetMyOffers.js'
 
 export default async function offerItem(offerData){
 
@@ -22,6 +23,8 @@ export default async function offerItem(offerData){
     })
     .then(data=>{
         renderModal(data.message)
+        renderSection(sectionMyRequests)
+        getMyOffers();
 
     })
 

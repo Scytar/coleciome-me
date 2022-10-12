@@ -1,4 +1,6 @@
 import { getCache, renderModal } from '../../index.js'
+// import cancelOffer from './jsCancelOffer.js'
+import renderMyTradeElement from './jsRenderTradeElement.js'
 
 const showRequestsContainer = document.getElementById('showRequestsContainer');
 
@@ -7,6 +9,7 @@ export default async function getMyOffers(){
     const elementToRender = document.createElement('div')
     elementToRender.classList.add('showCollectionContainer')
 
+    showRequestsContainer.innerHTML = `Carregando...`
     fetch(`/trades/get_user_trades/${getCache().data.id}`)
     .then(res=>{
         try {
@@ -18,7 +21,6 @@ export default async function getMyOffers(){
         }
     })
     .then(data=>{
-        showRequestsContainer.innerHTML = ``
 
         const goal = data.data.length
         const itemsToGoal = []
@@ -38,60 +40,33 @@ export default async function getMyOffers(){
             })
             .then((_data)=>{
                 
-                itemsToGoal.push(_data.data)
+                const item = _data.data
 
+                itemsToGoal.push(item)
+                
                 let rarityBorder = 'greenBorder'
-                if (_data.data.rare) {
+                if (item.rare) {
                     rarityBorder = 'orangeBorder'
                 }
 
-                if (el.status == 'open'){
-                    elementToRender.innerHTML += `
-                    <div class="tradingItemContainer">
-                        <div class="authorSide">
-                            <div class="memeContainer ${rarityBorder}">
-                                <img src="../images/${_data.data.name}" class="fig">
-                            </div>
-                            <p>🍪 ${el.offer_value}</p>
-                            <button data-status="cancel" data-tradeid="${el.id}" class="btnSend btnRed">Cancelar</button>
-                        </div>
-                    </div>
-                `
-                } 
-                if (el.status == 'answered'){
-                    elementToRender.innerHTML += `
-                    <div class="tradingItemContainer">
-                        <div class="authorSide">
-                            <div class="memeContainer ${rarityBorder}">
-                                <img src="../images/${_data.data.name}" class="fig">
-                            </div>
-                            <p>🍪 ${el.offer_value}</p>
-                            <button data-status="accept" data-tradeid="${el.id}" class="btnSend">Aceitar</button>
-                            <button data-status="cancel" data-tradeid="${el.id}" class="btnSend btnRed">Cancelar</button>
-                        </div>
-                    </div>
-                `
-                } 
-                if (el.status == 'closed'){
-                    elementToRender.innerHTML += `
-                    <div class="tradingItemContainer">
-                        <div class="authorSide">
-                            <div class="memeContainer ${rarityBorder}">
-                                <img src="../images/${_data.data.name}" class="fig">
-                            </div>
-                            <p>🍪 ${el.offer_value}</p>
-                            <p>Encerrada</p>
-                        </div>
-                    </div>
-                `
-                } 
+                elementToRender.appendChild(
+                    renderMyTradeElement(el.status, rarityBorder, item.name, el.offer_value,el.id,el?.closing_date)
+                )
+                
 
                 if (goal == itemsToGoal.length) {
+
+                    showRequestsContainer.innerHTML = ``
                     showRequestsContainer.appendChild(elementToRender)
+
                 }
 
             })
 
+        }
+
+        if (goal == 0) {
+            showRequestsContainer.innerHTML = `Nada a ser exibido aqui... 😟`
         }
 
         

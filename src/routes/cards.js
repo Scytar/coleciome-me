@@ -11,6 +11,7 @@ const AcceptCardOffer = require("../controllers/trades/accept_card_offer");
 const ShowTotalItems = require("../controllers/cards/show_total_items");
 const ShopCard = require("../controllers/cards/shop_card");
 const DailyCollect = require("../controllers/cards/daily_collect");
+const CancelOffer = require("../controllers/trades/cancel_offer")
 
 router.post("/trades/new_trade", new NewTrade().handler.bind(new NewTrade()));
 //author -> integer
@@ -37,19 +38,26 @@ router.put(
 //userid -> integer
 
 router.put(
+  "/trades/cancel_offer",
+  new CancelOffer().handler.bind(new CancelOffer())
+);
+//tradeId -> integer
+
+router.put(
   "/trades/answer_card_offer",
   new AnswerCardOffer().handler.bind(new AnswerCardOffer())
 );
 //userid -> integer
 //tradeId -> integer
+//itemToOfferBack -> integer
 //changeToOfferBack -> real
 
 router.put(
   "/trades/refuse_card_offer",
   new RefuseCardOffer().handler.bind(new RefuseCardOffer())
-//userid -> integer
 );
 //tradeId -> integer
+//itemToOfferBack -> integer
 
 router.put(
   "/trades/accept_card_offer",
