@@ -6,7 +6,7 @@ class Trades extends myDb {
     try {
         const { GetUserTrades } = require('../../queries/trades');
 
-        const get_user_trades = await this._pool.query(GetUserTrades, [data.userid, 'open'])
+        const get_user_trades = await this._pool.query(GetUserTrades, [data.userid])
         return get_user_trades.rows
     } catch (error) {
         console.error(error)

@@ -9,10 +9,10 @@ This is an academic project required by [Alpha EdTech](https://www.alphaedtech.o
 The goal consists in developing a Web Application for collecting and trading of items.
 
 `Requirements:`
-- Use of API RESTful,
+- Use of RESTful API,
 - SPA (Single Page Application),
 - VanillaJS focused,
 - Session Control,
 - Image upload, storage and display
 
-*This project was required in September 19th*
+*This project was required in September 19th 2022*
