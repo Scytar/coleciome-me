@@ -1,9 +1,10 @@
 // import { getCache , renderModal } from '../../index.js'
 import cancelOffer from './jsCancelOffer.js'
+import renderRequestAnswer from './jsRenderRequestAnswer.js'
 
-export default function renderMyTradeElement(status, rarityBorder, imgSrc, offerValue, tradeId, closingDate){
+export default function renderMyTradeElement(trade, meme, rarityBorder){
 
-    if (status === 'open') {
+    if (trade.status === 'open') {
         const authorSideDiv = document.createElement('div')
         authorSideDiv.classList.add('authorSide')
     
@@ -11,22 +12,22 @@ export default function renderMyTradeElement(status, rarityBorder, imgSrc, offer
         memeContainerDiv.classList.add('memeContainer', rarityBorder)
 
         const memeImg = document.createElement('img')
-        memeImg.src = `../images/${imgSrc}`
+        memeImg.src = `../images/${meme.name}`
         memeImg.classList.add('fig')                        
 
         const paragraph = document.createElement('p')
-        paragraph.innerHTML = `🍪 ${offerValue}`
+        paragraph.innerHTML = `🍪 ${trade.offer_value}`
 
         
         const button = document.createElement('button')
-        button.dataset.tradeid = tradeId
-        button.dataset.id = `buyOffer-${tradeId}`
+        button.dataset.tradeid = trade.id
+        button.dataset.id = `buyOffer-${trade.id}`
         button.classList.add('btnSend', 'btnRed')
         button.innerText = "Cancelar"
                         
         button.addEventListener('click', (e)=>{
             e.preventDefault()
-            cancelOffer(Number(e.target.dataset.tradeid))                            
+            cancelOffer(Number(button.dataset.tradeid))                            
         })
 
         // append memeContainerDiv and paragraph on authorSideDiv
@@ -39,7 +40,7 @@ export default function renderMyTradeElement(status, rarityBorder, imgSrc, offer
         return authorSideDiv
     }
 
-    if (status === 'answered') {
+    if (trade.status === 'answered') {
         const authorSideDiv = document.createElement('div')
         authorSideDiv.classList.add('authorSide')
     
@@ -49,23 +50,24 @@ export default function renderMyTradeElement(status, rarityBorder, imgSrc, offer
 
 
         const memeImg = document.createElement('img')
-        memeImg.src = `../images/${imgSrc}`
+        memeImg.src = `../images/${meme.name}`
         memeImg.classList.add('fig')                        
 
 
         const paragraph = document.createElement('p')
-        paragraph.innerHTML = `🍪 ${offerValue}`
+        paragraph.innerHTML = `🍪 ${trade.offer_value}`
 
         
         const button = document.createElement('button')
-        button.dataset.tradeid = tradeId
-        button.dataset.id = `buyOffer-${tradeId}`
-        button.classList.add('btnSend')
-        button.innerText = "Comprar"
+        button.dataset.tradeid = trade.id
+        button.dataset.id = `buyOffer-${trade.id}`
+        button.classList.add('btnSend','btnPurple')
+        button.innerText = "Ver Proposta"
                         
         button.addEventListener('click', (e)=>{
             e.preventDefault()
-            buyOffer(Number(e.target.dataset.tradeid))                            
+            renderRequestAnswer()
+            // buyOffer(Number(e.target.dataset.tradeid))                            
         })
 
 
@@ -79,7 +81,7 @@ export default function renderMyTradeElement(status, rarityBorder, imgSrc, offer
         return authorSideDiv
     }
 
-    if(status === 'closed') {
+    if(trade.status === 'closed') {
         const authorSideDiv = document.createElement('div')
         authorSideDiv.classList.add('authorSide')
     
@@ -89,17 +91,17 @@ export default function renderMyTradeElement(status, rarityBorder, imgSrc, offer
 
 
         const memeImg = document.createElement('img')
-        memeImg.src = `../images/${imgSrc}`
+        memeImg.src = `../images/${meme.name}`
         memeImg.classList.add('fig')                        
 
 
         const paragraph = document.createElement('p')
-        paragraph.innerHTML = `🍪 ${offerValue}`
+        paragraph.innerHTML = `🍪 ${trade.offer_value}`
 
         
         const button = document.createElement('p')
         button.innerHTML = `Fechada`
-        // button.innerHTML = `Fechada em ${Date(closingDate)}`
+        // button.innerHTML = `Fechada em ${Date(trade.closing_date)}`
           
         
 

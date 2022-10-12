@@ -22,6 +22,8 @@ export default async function getMyOffers(){
     })
     .then(data=>{
 
+        // console.log('User trades: ', data.data)
+
         const goal = data.data.length
         const itemsToGoal = []
 
@@ -50,7 +52,7 @@ export default async function getMyOffers(){
                 }
 
                 elementToRender.appendChild(
-                    renderMyTradeElement(el.status, rarityBorder, item.name, el.offer_value,el.id,el?.closing_date)
+                    renderMyTradeElement(el, item, rarityBorder)
                 )
                 
 

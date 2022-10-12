@@ -1,6 +1,6 @@
 import { getCache, renderModal } from '../../index.js'
 import offerItem from './jsOfferItem.js'
-import tradeItem from './jsTradeItem.js'
+// import tradeItem from './jsTradeItem.js'
 
 export default async function getUserItems() {
     

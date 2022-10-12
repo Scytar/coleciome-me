@@ -2,7 +2,7 @@ import { getCache, renderModal , renderSection } from '../../index.js'
 import getUserItems from './jsCollection.js'
 
 export default async function cancelOffer(tradeId){
-
+    
     if (tradeId) {
 
         const options = {
@@ -11,7 +11,7 @@ export default async function cancelOffer(tradeId){
                 'Content-Type':'application/json'
             },
             body: JSON.stringify({
-
+                tradeId:tradeId
             })
         }
 

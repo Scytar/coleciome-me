@@ -74,8 +74,8 @@ class Trades extends myDb {
             // }
 
             await this._pool.query('begin;');
-            const update_trade_with_answer = await this._pool.query(UpdateTradeWithAnswer, [data.userid, data.changeToOfferBack, data.tradeId, data.ItemToOfferBack])
-            const set_item_to_offer_back_as_trading = await this._pool.query(SetItemAsTrading,[data.ItemToOfferBack])
+            const update_trade_with_answer = await this._pool.query(UpdateTradeWithAnswer, [data.userid, data.changeToOfferBack, data.tradeId, data.itemToOfferBack])
+            const set_item_to_offer_back_as_trading = await this._pool.query(SetItemAsTrading,[data.itemToOfferBack])
 
             if (update_trade_with_answer && set_item_to_offer_back_as_trading) {
                 await this._pool.query('commit;')

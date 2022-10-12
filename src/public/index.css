@@ -204,10 +204,10 @@ main {
     padding: 20px;
     border-radius: 20px;
     background-color: #222;
-    max-width: 80vw;
+    max-width: 85vw;
     max-height: 80vh;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: hidden;
 }
 
 #messageBox{
