@@ -1,4 +1,5 @@
 import { getCache, renderModal } from '../../index.js'
+import buyOffer from './jsBuyOffer.js'
 
 const showOffersContainer = document.getElementById('showOffersContainer');
 
@@ -49,22 +50,61 @@ export default function getPublicOffers(){
                             rarityBorder = "greenBorder"
                         }
                         // <img src="../images/${data.data.name}" class="fig">
-                        elementToRender.innerHTML += `
-                            <div class="tradingItemContainer">
-                                <div class="authorSide">
-                                    <div class="memeContainer ${rarityBorder}">
-                                        <img src="../images/${_data.data.name}" class="fig">
-                                    </div>
-                                    <p>🍪 ${element.offer_value}</p>
-                                    <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
-                                </div>
-                            </div>
-                        `
+                        const elementToRender = document.createElement('div')
+                        elementToRender.classList.add('tradingItemContainer')
+                    
+                        // create a div with this characteristics
+                        // <div class="authorSide">
+                        //  <div class="memeContainer ${rarityBorder}">
+                        //     <img src="../images/${_data.data.name}" class="fig">
+                        //  </div>
+                        //  <p>🍪 ${element.offer_value}</p>
+                        //  <button data-tradeid="${element.id}" id="buyOffer-${element.id}" class="btnSend">Comprar</button>
+                        // </div>
+                        // 
                         
-                        if (goal.length == itemsToGoal.length) {
+                        const authorSideDiv = document.createElement('div')
+                        authorSideDiv.classList.add('authorSide')
+                    
+                        const memeContainerDiv = document.createElement('div')
+                        memeContainerDiv.classList.add('memeContainer', rarityBorder)
 
-                            showOffersContainer.appendChild(elementToRender)
-                        }
+                        const memeImg = document.createElement('img')
+                        memeImg.src = `../images/${_data.data.name}`
+                        memeImg.classList.add('fig')                        
+
+                        const paragraph = document.createElement('p')
+                        paragraph.innerHTML = `🍪 ${element.offer_value}`
+
+                        
+                        // create a button element <button data-tradeid="${element.id}" id="buyOffer-${element.id}" class="btnSend">Comprar</button>
+                        const button = document.createElement('button')
+                        button.setAttribute('data-tradeid', element.id)
+                        button.setAttribute('id', `buyOffer-${element.id}`)
+                        button.classList.add('btnSend')
+                        button.innerText = "Comprar"
+                                        
+                        button.addEventListener('click', (e)=>{
+                            e.preventDefault()
+                            buyOffer(e.target.dataset.tradeid)                            
+                        })
+
+                        // append memeContainerDiv and paragraph on authorSideDiv
+                        memeContainerDiv.appendChild(memeImg)
+                        authorSideDiv.appendChild(memeContainerDiv)                  
+                        authorSideDiv.appendChild(paragraph)
+                        authorSideDiv.appendChild(button)
+            
+
+                        // append authorSideDiv and button on elementToRender
+                        elementToRender.appendChild(authorSideDiv)
+                        
+
+                        showOffersContainer.appendChild(elementToRender)
+                        // if (goal.length == itemsToGoal.length) {
+                
+
+                        // }
                     })
                 }
             }
