@@ -4,6 +4,10 @@ const showOffersContainer = document.getElementById('showOffersContainer');
 
 export default function getPublicOffers(){
 
+    
+    const elementToRender = document.createElement('div')
+    elementToRender.classList.add('showCollectionContainer')
+
     fetch('/trades/get_public_trades')
     .then(res=>{
         try {
@@ -14,27 +18,29 @@ export default function getPublicOffers(){
         }
     })
     .then(data=>{
+        
 
-        const offerArray = data.data
-        const goal = offerArray.length
-        const elementsToRender = []
+        const goal = []
+        const itemsToGoal = []
 
         showOffersContainer.innerHTML = "";
 
-        (offerArray).forEach(element => {
+        (data.data).forEach(element => {
 
             if (data.data != "") {
 
                 if (element.author != getCache().data.id) {
-                    
+                    goal.push('')
                     fetch(`/memes/get/${element.cardid}`)
                     .then(res=>{
                         if (res.status == 200){
                             return res.json()
                         }
                     })
-                    .then((data)=>{
-                        console.log(data)
+                    .then((_data)=>{
+
+                        itemsToGoal.push(_data.data)
+
                         let rarityBorder
         
                         if (data.data.rare) {
@@ -43,17 +49,22 @@ export default function getPublicOffers(){
                             rarityBorder = "greenBorder"
                         }
                         // <img src="../images/${data.data.name}" class="fig">
-                        // coletionsFig.innerHTML += `
-                        //     <div class="tradingItemContainer">
-                        //         <div class="authorSide">
-                        //             <div class="memeContainer ${rarityBorder}">
-                        //                 <img src="../images/${el.name}" class="fig">
-                        //             </div>
-                        //             <p>🍪 ${element.offer_value}</p>
-                        //             <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
-                        //         </div>
-                        //     </div>
-                        // `
+                        elementToRender.innerHTML += `
+                            <div class="tradingItemContainer">
+                                <div class="authorSide">
+                                    <div class="memeContainer ${rarityBorder}">
+                                        <img src="../images/${_data.data.name}" class="fig">
+                                    </div>
+                                    <p>🍪 ${element.offer_value}</p>
+                                    <button data-tradeid="${element.id}" class="btnSend">Comprar</button>
+                                </div>
+                            </div>
+                        `
+                        
+                        if (goal.length == itemsToGoal.length) {
+
+                            showOffersContainer.appendChild(elementToRender)
+                        }
                     })
                 }
             }
