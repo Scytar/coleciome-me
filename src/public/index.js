@@ -79,6 +79,7 @@ const messageBox = document.getElementById('messageBox');
 const messageModalYesButton = document.getElementById('messageModalYesButton');
 const messageModalNoButton = document.getElementById('messageModalNoButton');
 
+//Cache no front das informações do usuário para evitar fazer vários fetchs durante navegação
 let cachedUser = {};
 
 export function updateCache(data) {
@@ -89,7 +90,20 @@ export function getCache() {
     return cachedUser;
 }
 
-const renderiza = { detail: { name: location.pathaname } };
+//Cache de qual foi o tradeId clickado para poder realizar a troca de carta por carta
+let cachedTradeId
+
+export function getCachedTradeId(){
+    return cachedTradeId;
+}
+
+export function updateCachedTradeId(newTradeId){
+    cachedTradeId = newTradeId;
+    return true
+}
+
+
+// const renderiza = { detail: { name: location.pathaname } };
 
 
 //Função que chama o modal

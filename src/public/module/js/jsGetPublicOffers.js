@@ -1,5 +1,6 @@
 import { getCache, renderModal } from '../../index.js'
 import buyOffer from './jsBuyOffer.js'
+import displayCollectionToTrade from './jsDisplayCollectionToTrade.js'
 
 const showOffersContainer = document.getElementById('showOffersContainer');
 
@@ -48,20 +49,10 @@ export default function getPublicOffers(){
                             rarityBorder = "orangeBorder"
                         }
                             
-                        // <img src="../images/${data.data.name}" class="fig">
+                        //Create elements to append
                         const elementToRender = document.createElement('div')
                         elementToRender.classList.add('tradingItemContainer')
-                    
-                        // create a div with this characteristics
-                        // <div class="authorSide">
-                        //  <div class="memeContainer ${rarityBorder}">
-                        //     <img src="../images/${_data.data.name}" class="fig">
-                        //  </div>
-                        //  <p>🍪 ${element.offer_value}</p>
-                        //  <button data-tradeid="${element.id}" id="buyOffer-${element.id}" class="btnSend">Comprar</button>
-                        // </div>
-                        // 
-                        
+                                            
                         const authorSideDiv = document.createElement('div')
                         authorSideDiv.classList.add('authorSide')
                     
@@ -76,25 +67,34 @@ export default function getPublicOffers(){
                         paragraph.innerHTML = `🍪 ${element.offer_value}`
 
                         
-                        // create a button element <button data-tradeid="${element.id}" id="buyOffer-${element.id}" class="btnSend">Comprar</button>
-                        const button = document.createElement('button')
-                        // button.setAttribute('data-tradeid', element.id)
-                        // button.setAttribute('id', `buyOffer-${element.id}`)
-                        button.dataset.tradeid = element.id
-                        button.dataset.id = `buyOffer-${element.id}`
-                        button.classList.add('btnSend')
-                        button.innerText = "Comprar"
+                        const buyButton = document.createElement('button')
+                        buyButton.dataset.tradeid = element.id
+                        buyButton.dataset.id = `buyOffer-${element.id}`
+                        buyButton.classList.add('btnSend')
+                        buyButton.innerText = "Comprar"
                                         
-                        button.addEventListener('click', (e)=>{
+                        buyButton.addEventListener('click', (e)=>{
                             e.preventDefault()
                             buyOffer(Number(e.target.dataset.tradeid))                            
+                        })
+
+                        const tradeButton = document.createElement('button')
+                        tradeButton.dataset.tradeid = element.id
+                        tradeButton.dataset.id = `tradeOffer-${element.id}`
+                        tradeButton.classList.add('btnSend', 'btnPurple')
+                        tradeButton.innerText = "Trocar"
+                                        
+                        tradeButton.addEventListener('click', (e)=>{
+                            e.preventDefault()
+                            displayCollectionToTrade(Number(e.target.dataset.tradeid))                            
                         })
 
                         // append memeContainerDiv and paragraph on authorSideDiv
                         memeContainerDiv.appendChild(memeImg)
                         authorSideDiv.appendChild(memeContainerDiv)                  
                         authorSideDiv.appendChild(paragraph)
-                        authorSideDiv.appendChild(button)
+                        authorSideDiv.appendChild(buyButton)
+                        authorSideDiv.appendChild(tradeButton)
             
 
                         // append authorSideDiv and button on elementToRender

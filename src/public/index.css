@@ -92,8 +92,6 @@ body {
     background-color: #0a0a0a;
     border-radius: 20px;
     overflow: hidden;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 header {
@@ -200,13 +198,24 @@ main {
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     gap: 20px;
-    padding: 20px;
+    padding: 20px 0;
     border-radius: 20px;
     background-color: #222;
-    max-width: 60vw;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#messageBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 #messageModalYesButton {
@@ -413,4 +422,12 @@ h6 {
 
 .btnRed{
     background-image: linear-gradient(22deg, #ff6666 60%, #eb7a7a 80%);
+}
+
+.btnPurple{
+    background-image: linear-gradient(22deg, #751a9f 20%, #aa26e8 80%);
+}
+
+.bg-dark{
+    background-color: #0a0a0a;
 }

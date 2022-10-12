@@ -1,5 +1,6 @@
 import { getCache, renderModal } from '../../index.js'
 import offerItem from './jsOfferItem.js'
+import tradeItem from './jsTradeItem.js'
 
 export default async function getUserItems() {
     
@@ -38,12 +39,13 @@ export default async function getUserItems() {
                 }
 
                 elementToRender.innerHTML += `
-                    <div class="flex-column justify-center align-center gap-small border-thin">
+                    <div class="flex-column justify-center align-center gap-small border-thin bg-dark">
                         <div class="memeContainer ${rarityBorder}">
                             <img src="../images/${_data.data.name}" class="fig">
                         </div>
                         <span>🍪 <input type="number" id="value-${element.id}" class="offerValueInput"></span>
                         <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" id="btn-${element.id}" class="btnSend">Anunciar</button>
+                        <button data-ownerid="${element.ownerid}" data-itemid="${element.itemid}" id="btn-trade-${element.id}" class="btnSend btnPurple tradeBtnInCollection">Trocar</button>
                     </div>
                 `;
 
@@ -70,6 +72,19 @@ export default async function getUserItems() {
                             }
                             document.getElementById(`value-${el.id}`).value = ''
                             offerItem(offerData)
+                        })
+
+                        const tradeButton = document.getElementById(`btn-trade-${el.id}`)
+                        
+                        tradeButton.addEventListener('click',(e)=>{
+                            const offerData = {
+                                userid:Number(tradeButton.dataset.ownerid),
+                                itemToOfferBack:Number(el.id),
+                                changeToOfferBack:Number(document.getElementById(`value-${el.id}`).value),
+                                cardid:Number(tradeButton.dataset.itemid)
+                            }
+                            document.getElementById(`value-${el.id}`).value = ''
+                            tradeItem(offerData)
                         })
                     }
                 }
