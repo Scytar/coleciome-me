@@ -56,7 +56,7 @@ export default () => {
 
     if(dddPhone.value.length < 2) {
         error = true
-        phoneInput.classList.add('error')
+        dddPhone.classList.add('error')
         renderModal(`Confira o DDD.`)
     }
 
