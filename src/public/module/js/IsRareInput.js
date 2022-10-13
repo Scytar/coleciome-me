@@ -2,10 +2,6 @@ const isRareInput = document.getElementById('isRareInput')
 const addMemeForm = document.getElementById('addMemeForm')
 const addMemeButton = document.getElementById('addMemeButton');
 
-console.log(isRareInput)
-console.log(addMemeForm)
-console.log(addMemeButton)
-
 addMemeButton.addEventListener('click',(e)=>{
     checkbox()    
 })

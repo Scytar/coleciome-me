@@ -1,16 +1,5 @@
-/* import home from './module/js/home.js';
-import login from './module/js/login.js';
-import registration from './module/js/registration.js';
-import store from './module/js/store.js';
-import profilePayments from './module/js/profilePayments.js';
-import profileData from './module/js/profileData.js';
-import tradingMyOffers from './module/js/tradingMyOffers.js';
-import tradingMyRequests from './module/js/tradingMyRequests.js';
-import album from './module/js/album.js';
-import colection from './module/js/colection.js';
-import cart from './module/js/cart.js'; */
 
-//imports fetchs
+//imports
 import jsRegister from './module/js/jsRegister.js';
 import jsLogin from './module/js/jsLogin.js';
 import getUserItems from './module/js/jsCollection.js';
@@ -268,30 +257,5 @@ buyRareImage?.addEventListener('click', (e)=>{
 buyCredits?.addEventListener('click', (e)=>{
     createDepositOrder()
 })
-
-
-
-                                                        // function facilitarNossoTeste(){
-                                                        //     renderSection(sectionLogin);
-                                                        // }
-
-                                                        // facilitarNossoTeste()
-
-// sectionHome
-// sectionRegister
-// sectionLogin
-// sectionProfile
-// sectionPayment
-// sectionColection
-// sectionStore
-// sectionTrading
-// sectionMyRequests
-// sectionAdmin
-
-document.getElementById('teste')?.addEventListener('click', (e)=>{
-    buyOffer(e.target.dataset.tradeid)
-})
-
-
 
 checkSession()

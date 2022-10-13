@@ -14,7 +14,7 @@ export default () => {
 
     /* validações */
     //ponto de melhoria - colocar a mensagem de erro embaixo dos inputs 
-    const validaEmail = /\S+@\S+\.\S+/
+    // const validaEmail = /\S+@\S+\.\S+/
     let error = false
 
     const errors = document.querySelectorAll('.error')
