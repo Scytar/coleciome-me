@@ -12,7 +12,7 @@ class EditUsers {
       if (!validateUser.userExists) {
         return { message: 'user not registered!!' }
       }
-      const old_data = validateUser.user;
+      const old_data = validateUser.data;
 
       Object.keys(user_data.new_data).forEach((key) => {
         old_data[key] = user_data.new_data[key];
@@ -25,7 +25,7 @@ class EditUsers {
       }
 
       const UpdateUser = await new this.#userTable().update(
-        userData.user,
+        userData.data,
         old_data.id
       );
 

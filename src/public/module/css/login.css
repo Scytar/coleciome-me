@@ -45,12 +45,12 @@
     background-color: rgba(64, 64, 64, 0.7);
 }
 
-.cadastrogin #conteinerLogin {
+#conteinerLogin {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: #181818;
+    background-color: #101010;
     padding-top: 50px;
     margin-top: 3px;
     padding-bottom: 30px;

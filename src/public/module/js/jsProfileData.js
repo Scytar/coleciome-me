@@ -9,6 +9,9 @@ export default function editUserInfo() {
     const newSenhaData = document.getElementById('newData')
     const confirmNewSenhaData = document.getElementById('confNewData')
 
+
+    let error = false
+
     if(nameData.value.length < 3) {
         error = true
         nameData.classList.add('error')
@@ -21,31 +24,30 @@ export default function editUserInfo() {
         error = true
         celularData.classList.add('error')
     }
-    if(!validaEmail.test(emailData.value)){
-        error = true
-        emailData.classList.add('error')
-    }
-    if((newPwd.value !== verifynewPwd.value) ||
-    (newPwd.value.length < 3)){
-        error = true
-        newPwd.classList.add('error')
-        verifynewPwd.classList.add('error')
-    }
-    if(enderecoData.value.length >= 10) {
-        error = true
-        newPwd.classList.add('error')
-        verifynewPwd.classList.add('error')
-    }
-    if((senhaData === newSenhaData) || 
-    (newSenhaData !== confirmNewSenhaData) ||
-    (newSenhaData.length < 8)) {
+    // if(!validaEmail.test(emailData.value)){
+    //     error = true
+    //     emailData.classList.add('error')
+    // }
+    if((newSenhaData.value !== confirmNewSenhaData.value)){
         error = true
         newSenhaData.classList.add('error')
         confirmNewSenhaData.classList.add('error')
     }
+    // if(enderecoData.value.length >= 10) {
+    //     error = true
+    //     newSenhaData.classList.add('error')
+    //     confirmNewSenhaData.classList.add('error')
+    // }
+    // if((senhaData === newSenhaData) || 
+    // (newSenhaData !== confirmNewSenhaData) ||
+    // (newSenhaData.length < 8)) {
+    //     error = true
+    //     newSenhaData.classList.add('error')
+    //     confirmNewSenhaData.classList.add('error')
+    // }
 
     if(error){
-        return
+        return renderModal('Erro: Confira as informações digitadas.')
     } else {
         update()
     }
@@ -81,7 +83,7 @@ export default function editUserInfo() {
         })
         .then((data) => {
             
-            renderModal()
+            renderModal(data)
         })
     }
 
