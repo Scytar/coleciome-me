@@ -30,16 +30,42 @@ export default () => {
         newName.classList.add('error')
         renderModal(`Nome precisa ter pelo menos 3 letras`)
     }
-    if(newCpf.value.length < 10|| newCpf.value.length >= 12 || newCpf.value == "") {
+
+    if(newCpf.value.length != 11 || newCpf.value == "") {
         error = true
         newCpf.classList.add('error')
-        renderModal(`Somente números no CPF!`)
+        renderModal(`CPF deve conter 11 números`)
     }
-    if(newPhone.length < 7 || newPhone.length >= 12 || newPhone == "") {
+    if(!Number(newCpf.value)) {
         error = true
-        newPhone.classList.add('error')
+        newCpf.classList.add('error')
+        renderModal('CPF deve conter apenas números')
+    }
+
+    if(Number(newCpf.value) == 0) {
+        error = true
+        newCpf.classList.add('error')
+        renderModal('CPF inválido')
+    }
+
+    if(!Number(newPhone)) {
+        error = true
+        phoneInput.classList.add('error')
+        renderModal('Número de telefone deve conter apenas números')
+    }
+
+    if(dddPhone.value.length < 2) {
+        error = true
+        dddPhone.classList.add('error')
+        renderModal(`Confira o DDD.`)
+    }
+
+    if(newPhone.length < 10 || newPhone == "") {
+        error = true
+        phoneInput.classList.add('error')
         renderModal(`Confira o Telefone.`)
     }
+
     if(!validaEmail.test(newEmail.value)){
         error = true
         newEmail.classList.add('error')
