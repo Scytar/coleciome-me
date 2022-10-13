@@ -48,6 +48,8 @@ export default () => {
             body: JSON.stringify(body)
         };
 
+        console.log(body)
+
         fetch('/user/login', options)
             .then(response => {
                 if (response.status == 200) {
