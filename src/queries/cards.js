@@ -7,11 +7,11 @@ const NewTrade = `
     VALUES($1, $2, $3, $4, $5);
 `
 const SetItemAsTrading = `
-    UPDATE total_items SET trading = true WHERE id = $1;
+    UPDATE total_items SET trading = true WHERE id = $1 RETURNING *;
 `
 
 const SetItemAsNotTrading = `
-    UPDATE total_items SET trading = false WHERE id = $1;
+    UPDATE total_items SET trading = false WHERE id = $1 RETURNING *;
 `
 
 const verifyTotalItems = `SELECT * FROM total_items WHERE ownerid = $1 AND trading = false;`
