@@ -108,11 +108,14 @@ class Trades extends myDb {
             const { RefuseOffer } = require('../../queries/trades');
             const { SetItemAsNotTrading } = require('../../queries/cards')
 
+            // console.log('refuse data: ',data)
             await this._pool.query('begin;')
             const refuse_offer = await this._pool.query(RefuseOffer, [data.tradeId]);
-            const set_item_to_offer_back_as_not_trading = await this._pool.query(SetItemAsNotTrading,[data.ItemToOfferBack])
+            const unset_trading_item_to_offer_back = await this._pool.query(SetItemAsNotTrading,[data.itemToOfferBack])
 
-            if (refuse_offer && set_item_to_offer_back_as_not_trading) {
+            console.log('refuse_offer: ',refuse_offer)
+            console.log('unset_trading_item_to_offer_back',unset_trading_item_to_offer_back)
+            if (refuse_offer && unset_trading_item_to_offer_back) {
                 await this._pool.query('commit;')
                 return data.tradeId
             }
@@ -128,10 +131,13 @@ class Trades extends myDb {
 
     async acceptCardOffer(data) {
         try {
+            // console.log('Client Data to Accept: ',data)
             const { SelectTrade , ItemToOfferBack , DebitBuyer , CreditSeller, ChangeCardOwner, CloseTrade} = require('../../queries/trades');
+            const { SetItemAsNotTrading } = require('../../queries/cards')
 
             const select_trade = await this._pool.query(SelectTrade, [data.tradeId])
             const selected_trade = select_trade.rows[0]
+            // console.log('Selected Trade: ',selected_trade)
             // const item_to_offer_back = await this._pool.query(ItemToOfferBack, [selected_trade.dealer, selected_trade.request])
 
             // if (!item_to_offer_back.rows[0].id) {
@@ -149,12 +155,16 @@ class Trades extends myDb {
             const give_card_to_author = await this._pool.query(ChangeCardOwner, [selected_trade.author, data.itemToOfferBack]);
 
             const unset_trading_in_dealer_card = await this._pool.query(SetItemAsNotTrading,[selected_trade.offer])
-            const unset_trading_in_author_card = await this._pool.query(SetItemAsNotTrading,[selected_trade.author])
+            const unset_trading_in_author_card = await this._pool.query(SetItemAsNotTrading,[data.itemToOfferBack])
+            // console.log('return dealer card → ',unset_trading_in_dealer_card)
+            // console.log('return author card → ',unset_trading_in_author_card)
+
 
             const close_trade = await this._pool.query(CloseTrade, [data.tradeId]);
 
             if (debit_buyer && credit_seller && give_card_to_author && give_card_to_dealer && close_trade && unset_trading_in_dealer_card && unset_trading_in_author_card) {
                 await this._pool.query('commit;');
+                // console.log("Trading success!")
                 return "Troca aceita com sucesso!"
             }
             await this._pool.query('rollback;')

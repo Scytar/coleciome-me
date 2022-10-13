@@ -26,7 +26,7 @@ export default function tradeItem(tradeData){
     fetch('/trades/answer_card_offer', options)
     .then(res=>res.json())
     .then(data=>{
-        console.log(data)
+        // console.log(data)
 
         if (data.data != "") {
             renderModal('Oferta de troca realizada com sucesso!')

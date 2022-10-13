@@ -59,22 +59,12 @@ export default () => {
             })
             .then((data) => {
 
-                console.log('data: ',data)
+                // console.log('data: ',data)
 
-
-
-
-
-                console.log('data.data: ',data.data)
-
-
-
-                
-
-
+                // console.log('data.data: ',data.data)
 
                 if (data.data.data){
-                    console.log('data.data.data: ',data.data.data)
+                    // console.log('data.data.data: ',data.data.data)
 
                     emailLogin.value = '';
                     pswLogin.value = '';
