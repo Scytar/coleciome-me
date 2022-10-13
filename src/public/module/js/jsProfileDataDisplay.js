@@ -38,8 +38,8 @@ export default function showUserInfo(){
     nameUserFromPayment.innerHTML = user.name.split(" ", 1);;
     tempoMemeiroFromPayment.innerHTML = dataUser;
     pocketFromPayment.innerHTML = user.wallet;
-    numberCard.value = user.cardname;
-    nameCard.value = user.cardnum;
+    numberCard.value = user.cardnum;
+    nameCard.value = user.cardname;
     validity.value = user.card_expiration;
 
     
