@@ -113,8 +113,8 @@ class Trades extends myDb {
             const refuse_offer = await this._pool.query(RefuseOffer, [data.tradeId]);
             const unset_trading_item_to_offer_back = await this._pool.query(SetItemAsNotTrading,[data.itemToOfferBack])
 
-            console.log('refuse_offer: ',refuse_offer)
-            console.log('unset_trading_item_to_offer_back',unset_trading_item_to_offer_back)
+            // console.log('refuse_offer: ',refuse_offer)
+            // console.log('unset_trading_item_to_offer_back',unset_trading_item_to_offer_back)
             if (refuse_offer && unset_trading_item_to_offer_back) {
                 await this._pool.query('commit;')
                 return data.tradeId
@@ -189,7 +189,15 @@ class Trades extends myDb {
             const refuse_offer = await this._pool.query(CloseTrade, [data.tradeId]);
             const unset_item_trading = await this._pool.query(SetItemAsNotTrading,[selected_trade.offer])
 
-            if (refuse_offer && unset_item_trading) {
+            // console.log(selected_trade.request)
+            if (selected_trade.request != 0) {
+                const unset_answered_offer = await this._pool.query(SetItemAsNotTrading,[selected_trade.request])
+
+                if (refuse_offer && unset_item_trading && unset_answered_offer) {
+                    await this._pool.query('commit;')
+                    return data.tradeId
+                }
+            } else if (refuse_offer && unset_item_trading) {
                 await this._pool.query('commit;')
                 return data.tradeId
             }
