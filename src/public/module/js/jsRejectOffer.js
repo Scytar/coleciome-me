@@ -4,7 +4,9 @@ import getMyOffers from './jsGetMyOffers.js'
 
 export default function rejectOffer(dataToReject){
 
-    let loading = true
+    const sectionCollection = document.getElementById('sectionCollection');
+
+    // let loading = true
 
     const options = {
         method:'put',
@@ -22,14 +24,15 @@ export default function rejectOffer(dataToReject){
     fetch('/trades/refuse_card_offer' , options)
     .then(res=>res.json())
     .then(data=>{
-        loading = false
+        // loading = false
 
         renderModal(data.message)
+        renderSection(sectionCollection)
         getMyOffers()
 
     })
     .catch(err=>{
-        loading = false
+        // loading = false
         renderModal(err)
     })
 
