@@ -107,12 +107,15 @@ class Trades extends myDb {
         try {
             const { RefuseOffer } = require('../../queries/trades');
             const { SetItemAsNotTrading } = require('../../queries/cards')
-
+            
+            // console.log('refuse data: ',data)
             await this._pool.query('begin;')
             const refuse_offer = await this._pool.query(RefuseOffer, [data.tradeId]);
-            const set_item_to_offer_back_as_not_trading = await this._pool.query(SetItemAsNotTrading,[data.ItemToOfferBack])
+            const unset_trading_item_to_offer_back = await this._pool.query(SetItemAsNotTrading,[data.itemToOfferBack])
 
-            if (refuse_offer && set_item_to_offer_back_as_not_trading) {
+            // console.log('refuse_offer: ',refuse_offer)
+            // console.log('unset_trading_item_to_offer_back',unset_trading_item_to_offer_back)
+            if (refuse_offer && unset_trading_item_to_offer_back) {
                 await this._pool.query('commit;')
                 return data.tradeId
             }
