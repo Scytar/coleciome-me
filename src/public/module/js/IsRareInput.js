@@ -1,24 +1,22 @@
-import { renderModal } from "../../index.js"
-
 const isRareInput = document.getElementById('isRareInput')
 const addMemeForm = document.getElementById('addMemeForm')
 const addMemeButton = document.getElementById('addMemeButton');
 
-console.log(isRareInput,addMemeForm,addMemeButton)
+console.log(isRareInput)
+console.log(addMemeForm)
+console.log(addMemeButton)
 
 addMemeButton.addEventListener('click',(e)=>{
-    e.preventDefault();
-    renderModal(`
-        =========================================================
-    `)
+    checkbox()    
 })
 
-if(isRareInput.value == true) {
-    checkbox()
-}
+isRareInput.addEventListener('click',(e=>{
+    console.log(isRareInput.checked)
+}))
+
 
 function checkbox() {
-    addMemeForm.action = "/upload/meme/true/true/1"
+    addMemeForm.action = `/upload/meme/true/${isRareInput.checked}/1`
 }
 
 
