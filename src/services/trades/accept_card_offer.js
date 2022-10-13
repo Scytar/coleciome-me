@@ -6,7 +6,7 @@ class AcceptCardOffer {
         try {
             const ACCEPT_CARD_OFFER = await new this.#tradesTable().acceptCardOffer(trades_data)
 
-            console.log(ACCEPT_CARD_OFFER)
+            // console.log(ACCEPT_CARD_OFFER)
             if (ACCEPT_CARD_OFFER) {
         
                 return { message: (ACCEPT_CARD_OFFER)};
