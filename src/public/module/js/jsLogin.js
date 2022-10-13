@@ -48,7 +48,7 @@ export default () => {
             body: JSON.stringify(body)
         };
 
-        console.log(body)
+        // console.log(body)
 
         fetch('/user/login', options)
             .then(response => {
