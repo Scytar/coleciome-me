@@ -71,7 +71,7 @@ export default function editUserInfo() {
             body: JSON.stringify(body)
         }
 
-        fetch('http://localhost:80/user/edit', options)
+        fetch('/user/edit', options)
         .then(response => {
             if (response.status == 200) {
                 return response.json()

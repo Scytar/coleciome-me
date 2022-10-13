@@ -11,7 +11,7 @@ class UserEmailValidator {
         const regex = /^[a-z0-9.]+@[a-z0-9]+.[a-z]+.[a-z]?$/i
 
         if(!regex.test(email)) {
-            this.errors += "Invalid email"
+            this.errors += "O Servidor pediu pra avisar que o e-mail tem algo de errado..."
 
             return ""
         }

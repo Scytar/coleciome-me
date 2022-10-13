@@ -11,29 +11,31 @@ class UserValidator {
   }
 
   validate(user_data) {
-    const username = new this.#userNameValidator(user_data.username);
+    // const username = new this.#userNameValidator(user_data.username);
     const password = new this.#userPasswordValidator(user_data.password);
-    const cpf = new this.#userCpfValidator(user_data.cpf);
+    // const cpf = new this.#userCpfValidator(user_data.cpf);
     const email = new this.#userEmailValidator(user_data.email);
-    const phone = new this.#userPhoneNumberValidator(user_data.phone);
+    // const phone = new this.#userPhoneNumberValidator(user_data.phone);
     this.errors =
-      username.errors +
+      // username.errors +
       password.errors +
-      cpf.errors +
-      email.errors +
-      phone.errors;
+      // cpf.errors +
+      email.errors //+
+      // phone.errors;
 
-    return {
-      username: username.username,
-      password: password.password,
-      cpf: cpf.cpf,
-      email: email.email,
-      phone: phone.phone,
-      cardname: user_data.cardname,
-      cardnum: user_data.cardnum,
-      cardcvv: user_data.cardcvv,
-      card_expiration: user_data.card_expiration
-    };
+      return user_data
+
+    // return {
+      // username: username.username,
+      // password: password.password,
+      // cpf: cpf.cpf,
+      // email: email.email
+      // phone: phone.phone,
+      // cardname: user_data.cardname,
+      // cardnum: user_data.cardnum,
+      // cardcvv: user_data.cardcvv,
+      // card_expiration: user_data.card_expiration
+    // };
   }
 }
 

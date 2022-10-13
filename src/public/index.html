@@ -77,11 +77,11 @@
                         
                         <input type="text" id="nameRegister" maxlength="80" placeholder="Nome" required tabindex="1">
             
-                        <input type="text" id="cpfRegister" maxlength="11" placeholder="Somente números do seu CPF" required tabindex="2">
+                        <input type="text" pattern="[0-9]+" id="cpfRegister" maxlength="11" placeholder="Somente números do seu CPF" required tabindex="2">
                         
                         <div id="divDoTelefone" class="flex-row gap-small align-center justify-center width-full">
-                            <input type="text" id="dddPhoneRegister" maxlength="2" placeholder="DDD" required tabindex="3">
-                            <input type="text" id="phoneRegister" maxlength="9" placeholder="Somente números do telefone" required tabindex="4">
+                            <input type="text" pattern="[0-9]+" id="dddPhoneRegister" maxlength="2" placeholder="DDD" required tabindex="3">
+                            <input type="text" pattern="[0-9]+" id="phoneRegister" maxlength="9" placeholder="Somente números do telefone" required tabindex="4">
                         </div>
             
                         <input type="email" id="emailRegister" maxlength="80" placeholder="E-mail" required tabindex="5">
@@ -93,7 +93,7 @@
             
                         <input type="password" id="passwordVerifyRegister" maxlength="32" placeholder="Confirme sua senha" required tabindex="7">
             
-                        <button id="btnRegister">Registrar</button>
+                        <button id="btnRegister" tabindex="8">Registrar</button>
                     </div>
                 </section>
             </section>
@@ -334,10 +334,10 @@
     <section id="messageModalBackground">
         <div id="messageModal">
             <p id="messageBox"></p>
-            <!-- <div id="messageModalButtons">
-                <button id="messageModalYesButton">Ok</button>
+            <div id="messageModalButtons">
+                <!-- <button id="messageModalYesButton">Ok</button> -->
                 <button id="messageModalNoButton">Voltar</button>
-            </div> -->
+            </div>
         </div>
     </section>
     <script src="./index.js" type="module"></script>

@@ -7,12 +7,12 @@ class InsertUsers {
       const userData = new this.#userValidator(user_data);
       
       if (userData.errors != "") {
-        return { message: userData.errors , data: "" };
+        return { message: userData , data: "" };
       }
       const InsertUser = await new this.#userTable().insert(userData.user);
 
       if (InsertUser) {
-        return { message: "sucess inserting user", data: userData };
+        return { message: InsertUser, data: userData };
       } else {
         return { message: "failed inserting user", data: "" };
       }

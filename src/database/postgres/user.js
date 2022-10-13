@@ -6,14 +6,11 @@ class UserTable extends myDb {
         try {
             const { insertUser, selectUser } = require('../../queries/user');
 
-            const UserExists = await this._pool.query(selectUser, [
-                user.username,
-                user.email,
-                user.cpf
-            ]);
+            const UserExists = await this._pool.query(selectUser, [user.email]);
 
-            if (UserExists.rows[0]) return false;
+            if (UserExists.rows[0]) return "Email já cadastrado no sistema!";
 
+            // console.log('data to be inserted ',user)
             const VERIFIED_INSERT = await this._pool.query(insertUser, [
                 user.username,
                 user.email,
@@ -22,13 +19,14 @@ class UserTable extends myDb {
                 user.phone
             ]);
 
-            if (VERIFIED_INSERT.rows[0].id) {
-                return true;
+            if (VERIFIED_INSERT.rows[0].name) {
+                return `Bem vindo(a), ${VERIFIED_INSERT.rows[0].name}! Seu cadastro foi bem-sucedido! Por favor realize seu acesso.`;
             } else {
-                return false;
+                return `Eita, Giovana! Algo deu errado ao tentar registrar no banco de dados...`;
             }
         } catch (error) {
             console.log(error);
+            return "Eita, Giovana! O forninho caiu! Algo deu errado..."
         }
     }
 
@@ -42,9 +40,9 @@ class UserTable extends myDb {
             ]);
 
             if (VALIDATED_USER.rows[0]) {
-                return { userExists: true, user: VALIDATED_USER.rows[0] };
+                return { userExists: true, data: VALIDATED_USER.rows[0] };
             } else {
-                return { userExists: false, user: null };
+                return { userExists: false, message:`Ops! Não conseguimos validar seu acesso`};
             }
         } catch (error) {
             console.log(error);
