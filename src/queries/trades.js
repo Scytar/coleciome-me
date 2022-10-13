@@ -1,5 +1,5 @@
 const GetUserTrades = `
-    SELECT * FROM trades WHERE author = $1 ORDER BY status ASC;
+    SELECT * FROM trades WHERE author = $1 AND (status = 'open' OR status = 'answered') ORDER BY status ASC;
 `
 
 const GetPublicTrades = `
