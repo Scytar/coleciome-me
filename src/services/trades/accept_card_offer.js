@@ -1,15 +1,20 @@
 class AcceptCardOffer {
     #tradesTable = require("../../database/postgres/trades");
-  
+   
+
     async execute(trades_data) {
         try {
             const ACCEPT_CARD_OFFER = await new this.#tradesTable().acceptCardOffer(trades_data)
 
             
             if (ACCEPT_CARD_OFFER) {
-            return { message: "Success in buying trade" , data: ACCEPT_CARD_OFFER };
-            } else {
-            return { message: "Failed buying trade" };
+        
+                return { message: (ACCEPT_CARD_OFFER.severity)};
+         
+        } else {
+         
+                return { message: "Falha ao aceitar oferta" };
+         
             }
     
         } catch (error) {

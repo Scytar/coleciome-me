@@ -109,6 +109,7 @@ export function updateCachedTradeId(newTradeId){
 //Função que chama o modal
 export function renderModal(message) {
     messageModalBackground.style.display = 'flex'
+    // If message is HTML, Should be: messageBox.appendChild(message)    
     messageBox.innerHTML = message;
 }
 

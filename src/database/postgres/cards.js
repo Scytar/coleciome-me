@@ -40,6 +40,18 @@ class Cards extends myDb {
       console.error(error);
     }
   }
+  
+  async getCard(itemid) {
+    try {
+      const { getItem } = require("../../queries/cards");
+
+      const get_item = await this._pool.query(getItem, [itemid]);
+
+      return get_item.rows[0];
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   async shopCards(data) {
     try {

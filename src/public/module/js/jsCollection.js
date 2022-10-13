@@ -2,10 +2,18 @@ import { getCache, renderModal } from '../../index.js'
 import offerItem from './jsOfferItem.js'
 // import tradeItem from './jsTradeItem.js'
 
+// Nada a ser exibido aqui... 😟
+// Nada a ser exibido aqui... 😟
+// Nada a ser exibido aqui... 😟
+// Nada a ser exibido aqui... 😟
+// Nada a ser exibido aqui... 😟
+// Nada a ser exibido aqui... 😟
+
 export default async function getUserItems() {
     
     const ownerid = getCache().data.id;
 
+    coletionsFig.innerHTML = `Carregando...`
     fetch(`/card/show_total_items/${ownerid}`)
     .then(response => {
         if (response.status == 200) {
@@ -14,9 +22,14 @@ export default async function getUserItems() {
     })
     .then((data) => {
         const coletionsFig = document.getElementById('coletionsFig')
-        coletionsFig.innerHTML = `Carregando...`
+        // coletionsFig.innerHTML = `Carregando...`
         
         const goal = data.data.length
+        
+        if (goal==0) {
+            coletionsFig.innerHTML = `Nada a ser exibido aqui... 😟 (0 itens encontrados)`
+        }
+
         const itemsToRender = []
         const elementToRender = document.createElement('div')
         elementToRender.classList.add('showCollectionContainer')

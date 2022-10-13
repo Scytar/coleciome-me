@@ -11,7 +11,8 @@ const AcceptCardOffer = require("../controllers/trades/accept_card_offer");
 const ShowTotalItems = require("../controllers/cards/show_total_items");
 const ShopCard = require("../controllers/cards/shop_card");
 const DailyCollect = require("../controllers/cards/daily_collect");
-const CancelOffer = require("../controllers/trades/cancel_offer")
+const CancelOffer = require("../controllers/trades/cancel_offer");
+const GetCard = require("../controllers/cards/get_card");
 
 router.post("/trades/new_trade", new NewTrade().handler.bind(new NewTrade()));
 //author -> integer
@@ -64,12 +65,19 @@ router.put(
   new AcceptCardOffer().handler.bind(new AcceptCardOffer())
 );
 //tradeId -> integer
+//itemToOfferBack -> integer
 
 router.get(
   "/card/show_total_items/:ownerid",
   new ShowTotalItems().handler.bind(new ShowTotalItems())
 );
 //ownerid -> integer
+
+router.get(
+  "/card/getname/:id",
+  new GetCard().handler.bind(new GetCard())
+);
+//id -> integer
 
 router.post("/card/shop_card", new ShopCard().handler.bind(new ShopCard()));
 //userid -> integer

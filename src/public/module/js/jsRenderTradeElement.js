@@ -59,14 +59,33 @@ export default function renderMyTradeElement(trade, meme, rarityBorder){
 
         
         const button = document.createElement('button')
-        button.dataset.tradeid = trade.id
-        button.dataset.id = `buyOffer-${trade.id}`
+        button.dataset.meme_rarity = meme.rare          // Border Display
+        button.dataset.meme_name = meme.name            // Img URL
+        button.dataset.author = trade.author            // Author ID
+        button.dataset.tradeid = trade.id               // Trade ID
+        button.dataset.offer = trade.offer              // Item ID offered by author
+        button.dataset.offer_value = trade.offer_value  // Offered item value
+        button.dataset.request = trade.request          // Item ID offered by dealer
+        button.dataset.change = trade.change            // Request item value
+        button.dataset.cardid = trade.cardid            // Meme ID offered by author
+        button.dataset.id = `checkOffer-${trade.id}`
         button.classList.add('btnSend','btnPurple')
         button.innerText = "Ver Proposta"
                         
         button.addEventListener('click', (e)=>{
             e.preventDefault()
-            renderRequestAnswer()
+            const trade = {
+                id:button.dataset.tradeid,
+                author:button.dataset.author,
+                offer:button.dataset.offer,
+                offer_value:button.dataset.offer_value,
+                request:button.dataset.request,
+                change:button.dataset.change,
+                cardid:button.dataset.cardid,
+                imgSrc:button.dataset.meme_name,
+                rarityBorder:button.dataset.meme_rarity
+            }
+            renderRequestAnswer(trade)
             // buyOffer(Number(e.target.dataset.tradeid))                            
         })
 

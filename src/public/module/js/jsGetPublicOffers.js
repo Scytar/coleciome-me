@@ -19,8 +19,7 @@ export default function getPublicOffers(){
             return console.error(error)
         }
     })
-    .then(data=>{
-        
+    .then(data=>{        
 
         const goal = []
         const itemsToGoal = []

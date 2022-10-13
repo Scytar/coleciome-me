@@ -44,6 +44,22 @@ export default function buyCard(isRare){
                 </div>
                 <span>${data.message}</span>
             `)
+           
+            // Should be:
+            // const modalWrapper = createDiv('modalWrapper')
+
+            // const memeContainer = createDiv('memeContainer')
+            // memeContainer.classList.add(rarityBorder)
+            // const memeImg = createImg(`../images/${data.data.name}`)
+            // memeImg.classList.add('fig')
+
+            // const memeSpan = createSpan(data.message)
+
+            // memeContainer.appendChild(memeImg)
+            // modalWrapper.appendChild(memeContainer)
+            // modalWrapper.appendChild(memeSpan)
+
+
         } else {
             renderModal(data.message)
         }

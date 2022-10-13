@@ -1,4 +1,4 @@
-class ShopCard {
+class DailyCollect {
     #Cards = require("../../database/postgres/cards");
   
     async execute(data) {
@@ -20,4 +20,4 @@ class ShopCard {
     }
   }
   
-  module.exports = ShopCard;
+  module.exports = DailyCollect;

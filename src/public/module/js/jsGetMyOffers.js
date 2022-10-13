@@ -41,7 +41,6 @@ export default async function getMyOffers(){
                 }
             })
             .then((_data)=>{
-                
                 const item = _data.data
 
                 itemsToGoal.push(item)
@@ -61,6 +60,8 @@ export default async function getMyOffers(){
                     showRequestsContainer.innerHTML = ``
                     showRequestsContainer.appendChild(elementToRender)
 
+                    // console.log('trades ', el)
+                    // console.log('meme ', item)
                 }
 
             })

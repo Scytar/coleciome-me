@@ -112,7 +112,7 @@ class Trades extends myDb {
             const refuse_offer = await this._pool.query(RefuseOffer, [data.tradeId]);
             const set_item_to_offer_back_as_not_trading = await this._pool.query(SetItemAsNotTrading,[data.ItemToOfferBack])
 
-            if (refuse_offer) {
+            if (refuse_offer && set_item_to_offer_back_as_not_trading) {
                 await this._pool.query('commit;')
                 return data.tradeId
             }
@@ -132,11 +132,11 @@ class Trades extends myDb {
 
             const select_trade = await this._pool.query(SelectTrade, [data.tradeId])
             const selected_trade = select_trade.rows[0]
-            const item_to_offer_back = await this._pool.query(ItemToOfferBack, [selected_trade.dealer, selected_trade.request])
+            // const item_to_offer_back = await this._pool.query(ItemToOfferBack, [selected_trade.dealer, selected_trade.request])
 
-            if (!item_to_offer_back.rows[0].id) {
-                return {message:"Dealer doesn't have the card to offer back!"}
-            }
+            // if (!item_to_offer_back.rows[0].id) {
+            //     return {message:"Dealer doesn't have the card to offer back!"}
+            // }
 
             const tradeChangeCalculed = selected_trade.offer_value - selected_trade.change;
 
@@ -146,7 +146,7 @@ class Trades extends myDb {
             const credit_seller = await this._pool.query(CreditSeller, [tradeChangeCalculed, selected_trade.author]);
 
             const give_card_to_dealer = await this._pool.query(ChangeCardOwner, [selected_trade.dealer, selected_trade.offer]);
-            const give_card_to_author = await this._pool.query(ChangeCardOwner, [selected_trade.author, item_to_offer_back.rows[0].id]);
+            const give_card_to_author = await this._pool.query(ChangeCardOwner, [selected_trade.author, data.itemToOfferBack]);
 
             const unset_trading_in_dealer_card = await this._pool.query(SetItemAsNotTrading,[selected_trade.offer])
             const unset_trading_in_author_card = await this._pool.query(SetItemAsNotTrading,[selected_trade.author])
@@ -155,10 +155,10 @@ class Trades extends myDb {
 
             if (debit_buyer && credit_seller && give_card_to_author && give_card_to_dealer && close_trade && unset_trading_in_dealer_card && unset_trading_in_author_card) {
                 await this._pool.query('commit;');
-                return close_trade.rows[0]
+                return "Troca aceita com sucesso!"
             }
             await this._pool.query('rollback;')
-            return false;
+            return "Ops! Algo deu errado ao aceitar a oferta...";
 
         } catch (error) {
             console.error(error);
