@@ -4,17 +4,18 @@ class LoginUsers {
 
   async execute(user_data) {
     try {
+      // console.log('called execute method ',user_data)
       const LoginUser = await new this.#userTable().validate(
         user_data.email,
         user_data.password
       );
-
+        // console.log('validate response ',LoginUser)
       if (LoginUser.userExists) {
-        const encodedData = this.#jwt.encode(LoginUser.user);
+        const encodedData = this.#jwt.encode(LoginUser.data);
         
-        return { message: "success login user", token: encodedData , data:LoginUser.user};
+        return { message: LoginUser.message, token: encodedData , data:LoginUser};
       } else {
-        return { message: "Falha na autenticação de acesso.\r\n Favor, verificar os dados inseridos.", data: "" };
+        return { message: LoginUser.message, data: "" };
       }
     } catch (error) {
       console.error(error);

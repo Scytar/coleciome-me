@@ -39,8 +39,9 @@ class UserTable extends myDb {
                 password
             ]);
 
+            // console.log('validade response: ',VALIDATED_USER)
             if (VALIDATED_USER.rows[0]) {
-                return { userExists: true, data: VALIDATED_USER.rows[0] };
+                return { userExists: true, message:`Validação bem-sucedida. Divirta-se, ${VALIDATED_USER.rows[0].name.split(' ',1)}!` , data: VALIDATED_USER.rows[0] };
             } else {
                 return { userExists: false, message:`Ops! Não conseguimos validar seu acesso`};
             }

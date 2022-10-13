@@ -30,7 +30,7 @@ export default () => {
         pswLogin.classList.add('error');
     }
     if (error) {
-        return console.log(error);
+        return renderModal(error);
     } else {
         loginSection();
     }
@@ -57,18 +57,33 @@ export default () => {
             })
             .then((data) => {
 
-                if (data.data){
+                console.log('data: ',data)
+
+
+
+
+
+                console.log('data.data: ',data.data)
+
+
+
+                
+
+
+
+                if (data.data.data){
+                    console.log('data.data.data: ',data.data.data)
 
                     emailLogin.value = '';
                     pswLogin.value = '';
-                    updateCache(data.data)
+                    updateCache(data.data.data)
                     btnUpload.style.display = 'none'
                     
-                    if(data.data.usertype == "admin") {
+                    if(data.data.data.usertype == "admin") {
                         btnUpload.style.display = 'flex'
                     }
     
-                    profileNameHeader.innerHTML = data.data.name.split(" ", 1);
+                    profileNameHeader.innerHTML = data.data.data.name.split(" ", 1);
                     btnColecao.style.display = 'flex'
                     btnLoja.style.display = 'flex'
                     btnPerfil.style.display = 'flex'

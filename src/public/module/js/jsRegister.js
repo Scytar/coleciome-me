@@ -83,7 +83,7 @@ export default () => {
                 return renderModal(`Erro na resposta do servidor código: ${response.status}`)
             })
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 if(data.data != "") {
                     newName.value = '';
                     newEmail.value = '';
@@ -93,7 +93,7 @@ export default () => {
                     newPwd.value = '';
                     verifynewPwd.value = '';
 
-                    
+
                     renderModal(data.message)
                     return renderSection(sectionLogin)
                 }
@@ -102,7 +102,7 @@ export default () => {
             })
             .catch(error => {
                 renderModal(error);
-                console.log(error)
+                // console.log(error)
             });
     }
     
