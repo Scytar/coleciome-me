@@ -107,7 +107,7 @@ class Cards extends myDb {
       const daily_check_date = Date.parse(daily_check.rows[0].daily_collect);
       const today = Date.parse(new Date());
 
-      const isDailyAvailable = Math.floor((today - daily_check_date)/1000)
+      const isDailyAvailable = Math.floor((today - daily_check_date)/30000)
       if (isDailyAvailable < 1) {
         return {message:"Espere 23h para resgatar novamente!"}
       }

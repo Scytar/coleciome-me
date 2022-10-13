@@ -10,7 +10,7 @@ class DailyCollect {
         }
 
         if (!DAILYCOLLECT.id) {
-          return {message:"Espere 23h para resgatar novamente!", data: ""}
+          return {message:"Espere 23h para resgatar novamente! (apenas 30 seg no período de testes)", data: ""}
         }
 
       return { message: "Recompensa diária resgatada!", data: DAILYCOLLECT};

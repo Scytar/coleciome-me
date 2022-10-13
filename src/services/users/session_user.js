@@ -12,7 +12,7 @@ class Session {
           decodedData.password
         );
 
-          console.log('after validation: ',LoginUser)
+          // console.log('after validation: ',LoginUser)
         if (LoginUser.userExists) {
           decodedData.password = null;
           decodedData.cardcvv = null;
