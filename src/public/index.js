@@ -119,10 +119,12 @@ messageModal?.addEventListener('click',(e)=> {
 });
 messageModalYesButton?.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
-    //inserir mais coisas a fazer aqui (de preferência um switch case com a função a ser realizada quando clicar)
+    //inserir mais coisas a fazer aqui (um switch case com a função a ser realizada quando clicar, por exemplo)
+    messageBox.innerHTML = ``
 });
 messageModalNoButton?.addEventListener('click',(e)=> {
     messageModalBackground.style.display = 'none';
+    messageBox.innerHTML = ``
 });
 
 

@@ -1,8 +1,9 @@
 import { getCache , renderSection , renderModal } from '../../index.js'
 import getMyOffers from './jsGetMyOffers.js'
 
-
 export default function acceptOffer(dataToAccept){
+
+    const sectionCollection = document.getElementById('sectionCollection');
 
     let loading = true
 
@@ -25,6 +26,7 @@ export default function acceptOffer(dataToAccept){
         loading = false
 
         renderModal(data.message)
+        renderSection(sectionCollection)
         getMyOffers()
 
     })
