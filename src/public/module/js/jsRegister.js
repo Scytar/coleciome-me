@@ -123,7 +123,7 @@ export default () => {
                     renderModal(data.message)
                     return renderSection(sectionLogin)
                 }
-                return renderModal(data.message)
+                return renderModal(data.message.errors)
                 
             })
             .catch(error => {
