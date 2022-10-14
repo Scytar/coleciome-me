@@ -11,7 +11,7 @@ class GetLootablesMemes {
           return { message: "Failed getting lootables", data: "" };
         }
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

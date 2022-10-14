@@ -15,7 +15,7 @@ class DailyCollect {
 
       return { message: "Recompensa diária resgatada!", data: DAILYCOLLECT};
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

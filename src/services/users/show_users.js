@@ -18,7 +18,7 @@ class ShowUsers {
       return validateUser.user
 
     } catch (error) {
-      throw new Error(error);
+      console.error(error);
     }
   }
 }

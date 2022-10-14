@@ -11,7 +11,7 @@ class GetMeme {
           return { message: "Failed getting meme", data: "" };
         }
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

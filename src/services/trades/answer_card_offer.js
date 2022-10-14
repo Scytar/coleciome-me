@@ -13,7 +13,7 @@ class AnswerCardOffer {
             }
     
         } catch (error) {
-            throw new Error(error);
+            console.error(error);
         }
     }
 }

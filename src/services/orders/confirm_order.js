@@ -13,7 +13,7 @@ class ConfirmOrder {
             }
     
         } catch (error) {
-            throw new Error(error);
+            console.error(error);
         }
     }
 }

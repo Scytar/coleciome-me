@@ -11,7 +11,7 @@ class GetCard {
 
       return { message: "Item encontrado!", data: GET_CARD};
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

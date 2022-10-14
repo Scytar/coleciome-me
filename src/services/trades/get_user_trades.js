@@ -13,7 +13,7 @@ class GetUserTrades {
             }
     
         } catch (error) {
-            throw new Error(error);
+            console.error(error);
         }
     }
 }
