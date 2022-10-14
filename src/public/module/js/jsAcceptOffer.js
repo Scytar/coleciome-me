@@ -25,7 +25,7 @@ export default function acceptOffer(dataToAccept){
     .then(data=>{
         // loading = false
 
-        console.log(data)
+        // console.log(data)
 
         if (data.message.severity != "ERROR"){
 
