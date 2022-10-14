@@ -13,7 +13,7 @@ class ShowTotalItems {
         return { message: "Failed getting cards", data: "" };
       }
     } catch (error) {
-      throw new Error(error);
+      console.error(error);
     }
   }
 }

@@ -12,7 +12,7 @@ class RefuseOffer {
           return { message: "Falha ao tentar recusar oferta", data: "" };
         }
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

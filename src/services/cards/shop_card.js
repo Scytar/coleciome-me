@@ -11,7 +11,7 @@ class ShopCard {
 
         return { message: "Parabéns! Meme comprado com sucesso", data: SHOPCARD};
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

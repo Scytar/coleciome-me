@@ -35,7 +35,7 @@ class EditUsers {
         return { message: "Falha desconhecdia ao atualizar usuário", data: "" };
       }
     } catch (error) {
-      throw new Error(error);
+      console.error(error);
     }
   }
 }

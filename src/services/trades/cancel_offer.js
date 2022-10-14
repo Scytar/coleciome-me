@@ -15,7 +15,7 @@ class CancelOffer {
 
       return { message: "Oferta cancelada com sucesso!", data: CANCEL_OFFER};
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

@@ -11,7 +11,7 @@ class GetCollections {
           return { message: "Failed getting collections", data: "" };
         }
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
   }

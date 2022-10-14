@@ -20,7 +20,7 @@ class DeleteUsers {
         
         return { message: 'user deleted failed' }
       } catch (error) {
-        throw new Error(error);
+        console.error(error);
       }
     }
 }

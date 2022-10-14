@@ -17,7 +17,7 @@ class NewTrade {
         return { message: "Falha ao criar troca", data: "" };
       }
     } catch (error) {
-      throw new Error(error);
+      console.error(error);
     }
   }
 }
