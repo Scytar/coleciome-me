@@ -4,7 +4,7 @@ import getMyOffers from './jsGetMyOffers.js'
 
 export default function rejectOffer(dataToReject){
 
-    const sectionCollection = document.getElementById('sectionCollection');
+    const sectionCollection = document.getElementById('sectionColection');
 
     // let loading = true
 
@@ -26,6 +26,8 @@ export default function rejectOffer(dataToReject){
     .then(data=>{
         // loading = false
 
+        // console.log(data)
+
         renderModal(data.message)
         renderSection(sectionCollection)
         getMyOffers()
@@ -33,6 +35,7 @@ export default function rejectOffer(dataToReject){
     })
     .catch(err=>{
         // loading = false
+        // console.log(err)
         renderModal(err)
     })
 

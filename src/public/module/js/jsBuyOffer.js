@@ -20,9 +20,16 @@ export default async function buyOffer(tradeId){
     .then(res => res.json())
     .then(data => {
 
-        renderModal(data.message)
-        renderSection(sectionColection)
-        getUserItems();
+        if (data.data.severity != "ERROR"){
+
+            renderModal(data.message)
+            renderSection(sectionColection)
+            getUserItems();
+        } else {
+            renderModal(`Ops! Algo deu errado na compra. Verifique sua carteira.`)
+            renderSection(sectionColection)
+            getUserItems();
+        }
     })
     .catch(err => console.error(err))
      

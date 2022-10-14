@@ -31,6 +31,7 @@ export default function buyCard(isRare){
     })
     .then(data=>{
 
+        console.log(data.message)
         if (data.data != "") {
 
             let rarityBorder = 'greenBorder'
